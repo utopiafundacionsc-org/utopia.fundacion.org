@@ -52,10 +52,25 @@
     /* MODALS */
     dialog{width:min(590px,calc(100% - 24px));padding:0;border:0;border-radius:20px;box-shadow:0 30px 90px rgba(0,0,0,.32)}dialog::backdrop{background:rgba(2,18,38,.72);backdrop-filter:blur(5px)}.modal-body{position:relative;padding:25px}.modal-close{position:absolute;right:12px;top:11px;width:38px;height:38px;border:0;border-radius:50%;color:#073f78;background:#eaf3f8;font-size:23px}.modal-body h2{margin:0 0 20px;color:#073f78}.modal-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.modal-form .full{grid-column:1/-1}.modal-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
 
+
+    .system-config{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.system-config .full{grid-column:1/-1}.system-config label{display:grid;gap:7px;color:#294761;font-size:10px;font-weight:800}.system-config input,.system-config select,.system-config textarea{width:100%;padding:12px;border:1px solid #c9dbe8;border-radius:9px}.bulk-panel{margin-top:16px;padding:18px;border:1px solid var(--line);border-radius:15px;background:#f8fbfd}.technical-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.technical-item{padding:10px;border-radius:9px;background:#f3f7fa}.technical-item small{display:block;color:var(--muted);font-size:8px}.technical-item strong{display:block;margin-top:4px;font-size:10px;word-break:break-all}.report-breakdowns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:15px}.role-select{min-width:145px;padding:8px;border:1px solid #c9dbe8;border-radius:8px;background:white}.raffle-extra-preview{width:100%;max-height:220px;object-fit:cover;border-radius:12px;background:#edf3f7}.
     @media print{.sidebar,.admin-header,.panel-heading-actions,.no-print{display:none!important}.admin-shell{display:block}.admin-main{padding:0}.admin-view{display:none!important}#view-reports{display:block!important}.panel{box-shadow:none;border:0}.report-content{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:1180px){.metric-grid{grid-template-columns:repeat(3,1fr)}.report-content{grid-template-columns:repeat(3,1fr)}.number-grid{grid-template-columns:repeat(8,1fr)}}
+
+    /* SORTEOS EN VIVO */
+    .live-control-grid{display:grid;grid-template-columns:1.25fr 1.25fr auto auto;gap:10px;align-items:end;margin-bottom:14px}
+    .live-stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;margin:14px 0}
+    .live-stat{padding:12px;border:1px solid var(--line);border-radius:13px;background:#f5f9fc;text-align:center}.live-stat strong{display:block;color:#073f78;font-size:21px}.live-stat small{display:block;margin-top:4px;color:var(--muted);font-size:8px;font-weight:900;text-transform:uppercase}
+    .live-stage{position:relative;overflow:hidden;min-height:500px;padding:28px;border-radius:22px;color:#fff;background:linear-gradient(180deg,rgba(1,16,39,.55),rgba(1,28,57,.92)),url('assets/sorteos-en-vivo-utopia.png') center top/cover no-repeat;box-shadow:0 22px 65px rgba(1,30,61,.28)}
+    .live-stage:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,rgba(0,225,204,.22),transparent 42%);pointer-events:none}.live-stage>*{position:relative;z-index:1}
+    .live-stage-head{text-align:center}.live-stage-head small{color:#b9ff69;font-size:10px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}.live-stage-head h2{margin:8px 0 5px;font-size:clamp(30px,4vw,56px);line-height:1}.live-stage-head h2 span{color:#16d8b9}.live-stage-head p{margin:0;color:#d6e7f3;font-size:11px}
+    .live-reels{display:flex;justify-content:center;gap:9px;margin:54px auto 28px;perspective:900px}.live-reel{position:relative;width:clamp(58px,8vw,102px);height:clamp(86px,12vw,142px);display:grid;place-items:center;overflow:hidden;border:2px solid #4bcce8;border-radius:12px;color:#edfaff;background:linear-gradient(180deg,#223a53 0%,#061421 49%,#27405a 50%,#07111b 100%);box-shadow:inset 0 0 20px rgba(255,255,255,.12),0 0 22px rgba(0,211,255,.34);font-family:Arial Black,Impact,sans-serif;font-size:clamp(48px,7vw,92px);font-weight:900;text-shadow:0 3px 0 #000}.live-reel:before,.live-reel:after{content:"";position:absolute;left:0;right:0;height:2px;background:rgba(255,255,255,.28)}.live-reel:before{top:48%}.live-reel:after{top:52%}.live-reel.spinning{animation:liveGlow .5s infinite alternate}.live-reel.frozen{border-color:#8ee800;color:#fff;box-shadow:inset 0 0 20px rgba(255,255,255,.16),0 0 30px rgba(126,232,0,.55);transform:translateY(-4px)}
+    @keyframes liveGlow{from{filter:brightness(.85)}to{filter:brightness(1.32)}}
+    .live-stage-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}.live-stop{min-width:min(100%,430px);padding:15px 22px;border:1px solid #5effc8;border-radius:999px;color:#fff;background:linear-gradient(90deg,#0872b9,#008c79);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.04em;box-shadow:0 10px 35px rgba(0,223,186,.23)}.live-stop:disabled{background:#566a79;border-color:#7f929e}.live-cancel{padding:14px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#fff;background:rgba(0,0,0,.28);font-size:10px;font-weight:850}.live-progress{text-align:center;margin-top:16px;color:#cce1ed;font-size:10px}.live-progress strong{color:#adff56}.live-control-code{text-align:center;margin-top:8px;color:#86afc8;font-size:9px}
+    .live-winner{margin-top:22px;padding:20px;border:1px solid rgba(165,255,83,.55);border-radius:17px;background:rgba(3,25,48,.88);text-align:center}.live-winner .winner-label{color:#baff72;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.13em}.live-winner .winner-number{display:block;margin:9px 0;color:#fff;font-size:clamp(54px,8vw,100px);line-height:1;font-weight:950}.live-winner h3{margin:7px 0;font-size:25px}.live-winner p{margin:5px 0;color:#d4e7f1}.live-contact-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:14px}.live-contact-actions a,.live-contact-actions button{padding:11px 15px;border:0;border-radius:10px;font-size:10px;font-weight:900}.live-call{background:#79c900;color:#fff}.live-whatsapp{background:#1fae5b;color:#fff}.live-next{background:#fff;color:#07528d}
+    .live-winners-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.live-winner-card{padding:15px;border:1px solid var(--line);border-radius:15px;background:#f7fafc}.live-winner-card small{color:#619d00;font-size:8px;font-weight:900;text-transform:uppercase}.live-winner-card strong{display:block;margin:7px 0;color:#073f78;font-size:18px}.live-winner-card p{margin:4px 0;color:#60768a;font-size:10px}.live-winner-card .ticket{display:inline-flex;margin-top:7px;padding:7px 10px;border-radius:8px;color:#fff;background:#073f78;font-size:19px;font-weight:900}
+    @media(max-width:1180px){.live-control-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.live-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.live-winners-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.metric-grid{grid-template-columns:repeat(3,1fr)}.report-content{grid-template-columns:repeat(3,1fr)}.number-grid{grid-template-columns:repeat(8,1fr)}}
     @media(max-width:950px){.login-screen{grid-template-columns:1fr}.login-visual{display:none}.admin-shell{grid-template-columns:1fr}.sidebar{position:static;height:auto;grid-template-rows:auto auto auto}.sidebar nav{grid-template-columns:repeat(3,1fr)}.sidebar nav button{justify-content:center;text-align:center}.admin-header{position:static;margin:-24px -16px 22px;padding:14px 16px}.mobile-menu{display:inline-flex!important}.metric-grid{grid-template-columns:repeat(2,1fr)}.two-column,.dashboard-grid{grid-template-columns:1fr}.payment-cards,.content-grid,.prize-list,.result-list{grid-template-columns:1fr}.report-content{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:620px){.admin-main{padding:18px 10px 50px}.admin-header{align-items:flex-start;flex-direction:column;margin:-18px -10px 18px}.header-actions{width:100%;flex-wrap:wrap}.header-actions select{flex:1}.sidebar{padding:14px 10px}.sidebar-brand img{width:58px;height:58px}.sidebar nav{grid-template-columns:repeat(2,1fr)}.sidebar nav button{font-size:9px}.metric-grid,.admin-form,.modal-form,.report-content{grid-template-columns:1fr}.admin-form .full,.modal-form .full{grid-column:auto}.filters,.toolbar{grid-template-columns:1fr}.number-grid{grid-template-columns:repeat(5,1fr)}.panel{padding:16px}.panel-heading{align-items:flex-start;flex-direction:column}.panel-heading-actions{width:100%}.panel-heading-actions .btn{flex:1}.image-upload{grid-template-columns:1fr}.login-panel{padding:20px}.login-card h1{font-size:29px}}
+    @media(max-width:620px){.live-control-grid,.live-winners-grid{grid-template-columns:1fr}.live-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.live-stage{min-height:440px;padding:20px 12px}.live-reels{gap:5px;margin-top:45px}.live-reel{border-radius:8px}.admin-main{padding:18px 10px 50px}.admin-header{align-items:flex-start;flex-direction:column;margin:-18px -10px 18px}.header-actions{width:100%;flex-wrap:wrap}.header-actions select{flex:1}.sidebar{padding:14px 10px}.sidebar-brand img{width:58px;height:58px}.sidebar nav{grid-template-columns:repeat(2,1fr)}.sidebar nav button{font-size:9px}.metric-grid,.admin-form,.modal-form,.report-content{grid-template-columns:1fr}.admin-form .full,.modal-form .full{grid-column:auto}.filters,.toolbar{grid-template-columns:1fr}.number-grid{grid-template-columns:repeat(5,1fr)}.panel{padding:16px}.panel-heading{align-items:flex-start;flex-direction:column}.panel-heading-actions{width:100%}.panel-heading-actions .btn{flex:1}.image-upload{grid-template-columns:1fr}.login-panel{padding:20px}.login-card h1{font-size:29px}}
   </style>
 </head>
 <body>
@@ -94,6 +109,7 @@
         <button data-view="participants"><span class="nav-icon">👥</span>Participantes</button>
         <button data-view="payments"><span class="nav-icon">💳</span>Pagos</button>
         <button data-view="numbers"><span class="nav-icon">#</span>Números</button>
+        <button data-view="liveDraw"><span class="nav-icon">🎰</span>Sorteos en vivo</button>
         <button data-view="winners"><span class="nav-icon">🏆</span>Ganadores</button>
         <button data-view="reports"><span class="nav-icon">▥</span>Reportes</button>
         <button data-view="users"><span class="nav-icon">🔐</span>Usuarios</button>
@@ -152,19 +168,38 @@
               <label>Proyecto beneficiado<input id="raffleProjectTitle"></label>
               <label>Meta económica<input id="raffleGoal" type="number" min="0" step="0.01"></label>
               <label class="full">Descripción del proyecto<textarea id="raffleProjectDescription" rows="3"></textarea></label>
+              <label class="full">URL de imagen o portada<input id="raffleImageUrl"></label>
+              <label>Subir portada<input id="raffleImageFile" type="file" accept="image/jpeg,image/png,image/webp"></label>
+              <label>Publicación<select id="rafflePublished"><option value="true">Visible públicamente</option><option value="false">Oculto</option></select></label>
               <label>WhatsApp público<input id="contactWhatsApp" placeholder="+59164483623"></label>
               <label>Facebook<input id="facebookUrl" type="url"></label>
               <label>LinkedIn<input id="linkedinUrl" type="url"></label>
               <label>TikTok<input id="tiktokUrl" type="url"></label>
-              <div class="button-row full"><button class="btn green" type="submit">Guardar configuración</button></div>
+              <div class="button-row full"><button class="btn green" type="submit">Guardar configuración</button><button class="btn dark" id="setActiveRaffle" type="button">Marcar como sorteo activo</button></div>
               <p id="raffleMessage" class="form-message full"></p>
             </form>
           </article>
-          <article class="panel"><div class="panel-heading"><div><small>Premios</small><h2>Premios e imágenes</h2></div></div><div id="adminPrizeList" class="prize-list"></div></article>
+          <article class="panel"><div class="panel-heading"><div><small>Premios</small><h2>Premios e imágenes</h2></div><button class="btn" id="newPrizeButton" type="button">Añadir premio</button></div><div id="adminPrizeList" class="prize-list"></div></article>
         </div>
       </section>
 
       <section class="admin-view" id="view-content">
+        <article class="panel" style="margin-bottom:17px">
+          <div class="panel-heading"><div><small>Datos visibles en la web</small><h2>Configuración pública</h2></div></div>
+          <form id="systemConfigForm" class="system-config">
+            <label>Organización<input id="cfgOrganization"></label><label>Actualización pública (segundos)<input id="cfgRefresh" type="number" min="5"></label>
+            <label>Minutos de reserva<input id="cfgReservation" type="number" min="1"></label><label>WhatsApp administrativo<input id="cfgAdminWhatsapp"></label>
+            <label>WhatsApp público<input id="cfgWhatsapp"></label><label>Facebook<input id="cfgFacebook" type="url"></label>
+            <label>LinkedIn<input id="cfgLinkedin" type="url"></label><label>TikTok<input id="cfgTiktok" type="url"></label>
+            <label class="full">Instrucciones para participar<textarea id="cfgInstructions" rows="3"></textarea></label>
+            <label class="full">Términos de participación<textarea id="cfgTerms" rows="3"></textarea></label>
+            <label class="full">Mensaje base de WhatsApp<textarea id="cfgWhatsappText" rows="3"></textarea></label>
+            <label class="full">URL del QR de pago<input id="cfgQrUrl"></label><label>Subir QR<input id="cfgQrFile" type="file" accept="image/jpeg,image/png,image/webp"></label>
+            <label>Ganador repetido<select id="cfgRepeat"><option value="NO">No permitir</option><option value="SI">Permitir</option></select></label>
+            <label>Mostrar datos completos<select id="cfgFullData"><option value="NO">No</option><option value="SI">Sí</option></select></label>
+            <div class="button-row full"><button class="btn green" type="submit">Guardar configuración pública</button></div>
+          </form>
+        </article>
         <div class="two-column">
           <article class="panel">
             <div class="panel-heading"><div><small>¿A dónde va tu aporte?</small><h2>Reseñas e imágenes</h2></div><button class="btn" id="newImpactButton" type="button">Añadir reseña</button></div>
@@ -200,6 +235,56 @@
           <div class="legend"><span><i class="available"></i>Disponible</span><span><i class="reserved"></i>Reservado</span><span><i class="review"></i>En revisión</span><span><i class="sold"></i>Vendido</span><span><i class="blocked"></i>Bloqueado</span></div>
           <div id="adminNumberGrid" class="number-grid"></div>
           <div class="pagination"><button class="btn gray" id="adminNumberPrev" type="button">← Anterior</button><strong id="adminNumberPageLabel">Página 1</strong><button class="btn gray" id="adminNumberNext" type="button">Siguiente →</button></div>
+          <div class="bulk-panel"><h3>Acción masiva</h3><div class="system-config"><label class="full">Números separados por comas<textarea id="bulkNumbers" rows="3" placeholder="0001, 0005, 0100"></textarea></label><label class="full">Observación<input id="bulkNotes"></label><div class="button-row full"><button class="btn yellow" id="bulkBlock" type="button">Bloquear</button><button class="btn red" id="bulkRelease" type="button">Liberar</button><button class="btn gray" id="releaseExpired" type="button">Liberar reservas vencidas</button></div></div></div>
+        </article>
+      </section>
+
+
+      <section class="admin-view" id="view-liveDraw">
+        <article class="panel">
+          <div class="panel-heading"><div><small>Sorteo digital conectado a tickets vendidos</small><h2>SORTEOS EN VIVO</h2></div><span class="badge blue">DINÁMICO</span></div>
+          <div class="live-control-grid">
+            <label class="form-label">Seleccionar sorteo<select class="select" id="liveRaffleSelect"></select></label>
+            <label class="form-label">Seleccionar premio<select class="select" id="livePrizeSelect"></select></label>
+            <button class="btn gray" id="liveSyncTickets" type="button">Migrar tickets vendidos</button>
+            <button class="btn green" id="liveStartDraw" type="button">Iniciar sorteo</button>
+          </div>
+          <div id="liveStats" class="live-stats"></div>
+          <p id="liveMigrationMessage" class="form-message"></p>
+        </article>
+
+        <article class="live-stage" style="margin-top:17px">
+          <div class="live-stage-head">
+            <small>Bienvenidos a</small>
+            <h2>Sorteos <span>Utopía</span></h2>
+            <p>Participa, gana y transforma vidas.</p>
+          </div>
+          <div id="liveReels" class="live-reels"></div>
+          <div class="live-stage-actions">
+            <button id="liveRevealDigit" class="live-stop" type="button" disabled>Selecciona un premio e inicia el sorteo</button>
+            <button id="liveCancelDraw" class="live-cancel" type="button" disabled>Cancelar sesión</button>
+          </div>
+          <div id="liveProgress" class="live-progress">El número ganador será elegido únicamente entre tickets vendidos y aprobados.</div>
+          <div id="liveControlCode" class="live-control-code"></div>
+
+          <div id="liveWinnerCard" class="live-winner" hidden>
+            <span class="winner-label">¡Tenemos ganador!</span>
+            <strong id="liveWinnerNumber" class="winner-number">0000</strong>
+            <h3 id="liveWinnerName">Nombre completo</h3>
+            <p id="liveWinnerPrize">Premio</p>
+            <p>WhatsApp: <strong id="liveWinnerPhone">000XXX00</strong></p>
+            <p id="liveWinnerCity"></p>
+            <div class="live-contact-actions">
+              <a id="liveCallWinner" class="live-call" href="#">📞 Llamar ahora</a>
+              <a id="liveWhatsAppWinner" class="live-whatsapp" href="#" target="_blank">WhatsApp</a>
+              <button id="liveNextPrize" class="live-next" type="button">Continuar con el siguiente premio</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" style="margin-top:17px">
+          <div class="panel-heading"><div><small>Resultados acumulados</small><h2>Ganadores y premios</h2></div><button class="btn gray" id="liveRefreshWinners" type="button">Actualizar</button></div>
+          <div id="liveWinnersList" class="live-winners-grid"></div>
         </article>
       </section>
 
@@ -220,6 +305,7 @@
         <article class="panel">
           <div class="panel-heading"><div><small>Estadísticas</small><h2>Reportes del sorteo</h2></div><div class="panel-heading-actions"><button class="btn gray" id="reportCsv" type="button">CSV</button><button class="btn gray" id="reportExcel" type="button">Excel</button><button class="btn gray" id="reportPrint" type="button">PDF / Imprimir</button></div></div>
           <div id="reportContent" class="report-content"></div>
+          <div class="report-breakdowns"><div><h3>Estados de números</h3><div id="reportNumberStatuses" class="status-list"></div></div><div><h3>Estados de pagos</h3><div id="reportPaymentStatuses" class="status-list"></div></div><div><h3>Departamentos</h3><div id="reportDepartments" class="status-list"></div></div><div><h3>Métodos de pago</h3><div id="reportMethods" class="status-list"></div></div></div>
         </article>
       </section>
 
@@ -232,13 +318,15 @@
 
       <section class="admin-view" id="view-settings">
         <div class="two-column">
-          <article class="panel"><div class="panel-heading"><div><small>Seguridad</small><h2>Sesión y respaldo</h2></div></div><p class="help">El acceso usa usuario, contraseña cifrada, roles y sesiones temporales.</p><div class="button-row"><button class="btn" id="changeOwnPassword" type="button">Cambiar contraseña</button><button class="btn green" id="backupButton" type="button">Crear copia de seguridad</button></div><p id="settingsMessage" class="form-message"></p></article>
+          <article class="panel"><div class="panel-heading"><div><small>Seguridad</small><h2>Sesión, mantenimiento y respaldo</h2></div></div><p class="help">El acceso usa usuario, contraseña cifrada, roles y sesiones temporales.</p><div class="button-row"><button class="btn" id="changeOwnPassword" type="button">Cambiar contraseña</button><button class="btn yellow" id="repairCurrentRaffle" type="button">Reparar sorteo actual</button><button class="btn gray" id="settingsReleaseExpired" type="button">Liberar reservas vencidas</button><button class="btn green" id="backupButton" type="button">Crear copia de seguridad</button></div><p id="settingsMessage" class="form-message"></p><div id="technicalStatus" class="technical-grid"></div></article>
           <article class="panel"><div class="panel-heading"><div><small>Auditoría</small><h2>Registro de movimientos</h2></div><button class="btn gray" id="refreshAudit" type="button">Actualizar</button></div><div id="auditFull" class="audit-list"></div></article>
         </div>
       </section>
     </main>
   </div>
 
+
+  <dialog id="prizeModal"><div class="modal-body"><button class="modal-close" type="button" data-close-modal>×</button><h2>Nuevo premio</h2><form id="newPrizeForm" class="modal-form"><input id="newPrizeId" type="hidden"><label>Orden<input id="newPrizeOrder" type="number" min="1" value="1"></label><label>Estado<select id="newPrizeStatus"><option>PENDIENTE</option><option>LISTO</option><option>DESACTIVADO</option></select></label><label class="full">Nombre<input id="newPrizeName" required></label><label class="full">Descripción<textarea id="newPrizeDescription" rows="3"></textarea></label><label class="full">URL de imagen<input id="newPrizeImageUrl"></label><label class="full">Subir imagen<input id="newPrizeImageFile" type="file" accept="image/jpeg,image/png,image/webp"></label><button class="btn green full" type="submit">Guardar premio</button></form></div></dialog>
   <dialog id="participantModal"><div class="modal-body"><button class="modal-close" type="button" data-close-modal>×</button><h2>Editar participante</h2><form id="participantEditForm" class="modal-form"><input id="editParticipationCode" type="hidden"><label>Nombre<input id="editName"></label><label>WhatsApp<input id="editPhone"></label><label>Correo<input id="editEmail" type="email"></label><label>Departamento<input id="editCity"></label><label>Cédula<input id="editIdentity"></label><label class="full">Observaciones<textarea id="editNotes" rows="3"></textarea></label><button class="btn green full" type="submit">Guardar cambios</button></form></div></dialog>
 
   <dialog id="numberModal"><div class="modal-body"><button class="modal-close" type="button" data-close-modal>×</button><h2 id="numberModalTitle">Número</h2><div id="numberModalInfo"></div><div class="modal-actions"><button class="btn yellow" id="blockNumber" type="button">Bloquear</button><button class="btn red" id="releaseNumber" type="button">Liberar</button><button class="btn green" id="assignNumber" type="button">Asignar manualmente</button></div></div></dialog>
@@ -256,9 +344,9 @@
     const DEFAULT_RAFFLE="RIFA-UTOPIA-2026";
     const PAGE_SIZE=100;
     const qs=s=>document.querySelector(s), qsa=s=>[...document.querySelectorAll(s)];
-    const state={token:localStorage.getItem("utopiaAdminToken")||"",user:null,raffles:[],raffleId:DEFAULT_RAFFLE,currentView:"dashboard",participants:[],payments:[],board:[],filteredBoard:[],numberPage:0,selectedNumber:null,results:[],report:null,raffleData:null};
-    const views={dashboard:["Resumen","Panel general"],raffles:["Sorteos","Configuración del sorteo"],content:["Contenido público","Textos, reseñas e imágenes"],participants:["Participantes","Base de datos"],payments:["Pagos","Revisión de comprobantes"],numbers:["Números","Control de números"],winners:["Ganadores","Sorteo y publicación"],reports:["Reportes","Estadísticas y exportación"],users:["Usuarios","Usuarios y permisos"],settings:["Configuración","Seguridad y auditoría"]};
-    const roleViews={ADMINISTRADOR:Object.keys(views),OPERADOR:["dashboard","participants","payments","numbers","settings"],FINANZAS:["dashboard","payments","reports","settings"],COMUNICACION:["dashboard","content","winners","settings"],AUDITOR:["dashboard","participants","payments","numbers","winners","reports","settings"]};
+    const state={token:localStorage.getItem("utopiaAdminToken")||"",user:null,raffles:[],raffleId:DEFAULT_RAFFLE,currentView:"dashboard",participants:[],payments:[],board:[],filteredBoard:[],numberPage:0,selectedNumber:null,results:[],report:null,raffleData:null,liveRaffleId:DEFAULT_RAFFLE,liveSetup:null,liveSession:null,liveDigits:[],liveSpinTimer:null};
+    const views={dashboard:["Resumen","Panel general"],raffles:["Sorteos","Configuración del sorteo"],content:["Contenido público","Textos, reseñas e imágenes"],participants:["Participantes","Base de datos"],payments:["Pagos","Revisión de comprobantes"],numbers:["Números","Control de números"],liveDraw:["Sorteos en vivo","Selección dinámica de ganadores"],winners:["Ganadores","Sorteo y publicación"],reports:["Reportes","Estadísticas y exportación"],users:["Usuarios","Usuarios y permisos"],settings:["Configuración","Seguridad y auditoría"]};
+    const roleViews={ADMINISTRADOR:Object.keys(views),OPERADOR:["dashboard","participants","payments","numbers","settings"],FINANZAS:["dashboard","payments","reports","settings"],COMUNICACION:["dashboard","content","liveDraw","winners","settings"],AUDITOR:["dashboard","participants","payments","numbers","winners","reports","settings"]};
     const statusClass={DISPONIBLE:"available",RESERVADO:"reserved",EN_REVISION:"review",VENDIDO:"sold",BLOQUEADO:"blocked"};
 
     const esc=v=>String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
@@ -276,24 +364,96 @@
     async function restore(){if(!state.token)return showLogin();try{const data=await api("adminSession");if(!data.ok)throw new Error();state.user=data.user;showAdmin();await loadRaffles();switchView("dashboard")}catch(e){logout(false)}}
     async function logout(call=true){if(call&&state.token){try{await api("adminLogout")}catch{}}state.token="";state.user=null;localStorage.removeItem("utopiaAdminToken");showLogin()}
 
-    async function loadRaffles(){const data=await api("adminRaffles");if(!data.ok)throw new Error(data.error);state.raffles=data.raffles||[];if(!state.raffles.some(r=>r.id===state.raffleId))state.raffleId=state.raffles[0]?.id||DEFAULT_RAFFLE;qs("#adminRaffleSelect").innerHTML=state.raffles.map(r=>`<option value="${esc(r.id)}">${esc(r.name)} · ${esc(r.status)}</option>`).join("");qs("#adminRaffleSelect").value=state.raffleId}
+    async function loadRaffles(){
+      let data=await api("adminRaffles");
+      if(!data.ok)throw new Error(data.error);
+
+      state.raffles=data.raffles||[];
+
+      if(!state.raffles.length){
+        const repaired=await api("adminRepairCurrentRaffle");
+        if(!repaired.ok)throw new Error(repaired.error||"No se pudo reparar el sorteo actual.");
+
+        data=await api("adminRaffles");
+        if(!data.ok)throw new Error(data.error);
+        state.raffles=data.raffles||[];
+      }
+
+      const activeId=data.activeRaffleId||DEFAULT_RAFFLE;
+
+      if(state.raffles.some(r=>r.id===activeId)){
+        state.raffleId=activeId;
+      }else if(!state.raffles.some(r=>r.id===state.raffleId)){
+        state.raffleId=state.raffles[0]?.id||DEFAULT_RAFFLE;
+      }
+
+      const selector=qs("#adminRaffleSelect");
+
+      if(!state.raffles.length){
+        selector.innerHTML='<option value="">Sin sorteos disponibles</option>';
+        throw new Error("No existe un sorteo registrado. Ejecuta repararSorteoActual en Apps Script.");
+      }
+
+      selector.innerHTML=state.raffles.map(r=>`<option value="${esc(r.id)}">${esc(r.name)} · ${esc(r.status)}</option>`).join("");
+      selector.value=state.raffleId;
+    }
     function switchView(view){state.currentView=view;qsa("#adminNav button").forEach(b=>b.classList.toggle("active",b.dataset.view===view));qsa(".admin-view").forEach(s=>s.classList.toggle("active",s.id===`view-${view}`));qs("#currentViewLabel").textContent=views[view][0];qs("#currentViewTitle").textContent=views[view][1];refreshView(view)}
-    async function refreshView(view){try{if(view==="dashboard")await loadDashboard();if(view==="raffles")await loadRaffle();if(view==="content")await loadContent();if(view==="participants")await loadParticipants();if(view==="payments")await loadPayments();if(view==="numbers")await loadBoard();if(view==="winners")await loadWinners();if(view==="reports")await loadReports();if(view==="users")await loadUsers();if(view==="settings")await loadAudit()}catch(e){toast(e.message,"error")}}
+    async function refreshView(view){
+      try{
+        if(view==="dashboard")await loadDashboard();
+        if(view==="raffles")await loadRaffle();
+        if(view==="content")await loadContent();
+        if(view==="participants")await loadParticipants();
+        if(view==="payments")await loadPayments();
+        if(view==="numbers")await loadBoard();
+        if(view==="liveDraw")await loadLiveDraw();
+        if(view==="winners")await loadWinners();
+        if(view==="reports")await loadReports();
+        if(view==="users")await loadUsers();
+        if(view==="settings"){await loadAudit();await loadTechnicalStatus()};
+      }catch(e){
+        if(view==="raffles"&&qs("#raffleMessage")){
+          qs("#raffleMessage").textContent=e.message;
+        }
+        toast(e.message,"error");
+      }
+    }
 
     async function loadDashboard(){const d=await api("adminDashboard",{raffleId:state.raffleId});if(!d.ok)throw new Error(d.error);const s=d.stats||{},statuses=s.numberStatuses||{};qs("#dashRevenue").textContent=money(s.revenue,s.currency);qs("#dashSold").textContent=s.sold||0;qs("#dashAvailable").textContent=s.available||0;qs("#dashReserved").textContent=statuses.Reservado||0;qs("#dashReview").textContent=statuses["En revisión"]||0;qs("#dashPending").textContent=s.pendingPayments||0;qs("#dashApproved").textContent=s.approvedPayments||0;qs("#dashParticipants").textContent=s.participants||0;qs("#dashPercentMini").textContent=`${s.percent||0}% del total`;qs("#dashProgressText").textContent=`${s.percent||0}%`;qs("#dashProgressBar").style.width=`${s.percent||0}%`;qs("#dashStatusList").innerHTML=Object.entries(statuses).map(([k,v])=>`<div class="status-row"><span>${esc(k)}</span><strong>${v}</strong></div>`).join("")||'<div class="empty">Sin datos</div>';renderBars("#cityStats",d.cities||[]);renderBars("#paymentMethodStats",d.methods||[]);renderAudit("#auditPreview",d.audit||[])}
     function renderBars(sel,items){qs(sel).innerHTML=items.length?items.map(i=>`<div class="bar-row"><span>${esc(i.label)}</span><strong>${i.count}</strong></div>`).join(""):'<div class="empty">Sin datos todavía.</div>'}
     function renderAudit(sel,items){qs(sel).innerHTML=items.length?items.map(i=>`<article class="audit-item"><strong>${esc(i.action)}</strong>${esc(i.user)} · ${esc(i.date)}<br>${esc(i.detail)}</article>`).join(""):'<div class="empty">Sin movimientos.</div>'}
 
-    async function loadRaffle(){const d=await api("adminGetRaffle",{raffleId:state.raffleId});if(!d.ok)throw new Error(d.error);state.raffleData=d;const r=d.raffle;qs("#raffleId").value=r.id;qs("#raffleName").value=r.name;qs("#raffleDate").value=r.drawDateLocal;qs("#rafflePrice").value=r.ticketPrice;qs("#raffleCurrency").value=r.currency;qs("#raffleTotal").value=r.totalTickets;qs("#raffleReservationMinutes").value=r.reservationMinutes||15;qs("#raffleStatus").value=r.status;qs("#raffleDescription").value=r.description||"";qs("#raffleProjectTitle").value=r.projectTitle||"";qs("#raffleGoal").value=r.goalAmount||0;qs("#raffleProjectDescription").value=r.projectDescription||"";qs("#contactWhatsApp").value=r.contactWhatsApp||"+59164483623";qs("#facebookUrl").value=r.facebookUrl||"";qs("#linkedinUrl").value=r.linkedinUrl||"";qs("#tiktokUrl").value=r.tiktokUrl||"";renderDigitPreview();renderPrizes(d.prizes||[])}
+    async function loadRaffle(){
+      let d=await api("adminGetRaffle",{raffleId:state.raffleId});
+
+      if(!d.ok){
+        const repaired=await api("adminRepairCurrentRaffle");
+        if(!repaired.ok)throw new Error(d.error||repaired.error);
+
+        await loadRaffles();
+        d=await api("adminGetRaffle",{raffleId:state.raffleId});
+      }
+
+      if(!d.ok)throw new Error(d.error);
+
+      state.raffleData=d;
+      const r=d.raffle;qs("#raffleId").value=r.id;qs("#raffleName").value=r.name;qs("#raffleDate").value=r.drawDateLocal;qs("#rafflePrice").value=r.ticketPrice;qs("#raffleCurrency").value=r.currency;qs("#raffleTotal").value=r.totalTickets;qs("#raffleReservationMinutes").value=r.reservationMinutes||15;qs("#raffleStatus").value=r.status;qs("#raffleDescription").value=r.description||"";qs("#raffleProjectTitle").value=r.projectTitle||"";qs("#raffleGoal").value=r.goalAmount||0;qs("#raffleProjectDescription").value=r.projectDescription||"";qs("#raffleImageUrl").value=r.imageUrl||"";qs("#rafflePublished").value=String(r.published!==false);qs("#contactWhatsApp").value=r.contactWhatsApp||"+59164483623";qs("#facebookUrl").value=r.facebookUrl||"";qs("#linkedinUrl").value=r.linkedinUrl||"";qs("#tiktokUrl").value=r.tiktokUrl||"";renderDigitPreview();renderPrizes(d.prizes||[])}
     function renderDigitPreview(){const total=Math.max(1,Number(qs("#raffleTotal").value||1)),digits=String(total).length;qs("#digitPreview").innerHTML=Array.from({length:digits},()=>'<span>0</span>').join("")}
-    function renderPrizes(prizes){qs("#adminPrizeList").innerHTML=prizes.length?prizes.map(p=>`<article class="prize-card" data-prize="${esc(p.id)}"><header><div><small>Premio ${p.order}</small><h3>${esc(p.name)}</h3></div>${badge(p.status)}</header>${p.imageUrl?`<img class="card-image" src="${esc(p.imageUrl)}" alt="${esc(p.name)}">`:''}<form class="inline-form prize-form"><input name="name" value="${esc(p.name)}" placeholder="Nombre"><textarea name="description" placeholder="Descripción">${esc(p.description||"")}</textarea><input name="imageUrl" value="${esc(p.imageUrl||"")}" placeholder="URL de imagen"><div class="image-upload"><input name="imageFile" type="file" accept="image/jpeg,image/png,image/webp"><button class="btn gray small" type="button" data-upload-prize>Subir imagen</button></div><button class="btn green small" type="submit">Guardar premio</button></form></article>`).join(""):'<div class="empty">No existen premios.</div>';qsa(".prize-form").forEach(f=>f.addEventListener("submit",savePrize));qsa("[data-upload-prize]").forEach(b=>b.addEventListener("click",uploadPrizeImage))}
+    function renderPrizes(prizes){qs("#adminPrizeList").innerHTML=prizes.length?prizes.map(p=>`<article class="prize-card" data-prize="${esc(p.id)}"><header><div><small>Premio ${p.order}</small><h3>${esc(p.name)}</h3></div>${badge(p.status)}</header>${p.imageUrl?`<img class="card-image" src="${esc(p.imageUrl)}" alt="${esc(p.name)}">`:''}<form class="inline-form prize-form"><input name="name" value="${esc(p.name)}" placeholder="Nombre"><textarea name="description" placeholder="Descripción">${esc(p.description||"")}</textarea><input name="imageUrl" value="${esc(p.imageUrl||"")}" placeholder="URL de imagen"><div class="image-upload"><input name="imageFile" type="file" accept="image/jpeg,image/png,image/webp"><button class="btn gray small" type="button" data-upload-prize>Subir imagen</button></div><div class="button-row"><button class="btn green small" type="submit">Guardar premio</button><button class="btn red small" type="button" data-delete-prize="${esc(p.id)}">Desactivar</button></div></form></article>`).join(""):'<div class="empty">No existen premios.</div>';qsa(".prize-form").forEach(f=>f.addEventListener("submit",savePrize));qsa("[data-upload-prize]").forEach(b=>b.addEventListener("click",uploadPrizeImage));qsa("[data-delete-prize]").forEach(b=>b.onclick=()=>deletePrize(b.dataset.deletePrize))}
     async function uploadPrizeImage(e){const card=e.target.closest(".prize-card"),file=card.querySelector('[name="imageFile"]').files[0];if(!file)return toast("Selecciona una imagen.","error");e.target.disabled=true;try{const url=await uploadImage(file);card.querySelector('[name="imageUrl"]').value=url;toast("Imagen subida. Guarda el premio.")}catch(err){toast(err.message,"error")}finally{e.target.disabled=false}}
     async function savePrize(e){e.preventDefault();const card=e.target.closest(".prize-card"),id=card.dataset.prize,p=state.raffleData.prizes.find(x=>x.id===id),form=e.target;const data=await api("adminSavePrize",{prize:{...p,name:form.name.value.trim(),description:form.description.value.trim(),imageUrl:form.imageUrl.value.trim()}});if(!data.ok)throw new Error(data.error);toast("Premio actualizado.");loadRaffle()}
-    async function saveRaffle(e){e.preventDefault();const payload={id:qs("#raffleId").value.trim(),name:qs("#raffleName").value.trim(),drawDate:qs("#raffleDate").value,ticketPrice:Number(qs("#rafflePrice").value),currency:qs("#raffleCurrency").value.trim(),totalTickets:Number(qs("#raffleTotal").value),reservationMinutes:Number(qs("#raffleReservationMinutes").value),status:qs("#raffleStatus").value,description:qs("#raffleDescription").value.trim(),projectTitle:qs("#raffleProjectTitle").value.trim(),goalAmount:Number(qs("#raffleGoal").value||0),projectDescription:qs("#raffleProjectDescription").value.trim(),contactWhatsApp:qs("#contactWhatsApp").value.trim(),facebookUrl:qs("#facebookUrl").value.trim(),linkedinUrl:qs("#linkedinUrl").value.trim(),tiktokUrl:qs("#tiktokUrl").value.trim()};const d=await api("adminSaveRaffle",{raffle:payload});qs("#raffleMessage").textContent=d.ok?"Configuración guardada.":d.error;if(!d.ok)throw new Error(d.error);state.raffleId=d.raffle.id;await loadRaffles();await loadRaffle();toast("Sorteo actualizado.")}
+    async function saveRaffle(e){e.preventDefault();let imageUrl=qs("#raffleImageUrl").value.trim();const file=qs("#raffleImageFile").files[0];if(file)imageUrl=await uploadImage(file);const payload={id:qs("#raffleId").value.trim(),name:qs("#raffleName").value.trim(),drawDate:qs("#raffleDate").value,ticketPrice:Number(qs("#rafflePrice").value),currency:qs("#raffleCurrency").value.trim(),totalTickets:Number(qs("#raffleTotal").value),reservationMinutes:Number(qs("#raffleReservationMinutes").value),status:qs("#raffleStatus").value,published:qs("#rafflePublished").value==="true",imageUrl,description:qs("#raffleDescription").value.trim(),projectTitle:qs("#raffleProjectTitle").value.trim(),goalAmount:Number(qs("#raffleGoal").value||0),projectDescription:qs("#raffleProjectDescription").value.trim(),contactWhatsApp:qs("#contactWhatsApp").value.trim(),facebookUrl:qs("#facebookUrl").value.trim(),linkedinUrl:qs("#linkedinUrl").value.trim(),tiktokUrl:qs("#tiktokUrl").value.trim()};const d=await api("adminSaveRaffle",{raffle:payload});qs("#raffleMessage").textContent=d.ok?"Configuración guardada.":d.error;if(!d.ok)throw new Error(d.error);state.raffleId=d.raffle.id;await loadRaffles();await loadRaffle();toast("Sorteo actualizado.")}
     function newRaffle(){qs("#raffleForm").reset();qs("#raffleId").value="";qs("#raffleCurrency").value="Bs";qs("#raffleStatus").value="PAUSADO";qs("#raffleTotal").value=1000;qs("#raffleReservationMinutes").value=15;renderDigitPreview()}
     async function duplicateRaffle(){if(!confirm("¿Duplicar este sorteo?"))return;const d=await api("adminDuplicateRaffle",{raffleId:state.raffleId});if(!d.ok)throw new Error(d.error);state.raffleId=d.raffleId;await loadRaffles();await loadRaffle();toast("Sorteo duplicado.")}
 
-    async function loadContent(){const d=await api("adminGetRaffle",{raffleId:state.raffleId});if(!d.ok)throw new Error(d.error);state.raffleData=d;renderImpact(d.impactItems||[]);renderFaq(d.faqItems||[])}
+
+    async function setActiveRaffle(){if(!confirm('¿Marcar este como el sorteo principal?'))return;const d=await api('adminSetActiveRaffle',{raffleId:state.raffleId});if(!d.ok)throw new Error(d.error);await loadRaffles();toast('Sorteo activo actualizado.')}
+    function openNewPrize(){qs('#newPrizeForm').reset();qs('#newPrizeOrder').value=(state.raffleData?.prizes||[]).length+1;qs('#prizeModal').showModal()}
+    async function createPrize(e){e.preventDefault();let imageUrl=qs('#newPrizeImageUrl').value.trim();const file=qs('#newPrizeImageFile').files[0];if(file)imageUrl=await uploadImage(file);const prize={raffleId:state.raffleId,order:Number(qs('#newPrizeOrder').value||1),status:qs('#newPrizeStatus').value,name:qs('#newPrizeName').value.trim(),description:qs('#newPrizeDescription').value.trim(),imageUrl};const d=await api('adminSavePrize',{prize});if(!d.ok)throw new Error(d.error);qs('#prizeModal').close();toast('Premio creado.');loadRaffle()}
+    async function deletePrize(id){if(!confirm('¿Desactivar este premio?'))return;const d=await api('adminDeletePrize',{prizeId:id});if(!d.ok)throw new Error(d.error);toast('Premio desactivado.');loadRaffle()}
+    async function loadSystemConfig(){const d=await api('adminSystemConfig');if(!d.ok)throw new Error(d.error);const c=d.config;qs('#cfgOrganization').value=c.organization||'';qs('#cfgRefresh').value=c.publicRefreshSeconds||15;qs('#cfgReservation').value=c.reservationMinutes||15;qs('#cfgAdminWhatsapp').value=c.adminWhatsApp||'';qs('#cfgWhatsapp').value=c.contactWhatsApp||'';qs('#cfgFacebook').value=c.facebookUrl||'';qs('#cfgLinkedin').value=c.linkedinUrl||'';qs('#cfgTiktok').value=c.tiktokUrl||'';qs('#cfgInstructions').value=c.participationInstructions||'';qs('#cfgTerms').value=c.termsText||'';qs('#cfgWhatsappText').value=c.whatsappConfirmationText||'';qs('#cfgQrUrl').value=c.qrPaymentUrl||'';qs('#cfgRepeat').value=c.allowRepeatedWinner||'NO';qs('#cfgFullData').value=c.showFullData||'NO'}
+    async function saveSystemConfig(e){e.preventDefault();let qrPaymentUrl=qs('#cfgQrUrl').value.trim();const file=qs('#cfgQrFile').files[0];if(file)qrPaymentUrl=await uploadImage(file);const config={organization:qs('#cfgOrganization').value.trim(),publicRefreshSeconds:Number(qs('#cfgRefresh').value||15),reservationMinutes:Number(qs('#cfgReservation').value||15),adminWhatsApp:qs('#cfgAdminWhatsapp').value.trim(),contactWhatsApp:qs('#cfgWhatsapp').value.trim(),facebookUrl:qs('#cfgFacebook').value.trim(),linkedinUrl:qs('#cfgLinkedin').value.trim(),tiktokUrl:qs('#cfgTiktok').value.trim(),participationInstructions:qs('#cfgInstructions').value.trim(),termsText:qs('#cfgTerms').value.trim(),whatsappConfirmationText:qs('#cfgWhatsappText').value.trim(),qrPaymentUrl,allowRepeatedWinner:qs('#cfgRepeat').value,showFullData:qs('#cfgFullData').value};const d=await api('adminSaveSystemConfig',{config});if(!d.ok)throw new Error(d.error);qs('#cfgQrUrl').value=qrPaymentUrl;toast('Configuración pública guardada.')}
+    async function loadContent(){const [d]=await Promise.all([api("adminGetRaffle",{raffleId:state.raffleId}),loadSystemConfig()]);if(!d.ok)throw new Error(d.error);state.raffleData=d;renderImpact(d.impactItems||[]);renderFaq(d.faqItems||[])}
     function renderImpact(items){qs("#impactList").innerHTML=items.length?items.map(i=>`<article class="content-card"><header><div><small>Orden ${i.order}</small><h3>${esc(i.title)}</h3></div>${badge(i.active?"ACTIVO":"INACTIVO")}</header>${i.imageUrl?`<img class="card-image" src="${esc(i.imageUrl)}" alt="${esc(i.title)}">`:''}<p>${esc(i.text)}</p><div class="button-row"><button class="btn small" data-edit-impact="${esc(i.id)}">Editar</button><button class="btn red small" data-delete-impact="${esc(i.id)}">Desactivar</button></div></article>`).join(""):'<div class="empty">No existen reseñas.</div>';qsa("[data-edit-impact]").forEach(b=>b.onclick=()=>openImpact(b.dataset.editImpact));qsa("[data-delete-impact]").forEach(b=>b.onclick=()=>deleteImpact(b.dataset.deleteImpact))}
     function renderFaq(items){qs("#faqAdminList").innerHTML=items.length?items.map(i=>`<article class="result-card"><header><div><small>Orden ${i.order}</small><h3>${esc(i.question)}</h3></div>${badge(i.active?"ACTIVO":"INACTIVO")}</header><p>${esc(i.answer)}</p><div class="button-row"><button class="btn small" data-edit-faq="${esc(i.id)}">Editar</button><button class="btn red small" data-delete-faq="${esc(i.id)}">Desactivar</button></div></article>`).join(""):'<div class="empty">No existen preguntas.</div>';qsa("[data-edit-faq]").forEach(b=>b.onclick=()=>openFaq(b.dataset.editFaq));qsa("[data-delete-faq]").forEach(b=>b.onclick=()=>deleteFaq(b.dataset.deleteFaq))}
     function openImpact(id=""){const item=(state.raffleData?.impactItems||[]).find(x=>x.id===id);qs("#impactId").value=item?.id||"";qs("#impactOrder").value=item?.order||((state.raffleData?.impactItems||[]).length+1);qs("#impactTitle").value=item?.title||"";qs("#impactText").value=item?.text||"";qs("#impactImageUrl").value=item?.imageUrl||"";qs("#impactActive").value=String(item?.active!==false);qs("#impactImageFile").value="";qs("#impactModal").showModal()}
@@ -319,6 +479,108 @@
     function openNumber(number){state.selectedNumber=number;const i=state.board.find(x=>x.number===number);qs("#numberModalTitle").textContent=`Número ${number}`;qs("#numberModalInfo").innerHTML=`<p>Estado: ${badge(i.status)}</p><p>${esc(i.owner||"Sin participante asignado")}</p>`;qs("#numberModal").showModal()}
     async function numberAction(action){let participant={};if(action==="ASSIGN"){participant={fullName:prompt("Nombre completo")||"",phone:prompt("WhatsApp")||"",email:prompt("Correo")||"",city:prompt("Departamento")||"",identityNumber:prompt("Cédula")||""};if(!participant.fullName||!participant.phone)return}const notes=prompt("Observaciones","")??"";const d=await api("adminNumberAction",{raffleId:state.raffleId,number:state.selectedNumber,numberAction:action,participant,notes});if(!d.ok)throw new Error(d.error);qs("#numberModal").close();toast("Número actualizado.");loadBoard()}
 
+
+    async function bulkNumberAction(action){const numbers=qs('#bulkNumbers').value.trim();if(!numbers)return toast('Escribe los números.','error');if(!confirm('¿Aplicar la acción masiva?'))return;const d=await api('adminBulkNumberAction',{raffleId:state.raffleId,numbers,numberAction:action,notes:qs('#bulkNotes').value.trim()});if(!d.ok)throw new Error(d.error);qs('#bulkNumbers').value='';qs('#bulkNotes').value='';toast(`${d.changed.length} números actualizados${d.skipped.length?` y ${d.skipped.length} omitidos`:''}.`);loadBoard()}
+    async function releaseExpiredReservations(){const d=await api('adminReleaseReservations',{raffleId:state.raffleId});if(!d.ok)throw new Error(d.error);toast(`Se liberaron ${d.released} reservas vencidas.`);loadBoard()}
+
+    function liveOrdinal(index){const names=['PRIMER','SEGUNDO','TERCER','CUARTO','QUINTO','SEXTO','SÉPTIMO','OCTAVO'];return names[index]||`${index+1}°`}
+    function stopLiveAnimation(){if(state.liveSpinTimer){clearInterval(state.liveSpinTimer);state.liveSpinTimer=null}}
+    function randomDigit(){return String(Math.floor(Math.random()*10))}
+    function renderLiveReels(){
+      const digits=state.liveDigits.length?state.liveDigits:Array.from({length:state.liveSetup?.raffle?.digitCount||4},()=>({value:'0',frozen:false}));
+      qs('#liveReels').innerHTML=digits.map(d=>`<div class="live-reel ${d.frozen?'frozen':'spinning'}">${esc(d.value)}</div>`).join('');
+    }
+    function startLiveAnimation(){
+      stopLiveAnimation();
+      state.liveSpinTimer=setInterval(()=>{
+        state.liveDigits=state.liveDigits.map(d=>d.frozen?d:{...d,value:randomDigit()});
+        renderLiveReels();
+      },75);
+    }
+    function renderLiveStats(stats){
+      const values=[['Tickets aprobados',stats.approvedTickets||0],['Marcados vendidos',stats.soldTickets||0],['Elegibles',stats.eligibleTickets||0],['Participantes',stats.participantRows||0],['Aprobados sin migrar',stats.approvedNotSold||0],['Vendidos sin aprobado',stats.soldWithoutApproved||0]];
+      qs('#liveStats').innerHTML=values.map(([label,value])=>`<article class="live-stat"><strong>${esc(value)}</strong><small>${esc(label)}</small></article>`).join('');
+    }
+    function renderLiveWinners(winners){
+      qs('#liveWinnersList').innerHTML=(winners||[]).length?winners.map(w=>`<article class="live-winner-card"><small>Premio ${esc(w.prizeOrder)}</small><strong>${esc(w.prizeName)}</strong><p>${esc(w.fullName)}</p><p>WhatsApp: ${esc(w.maskedPhone||'No registrado')}</p><span class="ticket">${esc(w.ticket)}</span><p>${esc(w.drawDate||'')}</p></article>`).join(''):'<div class="empty" style="grid-column:1/-1">Aún no se registraron ganadores.</div>';
+    }
+    function renderLivePrizeOptions(prizes,keep=''){
+      const available=(prizes||[]).filter(p=>!p.drawn&&p.status!=='DESACTIVADO');
+      qs('#livePrizeSelect').innerHTML=available.length?available.map(p=>`<option value="${esc(p.id)}">${esc(p.order)}. ${esc(p.name)}</option>`).join(''):'<option value="">Todos los premios ya fueron sorteados</option>';
+      if(keep&&available.some(p=>p.id===keep))qs('#livePrizeSelect').value=keep;
+      qs('#liveStartDraw').disabled=!available.length||Boolean(state.liveSession);
+    }
+    async function loadLiveDraw(preserveWinner=false){
+      const currentRaffle=state.liveRaffleId||state.raffleId||DEFAULT_RAFFLE;
+      qs('#liveRaffleSelect').innerHTML=state.raffles.map(r=>`<option value="${esc(r.id)}">${esc(r.name)} · ${esc(r.status)}</option>`).join('');
+      if(state.raffles.some(r=>r.id===currentRaffle))qs('#liveRaffleSelect').value=currentRaffle;
+      state.liveRaffleId=qs('#liveRaffleSelect').value||currentRaffle;
+      const previousPrize=qs('#livePrizeSelect').value;
+      const d=await api('adminLiveDrawSetup',{raffleId:state.liveRaffleId});
+      if(!d.ok)throw new Error(d.error);
+      state.liveSetup=d;
+      renderLiveStats(d.stats||{});renderLivePrizeOptions(d.prizes||[],previousPrize);renderLiveWinners(d.winners||[]);
+      if(!state.liveSession){
+        state.liveDigits=Array.from({length:d.raffle.digitCount},()=>({value:'0',frozen:false}));
+        renderLiveReels();
+        qs('#liveRevealDigit').disabled=true;
+        qs('#liveCancelDraw').disabled=true;
+        qs('#liveRevealDigit').textContent='Selecciona un premio e inicia el sorteo';
+        qs('#liveProgress').textContent='El número ganador será elegido únicamente entre tickets vendidos y aprobados.';
+        qs('#liveControlCode').textContent='';
+        if(!preserveWinner)qs('#liveWinnerCard').hidden=true;
+      }
+    }
+    async function syncLiveTickets(){
+      const button=qs('#liveSyncTickets');button.disabled=true;
+      try{
+        const d=await api('adminLiveDrawSync',{raffleId:state.liveRaffleId});
+        if(!d.ok)throw new Error(d.error);
+        state.liveSetup=d;renderLiveStats(d.stats||{});renderLivePrizeOptions(d.prizes||[],qs('#livePrizeSelect').value);renderLiveWinners(d.winners||[]);
+        const m=d.migration||{};
+        qs('#liveMigrationMessage').textContent=`Migración completada: ${m.synchronized||0} actualizados, ${m.alreadySold||0} ya estaban vendidos${(m.missingNumberRows||[]).length?`, ${(m.missingNumberRows||[]).length} sin fila de número`:''}.`;
+        toast('Tickets vendidos sincronizados.');
+      }finally{button.disabled=false}
+    }
+    function lockLiveControls(locked){qs('#liveRaffleSelect').disabled=locked;qs('#livePrizeSelect').disabled=locked;qs('#liveSyncTickets').disabled=locked;qs('#liveStartDraw').disabled=locked;qs('#liveCancelDraw').disabled=!locked}
+    async function startLiveDraw(){
+      const prizeId=qs('#livePrizeSelect').value;if(!prizeId)throw new Error('Selecciona un premio pendiente.');
+      if(!confirm('¿Iniciar el sorteo en vivo para el premio seleccionado?'))return;
+      const d=await api('adminLiveDrawStart',{raffleId:state.liveRaffleId,prizeId});
+      if(!d.ok)throw new Error(d.error);
+      state.liveSession={token:d.drawToken,digitCount:d.digitCount,revealed:0,prize:d.prize,controlCode:d.controlCode};
+      state.liveDigits=Array.from({length:d.digitCount},()=>({value:randomDigit(),frozen:false}));
+      qs('#liveWinnerCard').hidden=true;lockLiveControls(true);
+      qs('#liveRevealDigit').disabled=false;
+      qs('#liveRevealDigit').textContent=`DETENER ${liveOrdinal(0)} DÍGITO`;
+      qs('#liveProgress').innerHTML=`Sorteo en proceso · <strong>${d.eligibleCount} tickets elegibles</strong>`;
+      qs('#liveControlCode').textContent=`Código de control: ${d.controlCode}`;
+      startLiveAnimation();toast('Sorteo en vivo iniciado.');
+    }
+    async function revealLiveDigit(){
+      if(!state.liveSession)return;
+      const button=qs('#liveRevealDigit');button.disabled=true;
+      try{
+        const d=await api('adminLiveDrawReveal',{drawToken:state.liveSession.token});
+        if(!d.ok)throw new Error(d.error);
+        state.liveDigits[d.index]={value:d.digit,frozen:true};state.liveSession.revealed=d.revealed;renderLiveReels();
+        if(d.completed){
+          stopLiveAnimation();state.liveSession.completed=true;button.textContent='NÚMERO GANADOR COMPLETADO';button.disabled=true;qs('#liveCancelDraw').disabled=true;
+          const w=d.winner;qs('#liveWinnerNumber').textContent=w.ticket;qs('#liveWinnerName').textContent=w.fullName;qs('#liveWinnerPrize').textContent=`Ganador de: ${w.prizeName}`;qs('#liveWinnerPhone').textContent=w.maskedPhone;qs('#liveWinnerCity').textContent=w.city?`Departamento / ciudad: ${w.city}`:'';
+          qs('#liveCallWinner').href=w.callPhone?`tel:+${w.callPhone}`:'#';qs('#liveWhatsAppWinner').href=w.callPhone?`https://wa.me/${w.callPhone}?text=${encodeURIComponent(`Hola ${w.fullName}, te contactamos de Fundación Utopía para informarte que ganaste ${w.prizeName} con el número ${w.ticket}.`)}`:'#';
+          qs('#liveWinnerCard').hidden=false;qs('#liveProgress').innerHTML='<strong>Resultado registrado y bloqueado correctamente.</strong>';toast('¡Ganador encontrado y registrado!');
+          const refresh=await api('adminLiveDrawSetup',{raffleId:state.liveRaffleId});if(refresh.ok){state.liveSetup=refresh;renderLiveStats(refresh.stats||{});renderLiveWinners(refresh.winners||[])}
+        }else{
+          button.disabled=false;button.textContent=`DETENER ${liveOrdinal(d.nextDigitIndex)} DÍGITO`;qs('#liveProgress').innerHTML=`Dígitos detenidos: <strong>${d.revealed} de ${d.digitCount}</strong>`;
+        }
+      }catch(e){button.disabled=false;throw e}
+    }
+    async function cancelLiveDraw(){
+      if(!state.liveSession)return;if(!confirm('¿Cancelar esta sesión? Aún no se guardará un ganador.'))return;
+      await api('adminLiveDrawCancel',{drawToken:state.liveSession.token});stopLiveAnimation();state.liveSession=null;lockLiveControls(false);await loadLiveDraw();toast('Sesión cancelada.','error');
+    }
+    async function nextLivePrize(){stopLiveAnimation();state.liveSession=null;lockLiveControls(false);qs('#liveWinnerCard').hidden=true;await loadLiveDraw();toast('Selecciona el siguiente premio.');}
+
     async function loadWinners(){const [r,d]=await Promise.all([api("adminGetRaffle",{raffleId:state.raffleId}),api("adminResults",{raffleId:state.raffleId})]);if(!r.ok)throw new Error(r.error);state.results=d.results||[];qs("#drawPrizeSelect").innerHTML=(r.prizes||[]).map(p=>`<option value="${esc(p.id)}">${p.order}. ${esc(p.name)}</option>`).join("");renderResults()}
     async function previewDraw(){const d=await api("adminDrawPreview",{raffleId:state.raffleId,prizeId:qs("#drawPrizeSelect").value});if(!d.ok)throw new Error(d.error);qs("#drawPreview").innerHTML=`<dl><div><dt>Código del sorteo</dt><dd>${esc(d.raffleCode)}</dd></div><div><dt>Participantes</dt><dd>${d.participants}</dd></div><div><dt>Números vendidos</dt><dd>${d.sold}</dd></div><div><dt>Lista final validada</dt><dd>${d.eligible}</dd></div><div><dt>Fecha y hora</dt><dd>${esc(d.drawDate)}</dd></div><div><dt>Responsable</dt><dd>${esc(d.responsible)}</dd></div></dl>`}
     async function runDraw(){if(!confirm("El resultado quedará bloqueado. ¿Realizar sorteo?"))return;const b=qs("#runDraw");b.disabled=true;b.textContent="Seleccionando...";try{const d=await api("adminDraw",{raffleId:state.raffleId,prizeId:qs("#drawPrizeSelect").value});if(!d.ok)throw new Error(d.error);qs("#drawMessage").textContent=`Ganador: ${d.winner.ticket} · ${d.winner.fullName}`;toast("Ganador seleccionado.");loadWinners()}finally{b.disabled=false;b.textContent="Realizar sorteo"}}
@@ -327,20 +589,24 @@
     function certificate(id){const r=state.results.find(x=>x.id===id),w=window.open("","_blank");w.document.write(`<!doctype html><html><head><title>Certificado</title><style>body{font-family:Arial;text-align:center;padding:70px;border:18px solid #0872b9}h1{color:#0872b9;font-size:46px}h2{font-size:40px}.n{font-size:90px;color:#6baa00;font-weight:bold}</style></head><body><h1>CERTIFICADO DE GANADOR</h1><p>Fundación Utopía certifica que</p><h2>${esc(r.fullName)}</h2><p>es ganador de</p><h2>${esc(r.prizeName)}</h2><div class="n">${esc(r.ticket)}</div><p>Código: ${esc(r.participationCode)}</p><p>${esc(r.drawDate)}</p></body></html>`);w.document.close();w.print()}
     async function publishResult(id){const r=state.results.find(x=>x.id===id),d=await api("adminPublishResult",{resultId:id,published:!r.published});if(!d.ok)throw new Error(d.error);toast(r.published?"Resultado ocultado.":"Resultado publicado.");loadWinners()}
 
-    async function loadReports(){const d=await api("adminReport",{raffleId:state.raffleId});if(!d.ok)throw new Error(d.error);state.report=d;qs("#reportContent").innerHTML=Object.entries(d.summary||{}).map(([k,v])=>`<article class="report-card"><small>${esc(k)}</small><strong>${esc(v)}</strong></article>`).join("")}
+    async function loadReports(){const d=await api("adminReport",{raffleId:state.raffleId});if(!d.ok)throw new Error(d.error);state.report=d;qs("#reportContent").innerHTML=Object.entries(d.summary||{}).map(([k,v])=>`<article class="report-card"><small>${esc(k)}</small><strong>${esc(v)}</strong></article>`).join("");const render=(id,items)=>qs(id).innerHTML=(items||[]).map(i=>`<div class="status-row"><span>${esc(i.label)}</span><strong>${esc(i.value??i.count??0)}</strong></div>`).join("")||'<div class="empty">Sin datos.</div>';render('#reportNumberStatuses',d.numberStatuses);render('#reportPaymentStatuses',d.paymentStatuses);render('#reportDepartments',d.departments);render('#reportMethods',d.paymentMethods)}
     function reportCsv(){const rows=[["Indicador","Valor"],...Object.entries(state.report?.summary||{})];download("reporte-sorteo.csv",rows.map(r=>r.map(c=>`"${String(c).replaceAll('"','""')}"`).join(",")).join("\n"),"text/csv;charset=utf-8")}
     function reportExcel(){const rows=Object.entries(state.report?.summary||{}).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("");download("reporte-sorteo.xls",`<html><meta charset="utf-8"><table border="1"><tr><th>Indicador</th><th>Valor</th></tr>${rows}</table></html>`,"application/vnd.ms-excel;charset=utf-8")}
 
-    async function loadUsers(){const d=await api("adminUsers");if(!d.ok)throw new Error(d.error);qs("#usersTable").innerHTML=(d.users||[]).map(u=>`<div class="user-row"><div><strong>${esc(u.name)}</strong><br><small>${esc(u.username)} · ${esc(u.role)} · ${esc(u.status)}</small></div><div class="button-row"><button class="btn gray small" data-reset="${esc(u.username)}">Clave</button><button class="btn ${u.status==="ACTIVO"?"red":"green"} small" data-toggle="${esc(u.username)}">${u.status==="ACTIVO"?"Desactivar":"Activar"}</button></div></div>`).join("")||'<div class="empty">Sin usuarios.</div>';qsa("[data-reset]").forEach(b=>b.onclick=()=>resetUser(b.dataset.reset));qsa("[data-toggle]").forEach(b=>b.onclick=()=>toggleUser(b.dataset.toggle))}
+    async function loadUsers(){const d=await api("adminUsers");if(!d.ok)throw new Error(d.error);qs("#usersTable").innerHTML=(d.users||[]).map(u=>`<div class="user-row"><div><strong>${esc(u.name)}</strong><br><small>${esc(u.username)} · ${esc(u.status)} · Último acceso: ${esc(u.lastLogin||'Nunca')}</small></div><div class="button-row"><select class="role-select" data-role-user="${esc(u.username)}">${['ADMINISTRADOR','OPERADOR','FINANZAS','COMUNICACION','AUDITOR'].map(r=>`<option ${r===u.role?'selected':''}>${r}</option>`).join('')}</select><button class="btn gray small" data-save-role="${esc(u.username)}">Guardar rol</button><button class="btn gray small" data-reset="${esc(u.username)}">Clave</button><button class="btn ${u.status==="ACTIVO"?"red":"green"} small" data-toggle="${esc(u.username)}">${u.status==="ACTIVO"?"Desactivar":"Activar"}</button></div></div>`).join("")||'<div class="empty">Sin usuarios.</div>';qsa("[data-reset]").forEach(b=>b.onclick=()=>resetUser(b.dataset.reset));qsa("[data-toggle]").forEach(b=>b.onclick=()=>toggleUser(b.dataset.toggle));qsa('[data-save-role]').forEach(b=>b.onclick=()=>updateUserRole(b.dataset.saveRole))}
     async function createUser(e){e.preventDefault();const d=await api("adminCreateUser",{user:{username:qs("#newUsername").value.trim(),name:qs("#newUserName").value.trim(),email:qs("#newUserEmail").value.trim(),role:qs("#newUserRole").value,password:qs("#newUserPassword").value}});qs("#userMessage").textContent=d.ok?"Usuario creado.":d.error;if(!d.ok)throw new Error(d.error);e.target.reset();toast("Usuario creado.");loadUsers()}
+    async function updateUserRole(username){const select=qs(`[data-role-user="${CSS.escape(username)}"]`);const d=await api('adminUpdateUserRole',{username,role:select.value});if(!d.ok)throw new Error(d.error);toast('Rol actualizado.');loadUsers()}
     async function resetUser(username){const password=prompt(`Nueva contraseña para ${username}`);if(!password)return;const d=await api("adminResetPassword",{username,password});if(!d.ok)throw new Error(d.error);toast("Contraseña actualizada.")}
     async function toggleUser(username){if(!confirm(`¿Cambiar el estado de ${username}?`))return;const d=await api("adminToggleUser",{username});if(!d.ok)throw new Error(d.error);toast(`Usuario ${d.status}.`);loadUsers()}
 
+
+    async function loadTechnicalStatus(){const d=await api('adminTechnicalStatus');if(!d.ok)throw new Error(d.error);const s=d.status;qs('#technicalStatus').innerHTML=[['Versión',s.version],['Google Sheet',s.spreadsheetName],['ID Sheet',s.spreadsheetId],['Sorteo activo',s.activeRaffleId],['Sorteo encontrado',s.activeRaffleExists?'Sí':'No'],['Sorteos',s.raffles],['Participantes',s.participants],['Números',s.numbers],['Usuarios',s.users],['Resultados',s.results]].map(([k,v])=>`<div class="technical-item"><small>${esc(k)}</small><strong>${esc(v)}</strong></div>`).join('')}
+    async function repairCurrentRaffle(){const d=await api('adminRepairCurrentRaffle');if(!d.ok)throw new Error(d.error);toast('Sorteo actual reparado.');await loadRaffles();loadTechnicalStatus()}
     async function loadAudit(){const d=await api("adminAudit");if(!d.ok)throw new Error(d.error);renderAudit("#auditFull",d.audit||[])}
     async function changePassword(){const currentPassword=prompt("Contraseña actual");if(!currentPassword)return;const newPassword=prompt("Nueva contraseña (mínimo 8 caracteres)");if(!newPassword)return;const d=await api("adminChangePassword",{currentPassword,newPassword});if(!d.ok)throw new Error(d.error);toast("Contraseña actualizada. Inicia sesión nuevamente.");setTimeout(()=>logout(false),1000)}
     async function backup(){const b=qs("#backupButton");b.disabled=true;try{const d=await api("adminBackup");if(!d.ok)throw new Error(d.error);qs("#settingsMessage").innerHTML=`Copia creada: <a href="${esc(d.url)}" target="_blank">${esc(d.name)}</a>`;toast("Copia de seguridad creada.")}finally{b.disabled=false}}
 
-    function setup(){qs("#loginForm").onsubmit=login;qs("#logoutButton").onclick=()=>logout();qsa("#adminNav button").forEach(b=>b.onclick=()=>switchView(b.dataset.view));qs("#adminRaffleSelect").onchange=e=>{state.raffleId=e.target.value;refreshView(state.currentView)};qs("#raffleForm").onsubmit=saveRaffle;qs("#raffleTotal").oninput=renderDigitPreview;qs("#newRaffleButton").onclick=newRaffle;qs("#duplicateRaffle").onclick=duplicateRaffle;qs("#newImpactButton").onclick=()=>openImpact();qs("#impactForm").onsubmit=saveImpact;qs("#newFaqButton").onclick=()=>openFaq();qs("#faqForm").onsubmit=saveFaq;qs("#searchParticipants").onclick=loadParticipants;qs("#exportParticipants").onclick=exportParticipants;qs("#participantEditForm").onsubmit=saveParticipant;qs("#refreshPayments").onclick=loadPayments;qs("#searchPayments").onclick=loadPayments;qs("#cashPaymentButton").onclick=()=>qs("#cashModal").showModal();qs("#cashForm").onsubmit=cashPayment;qs("#adminRefreshNumbers").onclick=loadBoard;qs("#adminSearchNumber").onclick=searchNumber;qs("#numberStatusFilter").onchange=filterBoard;qs("#adminNumberPrev").onclick=()=>{state.numberPage--;renderBoard()};qs("#adminNumberNext").onclick=()=>{state.numberPage++;renderBoard()};qs("#blockNumber").onclick=()=>numberAction("BLOCK");qs("#releaseNumber").onclick=()=>numberAction("RELEASE");qs("#assignNumber").onclick=()=>numberAction("ASSIGN");qs("#loadDrawPreview").onclick=previewDraw;qs("#runDraw").onclick=runDraw;qs("#reportCsv").onclick=reportCsv;qs("#reportExcel").onclick=reportExcel;qs("#reportPrint").onclick=()=>window.print();qs("#userForm").onsubmit=createUser;qs("#changeOwnPassword").onclick=changePassword;qs("#backupButton").onclick=backup;qs("#refreshAudit").onclick=loadAudit;qsa("[data-close-modal]").forEach(b=>b.onclick=()=>b.closest("dialog").close());qsa("dialog").forEach(d=>d.addEventListener("click",e=>{if(e.target===d)d.close()}))}
+    function setup(){qs("#loginForm").onsubmit=login;qs("#logoutButton").onclick=()=>logout();qsa("#adminNav button").forEach(b=>b.onclick=()=>switchView(b.dataset.view));qs("#adminRaffleSelect").onchange=e=>{state.raffleId=e.target.value;refreshView(state.currentView)};qs("#raffleForm").onsubmit=saveRaffle;qs("#raffleTotal").oninput=renderDigitPreview;qs("#newRaffleButton").onclick=newRaffle;qs("#duplicateRaffle").onclick=duplicateRaffle;qs("#setActiveRaffle").onclick=setActiveRaffle;qs("#newPrizeButton").onclick=openNewPrize;qs("#newPrizeForm").onsubmit=createPrize;qs("#systemConfigForm").onsubmit=saveSystemConfig;qs("#newImpactButton").onclick=()=>openImpact();qs("#impactForm").onsubmit=saveImpact;qs("#newFaqButton").onclick=()=>openFaq();qs("#faqForm").onsubmit=saveFaq;qs("#searchParticipants").onclick=loadParticipants;qs("#exportParticipants").onclick=exportParticipants;qs("#participantEditForm").onsubmit=saveParticipant;qs("#refreshPayments").onclick=loadPayments;qs("#searchPayments").onclick=loadPayments;qs("#cashPaymentButton").onclick=()=>qs("#cashModal").showModal();qs("#cashForm").onsubmit=cashPayment;qs("#adminRefreshNumbers").onclick=loadBoard;qs("#adminSearchNumber").onclick=searchNumber;qs("#numberStatusFilter").onchange=filterBoard;qs("#adminNumberPrev").onclick=()=>{state.numberPage--;renderBoard()};qs("#adminNumberNext").onclick=()=>{state.numberPage++;renderBoard()};qs("#blockNumber").onclick=()=>numberAction("BLOCK");qs("#releaseNumber").onclick=()=>numberAction("RELEASE");qs("#assignNumber").onclick=()=>numberAction("ASSIGN");qs("#bulkBlock").onclick=()=>bulkNumberAction("BLOCK");qs("#bulkRelease").onclick=()=>bulkNumberAction("RELEASE");qs("#releaseExpired").onclick=releaseExpiredReservations;qs("#liveRaffleSelect").onchange=e=>{state.liveRaffleId=e.target.value;state.liveSession=null;stopLiveAnimation();loadLiveDraw()};qs("#liveSyncTickets").onclick=syncLiveTickets;qs("#liveStartDraw").onclick=startLiveDraw;qs("#liveRevealDigit").onclick=revealLiveDigit;qs("#liveCancelDraw").onclick=cancelLiveDraw;qs("#liveNextPrize").onclick=nextLivePrize;qs("#liveRefreshWinners").onclick=()=>loadLiveDraw(true);qs("#loadDrawPreview").onclick=previewDraw;qs("#runDraw").onclick=runDraw;qs("#reportCsv").onclick=reportCsv;qs("#reportExcel").onclick=reportExcel;qs("#reportPrint").onclick=()=>window.print();qs("#userForm").onsubmit=createUser;qs("#changeOwnPassword").onclick=changePassword;qs("#repairCurrentRaffle").onclick=repairCurrentRaffle;qs("#settingsReleaseExpired").onclick=releaseExpiredReservations;qs("#backupButton").onclick=backup;qs("#refreshAudit").onclick=loadAudit;qsa("[data-close-modal]").forEach(b=>b.onclick=()=>b.closest("dialog").close());qsa("dialog").forEach(d=>d.addEventListener("click",e=>{if(e.target===d)d.close()}))}
     setup();restore();
   })();
   </script>
