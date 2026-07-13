@@ -2,239 +2,988 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#052f5f">
-  <meta name="description" content="Rifa Solidaria Mundial 2026 de Fundación Utopía.">
-  <title>Rifa Solidaria Mundial 2026 | Utopía</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#052f5f"
+  >
+
+  <meta
+    name="description"
+    content="Rifa Solidaria Mundial 2026 de Fundación Utopía."
+  >
+
+  <title>
+    Rifa Solidaria Mundial 2026 | Utopía
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+
+  <style>
+    .header {
+      display: grid;
+      grid-template-columns: 220px 1fr 180px;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header .brand {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .brand img {
+      width: auto;
+      max-width: 190px;
+      max-height: 65px;
+      object-fit: contain;
+    }
+
+    .header-right-logo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .header-right-logo img {
+      width: auto;
+      max-width: 165px;
+      max-height: 68px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 1000px) {
+      .header {
+        grid-template-columns: 170px 1fr 140px;
+        gap: 14px;
+      }
+
+      .header .brand img {
+        max-width: 155px;
+      }
+
+      .header-right-logo img {
+        max-width: 130px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .header {
+        grid-template-columns: 1fr auto;
+      }
+
+      .header-right-logo {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
+
+  <!-- ENCABEZADO -->
   <header class="header">
-    <a href="#inicio" class="brand">
-      <img src="assets/logo-utopia.png" alt="Fundación Utopía">
+
+    <!-- Logo Fundación Utopía -->
+    <a
+      href="#inicio"
+      class="brand"
+      aria-label="Ir al inicio"
+    >
+      <img
+        src="assets/logo-utopia.png.jpeg"
+        alt="Fundación Utopía"
+      >
     </a>
 
-    <button class="menu-button" id="menuButton" aria-controls="nav" aria-expanded="false">
-      <span></span><span></span><span></span>
-      <b class="sr-only">Abrir menú</b>
+    <!-- Botón del menú móvil -->
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-controls="nav"
+      aria-expanded="false"
+      type="button"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <b class="sr-only">
+        Abrir menú
+      </b>
     </button>
 
+    <!-- Menú principal -->
     <nav id="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#premios">Premios</a>
-      <a href="#participar">Participar</a>
-      <a href="#ganadores">Ganadores</a>
-      <a href="#consulta">Consultar ticket</a>
+      <a href="#inicio">
+        Inicio
+      </a>
+
+      <a href="#premios">
+        Premios
+      </a>
+
+      <a href="#participar">
+        Participar
+      </a>
+
+      <a href="#ganadores">
+        Ganadores
+      </a>
+
+      <a href="#consulta">
+        Consultar ticket
+      </a>
     </nav>
+
+    <!-- Logo Círculo de Amigos -->
+    <div class="header-right-logo">
+      <img
+        src="assets/logo-circulo-amigos-utopia.png"
+        alt="Círculo de Amigos Utopía"
+      >
+    </div>
+
   </header>
 
   <main>
-    <section class="top-countdown" aria-label="Cuenta regresiva para la rifa">
+
+    <!-- CUENTA REGRESIVA -->
+    <section
+      class="top-countdown"
+      aria-label="Cuenta regresiva para la rifa"
+    >
       <div class="top-countdown-title">
-        <span>Rifa Solidaria Mundial 2026</span>
-        <strong>17/07/2026 a las 20:00</strong>
+        <span>
+          Rifa Solidaria Mundial 2026
+        </span>
+
+        <strong id="countdownDateTime">
+          17/07/2026 a las 20:00
+        </strong>
       </div>
+
       <div class="countdown">
-        <article><strong id="days">00</strong><small>Días</small></article>
-        <article><strong id="hours">00</strong><small>Horas</small></article>
-        <article><strong id="minutes">00</strong><small>Minutos</small></article>
-        <article><strong id="seconds">00</strong><small>Segundos</small></article>
+
+        <article>
+          <strong id="days">
+            00
+          </strong>
+
+          <small>
+            Días
+          </small>
+        </article>
+
+        <article>
+          <strong id="hours">
+            00
+          </strong>
+
+          <small>
+            Horas
+          </small>
+        </article>
+
+        <article>
+          <strong id="minutes">
+            00
+          </strong>
+
+          <small>
+            Minutos
+          </small>
+        </article>
+
+        <article>
+          <strong id="seconds">
+            00
+          </strong>
+
+          <small>
+            Segundos
+          </small>
+        </article>
+
       </div>
     </section>
 
-    <section class="hero" id="inicio">
+    <!-- PORTADA -->
+    <section
+      class="hero"
+      id="inicio"
+    >
       <div class="hero-background"></div>
+
       <div class="hero-copy">
-        <span class="badge">Rifa solidaria · Mundial 2026</span>
-        <p class="eyebrow">Círculo de Amigos Utopía</p>
-        <h1>Tu aporte, <span>su futuro</span></h1>
-        <p class="lead">Participa por tres grandes premios y apoya proyectos que transforman vidas.</p>
+
+        <span class="badge">
+          Rifa solidaria · Mundial 2026
+        </span>
+
+        <p class="eyebrow">
+          Círculo de Amigos Utopía
+        </p>
+
+        <h1>
+          Tu aporte,
+          <span>
+            su futuro
+          </span>
+        </h1>
+
+        <p class="lead">
+          Participa por tres grandes premios y apoya
+          proyectos que transforman vidas.
+        </p>
 
         <div class="hero-data">
-          <article><small>Ticket</small><strong id="ticketPrice">50 Bs</strong></article>
-          <article><small>Fecha de la rifa</small><strong>17/07/2026</strong></article>
-          <article><small>Premios</small><strong>3 ganadores</strong></article>
+
+          <article>
+            <small>
+              Ticket
+            </small>
+
+            <strong id="ticketPrice">
+              50 Bs
+            </strong>
+          </article>
+
+          <article>
+            <small>
+              Fecha de la rifa
+            </small>
+
+            <strong id="drawDate">
+              17/07/2026
+            </strong>
+          </article>
+
+          <article>
+            <small>
+              Premios
+            </small>
+
+            <strong>
+              3 ganadores
+            </strong>
+          </article>
+
         </div>
 
         <div class="hero-actions">
-          <a class="primary-button" href="#participar">Comprar ticket</a>
-          <a class="ghost-button" href="#premios">Ver premios</a>
+
+          <a
+            class="primary-button"
+            href="#participar"
+          >
+            Comprar ticket
+          </a>
+
+          <a
+            class="ghost-button"
+            href="#premios"
+          >
+            Ver premios
+          </a>
+
         </div>
       </div>
 
       <div class="poster-wrap">
-        <img src="assets/rifa-solidaria-2026.png" alt="Premios de la Rifa Solidaria Mundial 2026">
+        <img
+          src="assets/rifa-solidaria-2026.png"
+          alt="Premios de la Rifa Solidaria Mundial 2026"
+        >
+      </div>
+
+    </section>
+
+    <!-- ANIMACIÓN DE NÚMEROS -->
+    <section
+      class="rolling-section"
+      aria-label="Animación de tickets"
+    >
+      <div class="rolling-window">
+        <div
+          class="rolling-track"
+          id="rollingTrack"
+        ></div>
       </div>
     </section>
 
-    <section class="rolling-section" aria-label="Animación de tickets">
-      <div class="rolling-window"><div class="rolling-track" id="rollingTrack"></div></div>
-    </section>
+    <!-- PREMIOS -->
+    <section
+      class="prizes-section"
+      id="premios"
+    >
 
-    <section class="prizes-section" id="premios">
       <div class="section-heading">
+
         <div>
-          <span class="section-label">Presiona cada premio</span>
-          <h2>Premios de la rifa</h2>
-          <p>Cuando exista un resultado, aparecerá la información del ganador correspondiente.</p>
+          <span class="section-label">
+            Presiona cada premio
+          </span>
+
+          <h2>
+            Premios de la rifa
+          </h2>
+
+          <p>
+            Cuando exista un resultado, aparecerá la
+            información del ganador correspondiente.
+          </p>
         </div>
-        <span class="live-pill"><i></i> Actualización automática</span>
+
+        <span class="live-pill">
+          <i></i>
+          Actualización automática
+        </span>
+
       </div>
 
-      <div class="prize-grid" id="prizeGrid">
-        <button class="prize-card" data-prize-id="PREMIO-001" type="button">
-          <span class="prize-order">1</span>
-          <div class="prize-image"><img src="assets/premio-televisor.jpg" alt="Televisor FLUX de 50 pulgadas"></div>
+      <div
+        class="prize-grid"
+        id="prizeGrid"
+      >
+
+        <!-- PREMIO 1 -->
+        <button
+          class="prize-card"
+          data-prize-id="PREMIO-001"
+          type="button"
+        >
+          <span class="prize-order">
+            1
+          </span>
+
+          <div class="prize-image">
+            <img
+              src="assets/premio-televisor.jpg"
+              alt="Televisor FLUX de 50 pulgadas"
+            >
+          </div>
+
           <div class="prize-copy">
-            <small>Primer premio</small><h3>Televisor FLUX de 50"</h3><p>UHD 4K · Smart Android 14</p>
-            <span class="prize-status" id="status-PREMIO-001">Consultar ganador →</span>
+            <small>
+              Primer premio
+            </small>
+
+            <h3>
+              Televisor FLUX de 50"
+            </h3>
+
+            <p>
+              UHD 4K · Smart Android 14
+            </p>
+
+            <span
+              class="prize-status"
+              id="status-PREMIO-001"
+            >
+              Consultar ganador →
+            </span>
           </div>
         </button>
 
-        <button class="prize-card" data-prize-id="PREMIO-002" type="button">
-          <span class="prize-order">2</span>
-          <div class="prize-image"><img src="assets/premio-parlante.jpg" alt="Parlante MASTER-G"></div>
+        <!-- PREMIO 2 -->
+        <button
+          class="prize-card"
+          data-prize-id="PREMIO-002"
+          type="button"
+        >
+          <span class="prize-order">
+            2
+          </span>
+
+          <div class="prize-image">
+            <img
+              src="assets/premio-parlante.jpg"
+              alt="Parlante MASTER-G"
+            >
+          </div>
+
           <div class="prize-copy">
-            <small>Segundo premio</small><h3>Parlante MASTER-G</h3><p>Con batería, USB y Bluetooth</p>
-            <span class="prize-status" id="status-PREMIO-002">Consultar ganador →</span>
+            <small>
+              Segundo premio
+            </small>
+
+            <h3>
+              Parlante MASTER-G
+            </h3>
+
+            <p>
+              Con batería, USB y Bluetooth
+            </p>
+
+            <span
+              class="prize-status"
+              id="status-PREMIO-002"
+            >
+              Consultar ganador →
+            </span>
           </div>
         </button>
 
-        <button class="prize-card" data-prize-id="PREMIO-003" type="button">
-          <span class="prize-order">3</span>
-          <div class="prize-image"><img src="assets/premio-cafetera.jpg" alt="Cafetera OSTER de 12 tazas"></div>
+        <!-- PREMIO 3 -->
+        <button
+          class="prize-card"
+          data-prize-id="PREMIO-003"
+          type="button"
+        >
+          <span class="prize-order">
+            3
+          </span>
+
+          <div class="prize-image">
+            <img
+              src="assets/premio-cafetera.jpg"
+              alt="Cafetera OSTER de 12 tazas"
+            >
+          </div>
+
           <div class="prize-copy">
-            <small>Tercer premio</small><h3>Cafetera OSTER</h3><p>12 tazas · Filtro permanente</p>
-            <span class="prize-status" id="status-PREMIO-003">Consultar ganador →</span>
+            <small>
+              Tercer premio
+            </small>
+
+            <h3>
+              Cafetera OSTER
+            </h3>
+
+            <p>
+              12 tazas · Filtro permanente
+            </p>
+
+            <span
+              class="prize-status"
+              id="status-PREMIO-003"
+            >
+              Consultar ganador →
+            </span>
           </div>
         </button>
+
       </div>
     </section>
 
-    <section class="participation-section" id="participar">
+    <!-- REGISTRO DE PARTICIPACIÓN -->
+    <section
+      class="participation-section"
+      id="participar"
+    >
+
       <div class="participation-copy">
-        <span class="section-label light">Participa en la rifa</span>
-        <h2>Registra tu participación</h2>
-        <p>Completa tus datos y elige uno o varios tickets. Cada ticket quedará pendiente hasta que el equipo confirme el pago.</p>
+
+        <span class="section-label light">
+          Participa en la rifa
+        </span>
+
+        <h2>
+          Registra tu participación
+        </h2>
+
+        <p>
+          Completa tus datos y elige uno o varios tickets.
+          Cada ticket quedará pendiente hasta que el equipo
+          confirme el pago.
+        </p>
+
         <ul>
-          <li>Un ticket participa por los tres premios.</li>
-          <li>Los tickets aprobados entran al sorteo.</li>
+          <li>
+            Un ticket participa por los tres premios.
+          </li>
+
+          <li>
+            Los tickets aprobados entran al sorteo.
+          </li>
         </ul>
+
       </div>
 
-      <form class="participation-form" id="participationForm">
+      <form
+        class="participation-form"
+        id="participationForm"
+      >
+
         <div class="form-grid">
+
           <label>
             Número(s) de ticket
-            <input id="tickets" name="tickets" required inputmode="numeric" placeholder="Ej.: 25, 128, 500">
-            <small>Separa varios tickets con comas.</small>
+
+            <input
+              id="tickets"
+              name="tickets"
+              required
+              inputmode="numeric"
+              placeholder="Ej.: 25, 128, 500"
+            >
+
+            <small>
+              Separa varios tickets con comas.
+            </small>
           </label>
 
-          <label>Nombres y apellidos<input id="fullName" name="fullName" required autocomplete="name"></label>
-          <label>Cédula de identidad<input id="identityNumber" name="identityNumber" required inputmode="numeric"></label>
-          <label>Número de celular<input id="phone" name="phone" required autocomplete="tel" inputmode="tel"></label>
-          <label>Ciudad<input id="city" name="city" autocomplete="address-level2" placeholder="Santa Cruz"></label>
+          <label>
+            Nombres y apellidos
+
+            <input
+              id="fullName"
+              name="fullName"
+              required
+              autocomplete="name"
+            >
+          </label>
+
+          <label>
+            Cédula de identidad
+
+            <input
+              id="identityNumber"
+              name="identityNumber"
+              required
+              inputmode="numeric"
+            >
+          </label>
+
+          <label>
+            Número de celular
+
+            <input
+              id="phone"
+              name="phone"
+              required
+              autocomplete="tel"
+              inputmode="tel"
+            >
+          </label>
+
+          <label>
+            Ciudad
+
+            <input
+              id="city"
+              name="city"
+              autocomplete="address-level2"
+              placeholder="Santa Cruz"
+            >
+          </label>
 
           <label>
             Método de pago
-            <select id="paymentMethod" name="paymentMethod" required>
-              <option value="">Seleccionar</option>
-              <option value="QR">QR</option>
+
+            <select
+              id="paymentMethod"
+              name="paymentMethod"
+              required
+            >
+              <option value="">
+                Seleccionar
+              </option>
+
+              <option value="QR">
+                QR
+              </option>
             </select>
           </label>
+
         </div>
 
-        <div class="qr-payment-panel" id="qrPaymentPanel" hidden>
+        <!-- PANEL DEL QR -->
+        <div
+          class="qr-payment-panel"
+          id="qrPaymentPanel"
+          hidden
+        >
+
           <div class="qr-copy">
-            <span class="section-label">Pago mediante QR</span>
-            <h3>Escanea el código y realiza el pago</h3>
-            <p>Después de pagar, adjunta una fotografía o PDF del comprobante.</p>
+
+            <span class="section-label">
+              Pago mediante QR
+            </span>
+
+            <h3>
+              Escanea el código y realiza el pago
+            </h3>
+
+            <p>
+              Después de pagar, adjunta una fotografía
+              o PDF del comprobante.
+            </p>
+
           </div>
-          <img src="assets/qr-pago.png" alt="Código QR para pagar la Rifa Solidaria Mundial 2026">
+
+          <img
+            src="assets/qr-pago.png"
+            alt="Código QR para pagar la Rifa Solidaria Mundial 2026"
+          >
+
           <label class="proof-field">
             Adjuntar comprobante de pago
-            <input id="paymentProof" name="paymentProof" type="file" accept="image/jpeg,image/png,image/webp,application/pdf">
-            <small id="proofFileName">Formatos permitidos: JPG, PNG, WEBP o PDF. Máximo 5 MB.</small>
+
+            <input
+              id="paymentProof"
+              name="paymentProof"
+              type="file"
+              accept="image/jpeg,image/png,image/webp,application/pdf"
+            >
+
+            <small id="proofFileName">
+              Formatos permitidos: JPG, PNG, WEBP o PDF.
+              Máximo 5 MB.
+            </small>
           </label>
+
         </div>
 
         <label class="terms">
-          <input id="terms" type="checkbox" required>
-          <span>Acepto el registro de mis datos para gestionar esta rifa.</span>
+
+          <input
+            id="terms"
+            type="checkbox"
+            required
+          >
+
+          <span>
+            Acepto el registro de mis datos para gestionar
+            esta rifa.
+          </span>
+
         </label>
 
-        <button class="submit-button" id="submitButton" type="submit">Registrar participación y enviar comprobante</button>
-        <div class="form-result" id="formResult" role="status"></div>
+        <button
+          class="submit-button"
+          id="submitButton"
+          type="submit"
+        >
+          Registrar participación y enviar comprobante
+        </button>
+
+        <div
+          class="form-result"
+          id="formResult"
+          role="status"
+        ></div>
+
       </form>
     </section>
 
-    <section class="winners-section" id="ganadores">
+    <!-- GANADORES -->
+    <section
+      class="winners-section"
+      id="ganadores"
+    >
+
       <div class="section-heading winners-heading">
+
         <div>
-          <span class="section-label">Resultados publicados</span>
-          <h2>Ganadores</h2>
-          <p>Los resultados oficiales aparecerán aquí cuando sean publicados.</p>
+          <span class="section-label">
+            Resultados publicados
+          </span>
+
+          <h2>
+            Ganadores
+          </h2>
+
+          <p>
+            Los resultados oficiales aparecerán aquí
+            cuando sean publicados.
+          </p>
         </div>
+
       </div>
 
-      <div class="winners-grid" id="winnersGrid">
+      <div
+        class="winners-grid"
+        id="winnersGrid"
+      >
+
         <article class="empty-winner">
-          <span>🏆</span><h3>¡El próximo ganador puedes ser tú!</h3>
-          <p>Participa y mantente atento a los resultados oficiales.</p>
+
+          <span>
+            🏆
+          </span>
+
+          <h3>
+            ¡El próximo ganador puedes ser tú!
+          </h3>
+
+          <p>
+            Participa y mantente atento a los resultados
+            oficiales.
+          </p>
+
         </article>
+
       </div>
     </section>
 
-    <section class="ticket-search" id="consulta">
+    <!-- CONSULTA DE TICKET -->
+    <section
+      class="ticket-search"
+      id="consulta"
+    >
+
       <div>
-        <span class="section-label light">Verificación</span>
-        <h2>Consulta tu ticket</h2>
+
+        <span class="section-label light">
+          Verificación
+        </span>
+
+        <h2>
+          Consulta tu ticket
+        </h2>
+
       </div>
 
       <form id="ticketSearchForm">
-        <label>Número de ticket<input id="ticketSearchInput" required inputmode="numeric" placeholder="Ej.: 0025"></label>
-        <label>Número de celular<input id="ticketPhoneInput" required inputmode="tel" autocomplete="tel" placeholder="Ej.: 70000000"></label>
-        <button id="ticketSearchButton" type="submit">Consultar</button>
+
+        <label>
+          Número de ticket
+
+          <input
+            id="ticketSearchInput"
+            required
+            inputmode="numeric"
+            placeholder="Ej.: 0025"
+          >
+        </label>
+
+        <label>
+          Número de celular
+
+          <input
+            id="ticketPhoneInput"
+            required
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="Ej.: 70000000"
+          >
+        </label>
+
+        <button
+          id="ticketSearchButton"
+          type="submit"
+        >
+          Consultar
+        </button>
+
       </form>
 
-      <div class="ticket-result" id="ticketSearchResult" hidden></div>
+      <div
+        class="ticket-result"
+        id="ticketSearchResult"
+        hidden
+      ></div>
+
     </section>
+
   </main>
 
+  <!-- PIE DE PÁGINA -->
   <footer>
-    <div><img src="assets/logo-utopia.png" alt="Fundación Utopía"><p>Tu aporte, su futuro. Juntos hacemos la diferencia.</p></div>
-    <div><strong>Rifa Solidaria Mundial 2026</strong><span>Ticket: 50 Bs</span><span>Fecha: 17/07/2026</span></div>
-    <div><strong>Transparencia</strong><span>Resultados oficiales de la rifa.</span><span>Los datos sensibles se muestran protegidos.</span></div>
+
+    <div>
+      <img
+        src="assets/logo-utopia.png.jpeg"
+        alt="Fundación Utopía"
+      >
+
+      <p>
+        Tu aporte, su futuro.
+        Juntos hacemos la diferencia.
+      </p>
+    </div>
+
+    <div>
+      <strong>
+        Rifa Solidaria Mundial 2026
+      </strong>
+
+      <span>
+        Ticket: 50 Bs
+      </span>
+
+      <span>
+        Fecha: 17/07/2026
+      </span>
+    </div>
+
+    <div>
+      <strong>
+        Transparencia
+      </strong>
+
+      <span>
+        Resultados oficiales de la rifa.
+      </span>
+
+      <span>
+        Los datos sensibles se muestran protegidos.
+      </span>
+    </div>
+
   </footer>
 
-  <dialog id="winnerModal" class="winner-modal">
+  <!-- VENTANA DEL GANADOR -->
+  <dialog
+    id="winnerModal"
+    class="winner-modal"
+  >
+
     <div class="winner-modal-content">
-      <button class="modal-close" id="closeWinnerModal" type="button" aria-label="Cerrar">×</button>
-      <span class="winner-icon">🏆</span>
-      <p class="winner-kicker" id="modalPrizeOrder">Resultado del premio</p>
-      <h2 id="modalPrizeName">Premio</h2>
-      <div class="winner-loading" id="winnerLoading">Consultando el resultado...</div>
-      <div class="winner-data" id="winnerData" hidden>
-        <div class="winning-ticket"><small>Ticket ganador</small><strong id="modalTicket">0000</strong></div>
+
+      <button
+        class="modal-close"
+        id="closeWinnerModal"
+        type="button"
+        aria-label="Cerrar"
+      >
+        ×
+      </button>
+
+      <span class="winner-icon">
+        🏆
+      </span>
+
+      <p
+        class="winner-kicker"
+        id="modalPrizeOrder"
+      >
+        Resultado del premio
+      </p>
+
+      <h2 id="modalPrizeName">
+        Premio
+      </h2>
+
+      <div
+        class="winner-loading"
+        id="winnerLoading"
+      >
+        Consultando el resultado...
+      </div>
+
+      <div
+        class="winner-data"
+        id="winnerData"
+        hidden
+      >
+
+        <div class="winning-ticket">
+
+          <small>
+            Ticket ganador
+          </small>
+
+          <strong id="modalTicket">
+            0000
+          </strong>
+
+        </div>
+
         <dl>
-          <div><dt>Ganador</dt><dd id="modalWinnerName">—</dd></div>
-          <div><dt>Cédula</dt><dd id="modalIdentity">—</dd></div>
-          <div><dt>Celular</dt><dd id="modalPhone">—</dd></div>
-          <div><dt>Código</dt><dd id="modalCode">—</dd></div>
-          <div><dt>Fecha del resultado</dt><dd id="modalDate">—</dd></div>
+
+          <div>
+            <dt>
+              Ganador
+            </dt>
+
+            <dd id="modalWinnerName">
+              —
+            </dd>
+          </div>
+
+          <div>
+            <dt>
+              Cédula
+            </dt>
+
+            <dd id="modalIdentity">
+              —
+            </dd>
+          </div>
+
+          <div>
+            <dt>
+              Celular
+            </dt>
+
+            <dd id="modalPhone">
+              —
+            </dd>
+          </div>
+
+          <div>
+            <dt>
+              Código
+            </dt>
+
+            <dd id="modalCode">
+              —
+            </dd>
+          </div>
+
+          <div>
+            <dt>
+              Fecha del resultado
+            </dt>
+
+            <dd id="modalDate">
+              —
+            </dd>
+          </div>
+
         </dl>
+
       </div>
-      <div class="no-winner" id="noWinner" hidden>
-        <strong>¡El próximo ganador puedes ser tú!</strong>
-        <p>Participa y mantente atento a los resultados oficiales.</p>
+
+      <div
+        class="no-winner"
+        id="noWinner"
+        hidden
+      >
+
+        <strong>
+          ¡El próximo ganador puedes ser tú!
+        </strong>
+
+        <p>
+          Participa y mantente atento a los resultados
+          oficiales.
+        </p>
+
       </div>
+
     </div>
   </dialog>
 
   <script src="config.js"></script>
   <script src="app.js"></script>
+
 </body>
 </html>
