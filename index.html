@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#052f5f">
+  <meta name="description" content="Sorteos solidarios de Fundación Utopía. Participa, gana y transforma vidas.">
+  <title>Sorteos Utopía | Rifa Solidaria Mundial 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a href="#inicio" class="brand" aria-label="Fundación Utopía">
+      <img src="assets/logo-utopia.png.jpeg" alt="Fundación Utopía">
+    </a>
+
+    <button class="menu-button" id="menuButton" type="button" aria-controls="nav" aria-expanded="false">
+      <span></span><span></span><span></span><b class="sr-only">Abrir menú</b>
+    </button>
+
+    <nav id="nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#sorteos">Sorteos activos</a>
+      <a href="#como-participar">Cómo participar</a>
+      <a href="#ganadores">Ganadores</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#transparencia">Transparencia</a>
+      <a href="#preguntas">Preguntas frecuentes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <a class="header-admin" href="admin.html" title="Acceso administrativo">Ingresar</a>
+
+    <div class="header-right-logo">
+      <img src="assets/logo-circulo-amigos-utopia.png" alt="Círculo de Amigos Utopía">
+    </div>
+  </header>
+
+  <main>
+    <section class="top-countdown">
+      <div>
+        <span>Rifa Solidaria Mundial 2026</span>
+        <strong id="countdownDateTime">17/07/2026 a las 20:00</strong>
+      </div>
+      <div class="countdown">
+        <article><strong id="days">00</strong><small>Días</small></article>
+        <article><strong id="hours">00</strong><small>Horas</small></article>
+        <article><strong id="minutes">00</strong><small>Minutos</small></article>
+        <article><strong id="seconds">00</strong><small>Segundos</small></article>
+      </div>
+    </section>
+
+    <section class="hero" id="inicio">
+      <div class="hero-grid"></div>
+      <div class="hero-copy">
+        <span class="hero-badge">Sorteo activo</span>
+        <p class="eyebrow">Círculo de Amigos Utopía</p>
+        <h1>Tu participación puede convertirse en una <span>oportunidad para alguien más.</span></h1>
+        <p class="lead">Participa por tres grandes premios y ayuda a financiar proyectos educativos, sociales y comunitarios.</p>
+
+        <div class="hero-data">
+          <article><small>Precio por número</small><strong id="heroPrice">50 Bs</strong></article>
+          <article><small>Números vendidos</small><strong id="heroSold">0</strong></article>
+          <article><small>Disponibles</small><strong id="heroAvailable">0</strong></article>
+        </div>
+
+        <div class="hero-actions">
+          <a class="primary-button" href="#sorteos">Seleccionar números</a>
+          <a class="ghost-button" href="#premios">Ver premios</a>
+        </div>
+      </div>
+
+      <div class="poster-wrap">
+        <img src="assets/rifa-solidaria-2026.png" alt="Rifa Solidaria Mundial 2026">
+      </div>
+    </section>
+
+    <section class="rolling-section" aria-label="Animación de números">
+      <div class="rolling-track" id="rollingTrack"></div>
+    </section>
+
+    <section class="stats-section" aria-label="Estado del sorteo">
+      <article><span>🎟️</span><div><small>Total de números</small><strong id="statTotal">0</strong></div></article>
+      <article><span>✅</span><div><small>Vendidos</small><strong id="statSold">0</strong></div></article>
+      <article><span>⏳</span><div><small>Reservados</small><strong id="statReserved">0</strong></div></article>
+      <article><span>🔎</span><div><small>En revisión</small><strong id="statReview">0</strong></div></article>
+      <article><span>🟢</span><div><small>Disponibles</small><strong id="statAvailable">0</strong></div></article>
+      <article class="progress-stat">
+        <div class="progress-label"><small>Avance del sorteo</small><strong id="statPercent">0%</strong></div>
+        <div class="progress-bar"><span id="progressBar"></span></div>
+      </article>
+    </section>
+
+    <section class="prizes-section" id="premios">
+      <div class="section-heading">
+        <div><span class="section-label">Tres oportunidades de ganar</span><h2>Premios de la rifa</h2><p>Presiona cada premio para consultar su resultado.</p></div>
+      </div>
+      <div class="prize-grid">
+        <button class="prize-card" data-prize-id="PREMIO-001" type="button">
+          <span class="prize-order">1</span><div class="prize-image"><img id="image-PREMIO-001" src="assets/premio-televisor.jpg" alt="Televisor FLUX 50 pulgadas"></div>
+          <div class="prize-copy"><small>Primer premio</small><h3>Televisor FLUX de 50"</h3><p>UHD 4K · Smart Android 14</p><span id="status-PREMIO-001">Consultar ganador →</span></div>
+        </button>
+        <button class="prize-card" data-prize-id="PREMIO-002" type="button">
+          <span class="prize-order">2</span><div class="prize-image"><img id="image-PREMIO-002" src="assets/premio-parlante.jpg" alt="Parlante MASTER-G"></div>
+          <div class="prize-copy"><small>Segundo premio</small><h3>Parlante MASTER-G</h3><p>Con batería, USB y Bluetooth</p><span id="status-PREMIO-002">Consultar ganador →</span></div>
+        </button>
+        <button class="prize-card" data-prize-id="PREMIO-003" type="button">
+          <span class="prize-order">3</span><div class="prize-image"><img id="image-PREMIO-003" src="assets/premio-cafetera.jpg" alt="Cafetera OSTER"></div>
+          <div class="prize-copy"><small>Tercer premio</small><h3>Cafetera OSTER</h3><p>12 tazas · Filtro permanente</p><span id="status-PREMIO-003">Consultar ganador →</span></div>
+        </button>
+      </div>
+    </section>
+
+    <section class="raffle-section" id="sorteos">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">Selección de números</span>
+          <h2>Elige tus números</h2>
+          <p>Busca un número, selecciona varios o deja que el sistema elija por ti.</p>
+        </div>
+        <div class="legend">
+          <span><i class="available"></i>Disponible</span>
+          <span><i class="reserved"></i>Reservado</span>
+          <span><i class="review"></i>En revisión</span>
+          <span><i class="sold"></i>Vendido</span>
+          <span><i class="blocked"></i>Bloqueado</span>
+        </div>
+      </div>
+
+      <div class="ticket-toolbar">
+        <label>Buscar número<input id="boardSearch" inputmode="numeric" placeholder="Ej.: 025"></label>
+        <button id="searchBoardTicket" type="button">Buscar</button>
+        <label>Cantidad aleatoria<input id="randomQuantity" type="number" min="1" max="20" value="5"></label>
+        <button id="randomTickets" type="button">Elegir al azar</button>
+        <button id="refreshBoard" class="secondary" type="button">Actualizar</button>
+      </div>
+
+      <div class="ticket-grid" id="ticketGrid" aria-live="polite"></div>
+
+      <div class="ticket-pagination">
+        <button id="ticketPrevPage" type="button">← Anterior</button>
+        <strong id="ticketPageLabel">Página 1</strong>
+        <button id="ticketNextPage" type="button">Siguiente →</button>
+      </div>
+
+      <div class="selection-dock">
+        <div><small>Números seleccionados</small><div id="selectedTicketChips" class="selected-ticket-chips"><span>Ninguno</span></div></div>
+        <div><small>Cantidad</small><strong id="selectedTicketCount">0</strong></div>
+        <div><small>Total</small><strong id="selectedTotal">0 Bs</strong></div>
+        <a href="#participar" class="primary-button">Continuar</a>
+      </div>
+    </section>
+
+    <section class="how-section" id="como-participar">
+      <div class="section-heading"><div><span class="section-label">Proceso sencillo</span><h2>Cómo participar</h2></div></div>
+      <div class="steps">
+        <article><span>1</span><h3>Elige</h3><p>Selecciona uno o varios números disponibles.</p></article>
+        <article><span>2</span><h3>Regístrate</h3><p>Completa tus datos personales y de contacto.</p></article>
+        <article><span>3</span><h3>Reserva y paga</h3><p>Reserva temporalmente tus números y paga mediante QR.</p></article>
+        <article><span>4</span><h3>Envía el comprobante</h3><p>Adjunta tu comprobante y recibe tu código de participación.</p></article>
+      </div>
+    </section>
+
+    <section class="participation-section" id="participar">
+      <div class="participation-copy">
+        <span class="section-label light">Participa en la rifa</span>
+        <h2>Registra tu participación</h2>
+        <p>Completa tus datos. Tus números quedarán reservados temporalmente hasta que envíes el comprobante.</p>
+        <ul>
+          <li>Un número participa por los tres premios.</li>
+          <li>Los números solo quedan vendidos cuando el administrador aprueba el pago.</li>
+          <li>La reserva temporal dura <strong id="reservationMinutesText">15 minutos</strong>.</li>
+        </ul>
+      </div>
+
+      <form class="participation-form" id="participationForm">
+        <div class="form-grid">
+          <label class="full-field">Números seleccionados<input id="tickets" readonly required placeholder="Selecciona números en el tablero"></label>
+          <label>Nombre completo<input id="fullName" required autocomplete="name"></label>
+          <label>Número de WhatsApp<input id="phone" required autocomplete="tel" inputmode="tel"></label>
+          <label>Correo electrónico<input id="email" required autocomplete="email" type="email"></label>
+          <label>Ciudad<input id="city" required autocomplete="address-level2"></label>
+          <label>Documento de identidad<input id="identityNumber" required inputmode="numeric"></label>
+          <label>Método de pago<select id="paymentMethod" required><option value="">Seleccionar</option><option value="QR">QR</option></select></label>
+        </div>
+
+        <div class="payment-summary" id="paymentSummary" hidden>
+          <h3>Resumen de pago</h3>
+          <div><span>Cantidad de números</span><strong id="summaryCount">0</strong></div>
+          <div><span>Precio por número</span><strong id="summaryUnit">0 Bs</strong></div>
+          <div class="total"><span>Total a pagar</span><strong id="summaryTotal">0 Bs</strong></div>
+        </div>
+
+        <div class="reserve-actions" id="reserveActions" hidden>
+          <button id="reserveButton" type="button">Reservar números y mostrar QR</button>
+          <button id="cancelReservation" class="danger-outline" type="button" hidden>Cancelar reserva</button>
+          <p id="reservationMessage"></p>
+        </div>
+
+        <div class="qr-payment-panel" id="qrPaymentPanel" hidden>
+          <div>
+            <span class="section-label">Pago mediante QR</span>
+            <h3>Escanea, paga y adjunta tu comprobante</h3>
+            <p>La reserva vence en <strong id="reservationCountdown">--:--</strong>.</p>
+          </div>
+          <img src="assets/qr-pago.png" alt="QR de pago">
+          <label class="proof-field">Comprobante de pago<input id="paymentProof" type="file" accept="image/jpeg,image/png,image/webp,application/pdf"><small id="proofFileName">JPG, PNG, WEBP o PDF. Máximo 5 MB.</small></label>
+        </div>
+
+        <label class="terms"><input id="terms" type="checkbox" required><span>Acepto los términos, condiciones y el tratamiento de mis datos para esta rifa.</span></label>
+
+        <button class="submit-button" id="submitButton" type="submit">Registrar participación y enviar comprobante</button>
+        <div class="form-result" id="formResult" role="status"></div>
+
+        <div class="confirmation-actions" id="confirmationActions" hidden>
+          <button id="shareWhatsapp" type="button">Enviar confirmación por WhatsApp</button>
+          <button id="printReceipt" type="button" class="secondary">Imprimir comprobante digital</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="winners-section" id="ganadores">
+      <div class="section-heading"><div><span class="section-label">Resultados publicados</span><h2>Ganadores</h2><p>Los resultados oficiales aparecerán aquí cuando sean publicados.</p></div></div>
+      <div id="winnersGrid" class="winners-grid"><article class="empty-card"><span>🏆</span><h3>¡El próximo ganador puedes ser tú!</h3><p>Participa y mantente atento a los resultados.</p></article></div>
+    </section>
+
+    <section class="lookup-section" id="consulta">
+      <div><span class="section-label light">Consulta por WhatsApp</span><h2>Revisa todos tus números</h2><p>Ingresa el mismo número de WhatsApp utilizado durante el registro.</p></div>
+      <form id="phoneLookupForm"><label>Número de WhatsApp<input id="lookupPhone" required inputmode="tel" autocomplete="tel"></label><button type="submit">Consultar</button></form>
+      <div id="phoneLookupResult" class="lookup-result" hidden></div>
+    </section>
+
+    <section class="impact-section" id="proyectos">
+      <div>
+        <span class="section-label light">¿A dónde va tu aporte?</span>
+        <h2 id="projectTitle">Proyectos que transforman vidas</h2>
+        <p id="projectDescription">Lo recaudado apoya becas, talleres, capacitación y programas educativos y sociales.</p>
+      </div>
+      <div class="impact-stats"><article><small>Meta económica</small><strong id="projectGoal">—</strong></article><article><small>Monto recaudado</small><strong id="projectRaised">—</strong></article><article><small>Avance</small><strong id="projectPercent">0%</strong></article></div>
+    </section>
+
+    <section class="transparency-section" id="transparencia">
+      <div class="section-heading"><div><span class="section-label">Transparencia institucional</span><h2>Tu confianza forma parte del sorteo</h2></div></div>
+      <div class="transparency-grid">
+        <article><span>✓</span><h3>Números únicos</h3><p>El sistema evita números duplicados y registra cada movimiento.</p></article>
+        <article><span>✓</span><h3>Pagos validados</h3><p>Un número solo queda vendido después de la aprobación.</p></article>
+        <article><span>✓</span><h3>Resultado bloqueado</h3><p>El ganador queda registrado con fecha, hora y responsable.</p></article>
+        <article><span>✓</span><h3>Datos protegidos</h3><p>La información sensible se muestra parcialmente oculta.</p></article>
+      </div>
+    </section>
+
+    <section class="faq-section" id="preguntas">
+      <div class="section-heading"><div><span class="section-label">Preguntas frecuentes</span><h2>Información importante</h2></div></div>
+      <details><summary>¿Cuándo queda vendido mi número?</summary><p>Cuando el equipo revisa y aprueba tu comprobante de pago.</p></details>
+      <details><summary>¿Qué ocurre si mi reserva vence?</summary><p>El número vuelve a quedar disponible para otros participantes.</p></details>
+      <details><summary>¿Puedo comprar varios números?</summary><p>Sí. Puedes seleccionar varios y el sistema calcula el total automáticamente.</p></details>
+      <details><summary>¿Cómo consulto mis números?</summary><p>Ingresa tu WhatsApp en la sección de consulta y verás todos los números registrados a tu nombre.</p></details>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <div><img src="assets/logo-utopia.png.jpeg" alt="Fundación Utopía"><p>Tu participación puede convertirse en una oportunidad para alguien más.</p></div>
+    <div><strong>Rifa Solidaria Mundial 2026</strong><span id="footerPrice">Ticket: 50 Bs</span><span id="footerDate">Fecha: 17/07/2026</span></div>
+    <div><strong>Contacto</strong><span>Consulta y soporte mediante WhatsApp.</span><a href="admin.html">Acceso administrativo</a></div>
+  </footer>
+
+  <dialog id="winnerModal" class="winner-modal">
+    <div>
+      <button id="closeWinnerModal" class="modal-close" type="button">×</button>
+      <span class="winner-icon">🏆</span><p id="modalPrizeOrder">Resultado del premio</p><h2 id="modalPrizeName">Premio</h2>
+      <div id="winnerLoading">Consultando resultado...</div>
+      <div id="winnerData" hidden><div class="winning-ticket"><small>Número ganador</small><strong id="modalTicket">0000</strong></div><dl><div><dt>Ganador</dt><dd id="modalWinnerName">—</dd></div><div><dt>Ciudad</dt><dd id="modalCity">—</dd></div><div><dt>Código</dt><dd id="modalCode">—</dd></div><div><dt>Fecha y hora</dt><dd id="modalDate">—</dd></div></dl></div>
+      <div id="noWinner" class="no-winner" hidden><strong>¡El próximo ganador puedes ser tú!</strong><p>Participa y mantente atento a los resultados oficiales.</p></div>
+    </div>
+  </dialog>
+
+  <section id="digitalReceipt" class="digital-receipt" hidden>
+    <img src="assets/logo-utopia.png.jpeg" alt="Fundación Utopía">
+    <h2>Participación confirmada – Sorteos Utopía</h2>
+    <p id="receiptGreeting"></p>
+    <dl><div><dt>Código</dt><dd id="receiptCode"></dd></div><div><dt>Números</dt><dd id="receiptTickets"></dd></div><div><dt>Total pagado</dt><dd id="receiptAmount"></dd></div><div><dt>Fecha del sorteo</dt><dd id="receiptDate"></dd></div></dl>
+    <p>Gracias por apoyar los proyectos de Fundación Utopía.</p><strong>Participa, gana y ayuda a transformar vidas.</strong>
+  </section>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

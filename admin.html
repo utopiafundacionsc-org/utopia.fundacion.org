@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#052f5f">
+  <title>Administración | Sorteos Utopía</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <section class="login-screen" id="loginScreen">
+    <form class="login-card" id="loginForm">
+      <img src="assets/logo-utopia.png.jpeg" alt="Fundación Utopía">
+      <span>Panel administrativo</span>
+      <h1>Sorteos Utopía</h1>
+      <label>Usuario<input id="loginUser" required autocomplete="username"></label>
+      <label>Contraseña<input id="loginPassword" type="password" required autocomplete="current-password"></label>
+      <button type="submit">Ingresar</button>
+      <p id="loginMessage"></p>
+      <a href="index.html">← Volver a la página pública</a>
+    </form>
+  </section>
+
+  <div class="admin-shell" id="adminShell" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/logo-utopia.png.jpeg" alt="Fundación Utopía">
+        <div><small>Administración</small><strong>Sorteos Utopía</strong></div>
+      </div>
+
+      <nav id="adminNav">
+        <button data-view="dashboard" class="active">Resumen</button>
+        <button data-view="raffles">Sorteos</button>
+        <button data-view="participants">Participantes</button>
+        <button data-view="payments">Pagos</button>
+        <button data-view="numbers">Números</button>
+        <button data-view="winners">Ganadores</button>
+        <button data-view="reports">Reportes</button>
+        <button data-view="users">Usuarios</button>
+        <button data-view="settings">Configuración</button>
+      </nav>
+
+      <div class="sidebar-user">
+        <strong id="sessionName">Usuario</strong>
+        <span id="sessionRole">ROL</span>
+        <button id="logoutButton" type="button">Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <div>
+          <small id="currentViewLabel">Resumen</small>
+          <h1 id="currentViewTitle">Panel general</h1>
+        </div>
+        <div class="header-actions">
+          <a href="index.html" target="_blank">Ver página pública</a>
+          <select id="adminRaffleSelect"></select>
+        </div>
+      </header>
+
+      <section class="admin-view active" id="view-dashboard">
+        <div class="metric-grid">
+          <article><small>Total recaudado</small><strong id="dashRevenue">0 Bs</strong></article>
+          <article><small>Números vendidos</small><strong id="dashSold">0</strong></article>
+          <article><small>Disponibles</small><strong id="dashAvailable">0</strong></article>
+          <article><small>Pagos pendientes</small><strong id="dashPending">0</strong></article>
+          <article><small>Pagos aprobados</small><strong id="dashApproved">0</strong></article>
+          <article><small>Participantes</small><strong id="dashParticipants">0</strong></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel">
+            <div class="panel-heading"><div><small>Avance</small><h2>Estado del sorteo</h2></div></div>
+            <div class="large-progress"><span id="dashProgressBar"></span></div>
+            <strong id="dashProgressText">0%</strong>
+            <div class="status-list" id="dashStatusList"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading"><div><small>Distribución</small><h2>Participantes por ciudad</h2></div></div>
+            <div id="cityStats" class="bar-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading"><div><small>Pagos</small><h2>Métodos utilizados</h2></div></div>
+            <div id="paymentMethodStats" class="bar-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading"><div><small>Actividad</small><h2>Últimos movimientos</h2></div></div>
+            <div id="auditPreview" class="audit-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="admin-view" id="view-raffles">
+        <div class="two-column">
+          <article class="panel">
+            <div class="panel-heading">
+              <div><small>Configuración</small><h2>Datos del sorteo</h2></div>
+              <button id="newRaffleButton" type="button">Nuevo sorteo</button>
+            </div>
+            <form id="raffleForm" class="admin-form">
+              <input id="raffleId" type="hidden">
+              <label>Nombre del sorteo<input id="raffleName" required></label>
+              <label>Fecha y hora<input id="raffleDate" type="datetime-local" required></label>
+              <label>Precio por número<input id="rafflePrice" type="number" min="0" step="0.01" required></label>
+              <label>Moneda<input id="raffleCurrency" value="Bs" required></label>
+              <label>Total de números<input id="raffleTotal" type="number" min="1" required></label>
+              <label>Estado<select id="raffleStatus"><option>ACTIVO</option><option>PAUSADO</option><option>FINALIZADO</option><option>CANCELADO</option></select></label>
+              <label class="full">Descripción<textarea id="raffleDescription" rows="3"></textarea></label>
+              <label>Proyecto beneficiado<input id="raffleProjectTitle"></label>
+              <label>Meta económica<input id="raffleGoal" type="number" min="0" step="0.01"></label>
+              <label class="full">Descripción del proyecto<textarea id="raffleProjectDescription" rows="3"></textarea></label>
+              <div class="form-actions full">
+                <button type="submit">Guardar sorteo</button>
+                <button id="duplicateRaffle" class="secondary" type="button">Duplicar</button>
+              </div>
+              <p id="raffleMessage" class="form-message full"></p>
+            </form>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading"><div><small>Premios</small><h2>Configuración de premios</h2></div></div>
+            <div id="adminPrizeList"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="admin-view" id="view-participants">
+        <article class="panel">
+          <div class="panel-heading">
+            <div><small>Base de datos</small><h2>Participantes</h2></div>
+            <button id="exportParticipants" type="button">Descargar CSV</button>
+          </div>
+          <div class="filters">
+            <input id="participantSearch" placeholder="Buscar por nombre, teléfono, correo o número">
+            <select id="participantStatusFilter"><option value="">Todos los estados</option><option>PENDIENTE</option><option>COMPROBANTE_RECIBIDO</option><option>EN_REVISION</option><option>APROBADO</option><option>RECHAZADO</option><option>VENCIDO</option></select>
+            <button id="searchParticipants" type="button">Buscar</button>
+          </div>
+          <div class="table-wrap"><table><thead><tr><th>Código</th><th>Participante</th><th>Números</th><th>Contacto</th><th>Estado</th><th>Fecha</th><th>Acciones</th></tr></thead><tbody id="participantsTable"></tbody></table></div>
+        </article>
+      </section>
+
+      <section class="admin-view" id="view-payments">
+        <article class="panel">
+          <div class="panel-heading"><div><small>Validación</small><h2>Pagos y comprobantes</h2></div></div>
+          <div class="filters">
+            <select id="paymentStatusFilter"><option value="">Todos</option><option>COMPROBANTE_RECIBIDO</option><option>EN_REVISION</option><option>APROBADO</option><option>RECHAZADO</option><option>VENCIDO</option></select>
+            <button id="refreshPayments" type="button">Actualizar</button>
+          </div>
+          <div id="paymentCards" class="payment-cards"></div>
+        </article>
+      </section>
+
+      <section class="admin-view" id="view-numbers">
+        <article class="panel">
+          <div class="panel-heading"><div><small>Control</small><h2>Gestión de números</h2></div></div>
+          <div class="number-admin-toolbar">
+            <input id="adminNumberSearch" inputmode="numeric" placeholder="Buscar número">
+            <button id="adminSearchNumber" type="button">Buscar</button>
+            <button id="adminRefreshNumbers" type="button">Actualizar</button>
+          </div>
+          <div class="admin-legend"><span><i class="available"></i>Disponible</span><span><i class="reserved"></i>Reservado</span><span><i class="review"></i>En revisión</span><span><i class="sold"></i>Vendido</span><span><i class="blocked"></i>Bloqueado</span></div>
+          <div id="adminNumberGrid" class="admin-number-grid"></div>
+          <div class="ticket-pagination"><button id="adminNumberPrev" type="button">← Anterior</button><strong id="adminNumberPageLabel">Página 1</strong><button id="adminNumberNext" type="button">Siguiente →</button></div>
+        </article>
+      </section>
+
+      <section class="admin-view" id="view-winners">
+        <div class="two-column">
+          <article class="panel">
+            <div class="panel-heading"><div><small>Selección transparente</small><h2>Realizar sorteo</h2></div></div>
+            <label>Premio<select id="drawPrizeSelect"></select></label>
+            <div id="drawPreview" class="draw-preview"></div>
+            <button id="loadDrawPreview" type="button">Preparar sorteo</button>
+            <button id="runDraw" class="draw-button" type="button">Realizar sorteo</button>
+            <p id="drawMessage" class="form-message"></p>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading"><div><small>Publicación</small><h2>Resultados y contenidos</h2></div></div>
+            <div id="resultsList"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="admin-view" id="view-reports">
+        <article class="panel">
+          <div class="panel-heading">
+            <div><small>Estadísticas</small><h2>Reportes del sorteo</h2></div>
+            <div><button id="reportCsv" type="button">CSV</button><button id="reportExcel" type="button">Excel</button><button id="reportPrint" type="button">Imprimir / PDF</button></div>
+          </div>
+          <div id="reportContent" class="report-content"></div>
+        </article>
+      </section>
+
+      <section class="admin-view" id="view-users">
+        <div class="two-column">
+          <article class="panel">
+            <div class="panel-heading"><div><small>Accesos</small><h2>Usuarios y roles</h2></div></div>
+            <div id="usersTable"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-heading"><div><small>Nuevo acceso</small><h2>Crear usuario</h2></div></div>
+            <form id="userForm" class="admin-form">
+              <label>Usuario<input id="newUsername" required></label>
+              <label>Nombre completo<input id="newUserName" required></label>
+              <label>Correo<input id="newUserEmail" type="email"></label>
+              <label>Rol<select id="newUserRole"><option>ADMINISTRADOR</option><option>OPERADOR</option><option>FINANZAS</option><option>COMUNICACION</option><option>AUDITOR</option></select></label>
+              <label class="full">Contraseña temporal<input id="newUserPassword" type="password" required></label>
+              <button type="submit" class="full">Crear usuario</button>
+              <p id="userMessage" class="form-message full"></p>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section class="admin-view" id="view-settings">
+        <div class="two-column">
+          <article class="panel">
+            <div class="panel-heading"><div><small>Sesión</small><h2>Seguridad</h2></div></div>
+            <p>El acceso administrativo usa usuario, contraseña cifrada y sesiones temporales.</p>
+            <button id="changeOwnPassword" type="button">Cambiar mi contraseña</button>
+          </article>
+          <article class="panel">
+            <div class="panel-heading"><div><small>Auditoría</small><h2>Registro de movimientos</h2></div></div>
+            <div id="auditFull" class="audit-list"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="participantModal" class="admin-modal">
+    <form id="participantEditForm">
+      <button class="modal-close" type="button" data-close-modal>×</button>
+      <h2>Editar participante</h2>
+      <input id="editParticipationCode" type="hidden">
+      <label>Nombre<input id="editName"></label>
+      <label>WhatsApp<input id="editPhone"></label>
+      <label>Correo<input id="editEmail"></label>
+      <label>Ciudad<input id="editCity"></label>
+      <label>Cédula<input id="editIdentity"></label>
+      <label>Observaciones<textarea id="editNotes" rows="3"></textarea></label>
+      <button type="submit">Guardar cambios</button>
+    </form>
+  </dialog>
+
+  <dialog id="numberModal" class="admin-modal">
+    <div>
+      <button class="modal-close" type="button" data-close-modal>×</button>
+      <h2 id="numberModalTitle">Número</h2>
+      <div id="numberModalInfo"></div>
+      <div class="modal-actions">
+        <button id="blockNumber" type="button">Bloquear</button>
+        <button id="releaseNumber" type="button" class="danger">Liberar</button>
+        <button id="assignNumber" type="button">Asignar manualmente</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
