@@ -193,7 +193,7 @@ section { width: min(1200px, calc(100% - 2rem)); margin: 1.25rem auto 0; }
   content: '';
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   background:
     linear-gradient(90deg, rgba(3, 28, 61, 0.94) 0%, rgba(5, 47, 95, 0.78) 48%, rgba(5, 47, 95, 0.38) 100%),
     linear-gradient(180deg, rgba(2, 19, 43, 0.14), rgba(2, 19, 43, 0.54));
@@ -202,7 +202,7 @@ section { width: min(1200px, calc(100% - 2rem)); margin: 1.25rem auto 0; }
 .hero-bg-video {
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -212,7 +212,7 @@ section { width: min(1200px, calc(100% - 2rem)); margin: 1.25rem auto 0; }
 .hero-copy,
 .world-cup-visual {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .hero-badge {
   display: inline-flex;
@@ -1041,8 +1041,18 @@ footer span, footer p {
     </section>
 
     <section class="hero" id="inicio">
-      <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="assets/video-rifa-mundial-utopia.mp4" type="video/mp4">
+      <video
+        class="hero-bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="assets/rifa-solidaria-2026.png"
+        aria-hidden="true"
+      >
+        <source src="./assets/video-rifa-mundial-utopia.mp4?v=16" type="video/mp4">
+        <source src="./assets/VIDEO-RIFA-MUNDIAL-UTOPIA.MP4?v=16" type="video/mp4">
       </video>
 
       <div class="hero-copy">
@@ -2327,10 +2337,23 @@ window.UTOPIA_CONFIG = Object.freeze({
     const heroVideo = qs(".hero-bg-video");
     if (heroVideo) {
       heroVideo.muted = true;
-      heroVideo.play().catch(() => {});
+      heroVideo.defaultMuted = true;
+      heroVideo.setAttribute("muted", "");
+      heroVideo.load();
+
+      const playHeroVideo = () => {
+        const promise = heroVideo.play();
+        if (promise && typeof promise.catch === "function") {
+          promise.catch(() => {});
+        }
+      };
+
+      heroVideo.addEventListener("canplay", playHeroVideo, { once: true });
+      window.addEventListener("load", playHeroVideo, { once: true });
       document.addEventListener("visibilitychange", () => {
-        if (!document.hidden) heroVideo.play().catch(() => {});
+        if (!document.hidden) playHeroVideo();
       });
+      playHeroVideo();
     }
 
     applyContactSettings(state.raffle);
