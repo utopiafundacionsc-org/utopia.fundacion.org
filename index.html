@@ -175,18 +175,44 @@ section { width: min(1200px, calc(100% - 2rem)); margin: 1.25rem auto 0; }
 }
 
 .hero {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: 1.2fr 0.88fr;
   gap: clamp(1rem, 3vw, 2.5rem);
   align-items: center;
+  min-height: 690px;
   padding: clamp(1.2rem, 3vw, 2.4rem);
   border-radius: 32px;
   overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(5, 47, 95, 0.98), rgba(14, 84, 145, 0.95)),
-    url('assets/rifa-solidaria-2026.png') center/cover no-repeat;
+  background: #052f5f;
   box-shadow: var(--shadow);
   color: white;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(3, 28, 61, 0.94) 0%, rgba(5, 47, 95, 0.78) 48%, rgba(5, 47, 95, 0.38) 100%),
+    linear-gradient(180deg, rgba(2, 19, 43, 0.14), rgba(2, 19, 43, 0.54));
+  pointer-events: none;
+}
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: #052f5f;
+}
+.hero-copy,
+.world-cup-visual {
+  position: relative;
+  z-index: 1;
 }
 .hero-badge {
   display: inline-flex;
@@ -274,55 +300,37 @@ section { width: min(1200px, calc(100% - 2rem)); margin: 1.25rem auto 0; }
   border: 1px solid rgba(255,255,255,0.22);
 }
 .world-cup-visual {
-  position: relative;
-  min-height: 430px;
+  min-height: 360px;
   display: grid;
   place-items: center;
   align-content: center;
-  gap: 1rem;
-  padding: 2rem;
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
   overflow: hidden;
   border-radius: 28px;
-  background:
-    radial-gradient(circle at 50% 18%, rgba(255,255,255,0.38), transparent 20%),
-    radial-gradient(circle at 20% 30%, rgba(0,213,255,0.38), transparent 25%),
-    radial-gradient(circle at 80% 35%, rgba(132,204,0,0.28), transparent 25%),
-    linear-gradient(180deg, #061c3a 0%, #07518f 55%, #0d7f64 100%);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.13), 0 20px 50px rgba(0,0,0,0.25);
+  background: linear-gradient(180deg, rgba(3, 25, 57, 0.76), rgba(4, 71, 105, 0.7));
+  border: 1px solid rgba(255,255,255,0.24);
+  box-shadow: inset 0 0 40px rgba(21, 184, 255, 0.12), 0 20px 50px rgba(0,0,0,0.28);
+  backdrop-filter: blur(10px);
 }
-.world-cup-visual::before,
-.world-cup-visual::after {
-  content: '';
-  position: absolute;
-  bottom: -55%;
-  width: 120%;
-  height: 85%;
-  border: 2px solid rgba(255,255,255,0.16);
-  border-radius: 50%;
+.world-cup-visual p,
+.world-cup-visual strong {
+  margin: 0;
+  text-align: center;
 }
-.world-cup-visual::after { bottom: -68%; width: 88%; }
-.stadium-lights {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(115deg, transparent 0 15%, rgba(255,255,255,0.13) 16%, transparent 25%),
-    linear-gradient(65deg, transparent 0 15%, rgba(255,255,255,0.1) 16%, transparent 25%);
+.world-cup-visual p {
+  font-size: clamp(1.45rem, 2.7vw, 2.35rem);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.35);
 }
-.visual-icons {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
+.world-cup-visual strong {
+  color: #caff73;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.35);
 }
-.trophy-icon { font-size: clamp(4rem, 8vw, 7rem); filter: drop-shadow(0 12px 18px rgba(0,0,0,0.25)); }
-.ball-icon { font-size: clamp(3.5rem, 7vw, 6rem); animation: floatBall 2.8s ease-in-out infinite; }
-@keyframes floatBall { 50% { transform: translateY(-12px) rotate(8deg); } }
-.world-cup-visual p, .world-cup-visual strong {
-  position: relative; z-index: 2; margin: 0; text-align: center;
-}
-.world-cup-visual p { font-size: clamp(1.3rem, 2.5vw, 2rem); font-weight: 900; text-transform: uppercase; }
-.world-cup-visual strong { color: #caff73; text-transform: uppercase; letter-spacing: 0.06em; }
 .hero-number-strip {
   position: relative; z-index: 2; display: grid; grid-template-columns: repeat(6, minmax(42px, 1fr));
   gap: 0.5rem; width: min(100%, 440px);
@@ -530,11 +538,31 @@ section { width: min(1200px, calc(100% - 2rem)); margin: 1.25rem auto 0; }
   font-weight: 900;
   color: var(--text);
 }
-.ticket-button.available { background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.4); }
-.ticket-button.reserved { background: rgba(242, 183, 5, 0.16); border-color: rgba(242, 183, 5, 0.5); }
-.ticket-button.review { background: rgba(28, 126, 214, 0.13); border-color: rgba(28, 126, 214, 0.45); }
-.ticket-button.sold { background: rgba(224, 49, 49, 0.12); border-color: rgba(224, 49, 49, 0.45); color: #8a1c1c; }
-.ticket-button.blocked { background: rgba(148, 163, 184, 0.18); color: #516173; }
+.ticket-button.available {
+  background: linear-gradient(135deg, #35d96f, #16a34a);
+  border-color: #15803d;
+  color: white;
+}
+.ticket-button.reserved {
+  background: linear-gradient(135deg, #ffd84d, #e6a700);
+  border-color: #c88b00;
+  color: #4b3500;
+}
+.ticket-button.review {
+  background: linear-gradient(135deg, #42a5ff, #1769c2);
+  border-color: #0f5cab;
+  color: white;
+}
+.ticket-button.sold {
+  background: linear-gradient(135deg, #ff6767, #c62828);
+  border-color: #a91f1f;
+  color: white;
+}
+.ticket-button.blocked {
+  background: linear-gradient(135deg, #9aa9bb, #64748b);
+  border-color: #526276;
+  color: white;
+}
 .ticket-button.selected {
   background: linear-gradient(135deg, var(--blue-soft), var(--blue-deep));
   border-color: transparent;
@@ -937,10 +965,17 @@ footer span, footer p {
   .ticket-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
+@media (max-width: 1100px) {
+  .hero { min-height: 740px; }
+  .hero-bg-video { object-position: 58% center; }
+}
+
 @media (max-width: 760px) {
   section { width: min(100%, calc(100% - 1rem)); }
   .top-countdown, .section-heading, #phoneLookupForm { flex-direction: column; align-items: stretch; }
   .countdown { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+  .hero { min-height: 760px; }
+  .hero-bg-video { object-position: 65% center; }
   .hero h1 { font-size: clamp(2rem, 12vw, 3.6rem); }
   .hero-data, .stats-section, .steps, .prize-grid, .form-grid, .payment-summary, .winners-grid, .impact-stats, .impact-gallery, .transparency-grid, .participation-intro-grid { grid-template-columns: 1fr; }
   .ticket-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
@@ -1004,6 +1039,10 @@ footer span, footer p {
     </section>
 
     <section class="hero" id="inicio">
+      <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/video-rifa-mundial-utopia.mp4" type="video/mp4">
+      </video>
+
       <div class="hero-copy">
         <span class="hero-badge">Sorteo activo</span>
         <p class="eyebrow">Fundación Utopía · Círculo de Amigos Utopía</p>
@@ -1023,8 +1062,6 @@ footer span, footer p {
       </div>
 
       <div class="world-cup-visual" aria-hidden="true">
-        <div class="stadium-lights"></div>
-        <div class="visual-icons"><span class="trophy-icon">🏆</span><span class="ball-icon">⚽</span></div>
         <p>Rifa Solidaria Mundial 2026</p>
         <div class="hero-number-strip" id="heroNumberStrip">
           <span>0</span><span>2</span><span>5</span><span>1</span><span>7</span><span>0</span>
@@ -1669,16 +1706,72 @@ window.UTOPIA_CONFIG = Object.freeze({
     }));
   }
 
+  function canonicalTicketStatus(item = {}) {
+    const source =
+      item.status ??
+      item.estado ??
+      item.numberStatus ??
+      item.ticketStatus ??
+      item.estadoNumero ??
+      item.paymentStatus ??
+      item.estadoPago ??
+      item.situacion ??
+      "DISPONIBLE";
+
+    const normalized = String(source)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim()
+      .toUpperCase()
+      .replace(/[\s-]+/g, "_");
+
+    const aliases = {
+      DISPONIBLE: "DISPONIBLE",
+      AVAILABLE: "DISPONIBLE",
+      LIBRE: "DISPONIBLE",
+      FREE: "DISPONIBLE",
+      RECHAZADO: "DISPONIBLE",
+      REJECTED: "DISPONIBLE",
+      VENCIDO: "DISPONIBLE",
+      EXPIRED: "DISPONIBLE",
+      RESERVADO: "RESERVADO",
+      RESERVED: "RESERVADO",
+      PENDIENTE: "RESERVADO",
+      PENDING: "RESERVADO",
+      RESERVA_TEMPORAL: "RESERVADO",
+      EN_REVISION: "EN_REVISION",
+      REVISION: "EN_REVISION",
+      REVIEW: "EN_REVISION",
+      COMPROBANTE_RECIBIDO: "EN_REVISION",
+      RECIBIDO: "EN_REVISION",
+      PAYMENT_RECEIVED: "EN_REVISION",
+      VENDIDO: "VENDIDO",
+      SOLD: "VENDIDO",
+      APROBADO: "VENDIDO",
+      APPROVED: "VENDIDO",
+      PAGADO: "VENDIDO",
+      GANADOR: "VENDIDO",
+      BLOQUEADO: "BLOQUEADO",
+      BLOCKED: "BLOQUEADO",
+      INACTIVO: "BLOQUEADO",
+      CANCELADO: "BLOQUEADO"
+    };
+
+    return aliases[normalized] || "BLOQUEADO";
+  }
+
   function normalizeBoard(rawTickets) {
     const tickets = (rawTickets || []).map((item, index) => {
-      const rawNumber = item.number ?? item.ticket ?? item.numero ?? index;
-      const number = /^\d+$/.test(String(rawNumber)) ? formatTicket(Number(rawNumber)) : formatTicket(index);
-      const status = String(item.status || item.estado || "DISPONIBLE").toUpperCase();
+      const rawNumber = item.number ?? item.ticket ?? item.numero ?? item.numeroTicket ?? index;
+      const number = /^\d+$/.test(String(rawNumber))
+        ? formatTicket(Number(rawNumber))
+        : formatTicket(index);
+      const status = canonicalTicketStatus(item);
       return {
         ...item,
         number,
         status,
-        label: item.label || status
+        label: item.label || item.etiqueta || status
       };
     });
 
@@ -1693,12 +1786,21 @@ window.UTOPIA_CONFIG = Object.freeze({
     state.board = normalizeBoard(data.tickets || []);
 
     const baseStats = data.stats || {};
+    const calculatedStats = {
+      total: state.board.length,
+      sold: state.board.filter((item) => item.status === "VENDIDO").length,
+      reserved: state.board.filter((item) => item.status === "RESERVADO").length,
+      review: state.board.filter((item) => item.status === "EN_REVISION").length,
+      available: state.board.filter((item) => item.status === "DISPONIBLE").length,
+      blocked: state.board.filter((item) => item.status === "BLOQUEADO").length
+    };
     const stats = {
-      total: Number(baseStats.total ?? state.board.length ?? 0),
-      sold: Number(baseStats.sold ?? state.board.filter((item) => item.status === "VENDIDO").length),
-      reserved: Number(baseStats.reserved ?? state.board.filter((item) => item.status === "RESERVADO").length),
-      review: Number(baseStats.review ?? state.board.filter((item) => item.status === "EN_REVISION").length),
-      available: Number(baseStats.available ?? state.board.filter((item) => item.status === "DISPONIBLE").length)
+      total: Number(baseStats.total ?? baseStats.totalTickets ?? baseStats.totalNumeros ?? calculatedStats.total),
+      sold: Number(baseStats.sold ?? baseStats.vendidos ?? baseStats.approved ?? calculatedStats.sold),
+      reserved: Number(baseStats.reserved ?? baseStats.reservados ?? baseStats.pending ?? calculatedStats.reserved),
+      review: Number(baseStats.review ?? baseStats.enRevision ?? baseStats.en_revision ?? calculatedStats.review),
+      available: Number(baseStats.available ?? baseStats.disponibles ?? calculatedStats.available),
+      blocked: Number(baseStats.blocked ?? baseStats.bloqueados ?? calculatedStats.blocked)
     };
 
     state.stats = stats;
@@ -2214,6 +2316,15 @@ window.UTOPIA_CONFIG = Object.freeze({
   }
 
   async function initialize() {
+    const heroVideo = qs(".hero-bg-video");
+    if (heroVideo) {
+      heroVideo.muted = true;
+      heroVideo.play().catch(() => {});
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) heroVideo.play().catch(() => {});
+      });
+    }
+
     applyContactSettings(state.raffle);
     setupMenu();
     setupEvents();
