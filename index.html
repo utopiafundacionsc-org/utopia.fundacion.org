@@ -1,3 +1,559 @@
+Today 9:21 AM
+quiero que se vea asi que todo el tiempo esten girando numeros 
+
+
+Worked for 1m 29s
+Edit
+este es el logo
+Edit
+Código listo para GitHub
+
+Preparé el proyecto completo con el logo oficial de Fundación Utopía y diseño adaptable para celular y computadora.
+
+Descargar proyecto Sorteos Utopía para GitHub
+
+Incluye:
+
+Página principal institucional.
+Números girando continuamente.
+Contador regresivo.
+Premio, fecha y precio configurables.
+Indicadores de números vendidos y disponibles.
+Selector de números.
+Elección aleatoria de cinco números.
+Registro de participantes.
+Generación de código único.
+Panel administrativo.
+Aprobación y rechazo de participaciones.
+Exportación de participantes a CSV.
+Selección aleatoria del ganador entre pagos aprobados.
+Logo oficial dentro de la carpeta assets.
+Archivos principales
+sorteos-utopia/
+├── index.html
+├── styles.css
+├── app.js
+├── admin.html
+├── admin.css
+├── admin.js
+├── README.md
+└── assets/
+    └── logo-utopia.png
+Publicarlo en GitHub Pages
+Descomprime el archivo.
+Crea un repositorio en GitHub.
+Sube todos los archivos de la carpeta sorteos-utopia.
+Entra a Settings → Pages.
+Selecciona la rama main y la carpeta /root.
+Guarda los cambios.
+
+La página pública estará en:
+
+https://TU-USUARIO.github.io/NOMBRE-DEL-REPOSITORIO/
+
+El panel administrativo estará en:
+
+https://TU-USUARIO.github.io/NOMBRE-DEL-REPOSITORIO/admin.html
+
+Esta versión guarda la información localmente en el navegador. Para recibir registros de diferentes personas, comprobantes y pagos reales, será necesario conectarla posteriormente con Supabase, Firebase o un servidor propio. 
+
+quiero que se pueda precionar el premio para saber quien gano ese premio y que si sale un numero, aparezca la informacion del ganador.
+por ende lo quiero vincular con un google shet 
+en ese google este
+numero de ticket
+nombres y apellidos
+numero de Cedula de identidad
+numero de celular y
+Worked for 9m 25s
+Código actualizado para GitHub y Google Sheets
+
+Descargar Sorteos Utopía conectado con Google Sheets
+
+GUIA_GOOGLE_SHEETS.md
+
+Cambios realizados
+El premio ahora se puede presionar.
+Al presionarlo se consulta quién ganó ese premio.
+Cuando se publica un número ganador, aparece automáticamente:
+Número de ticket.
+Nombres y apellidos.
+Cédula de identidad protegida.
+Número de celular protegido.
+Fecha y hora del resultado.
+La página consulta Google Sheets cada 10 segundos.
+Cada ticket se registra en una fila independiente.
+Se evita registrar un ticket que ya está pendiente o aprobado.
+Solo participan tickets con estado APROBADO.
+El resultado queda guardado en una hoja de historial.
+Hojas creadas automáticamente
+
+Al ejecutar configurarSistema() se crearán:
+
+Participantes
+Premios
+Resultados
+Solicitudes
+
+La hoja Participantes contiene:
+
+Número de ticket
+Nombres y apellidos
+Cédula de identidad
+Número de celular
+Ciudad
+Método de pago
+Estado
+ID del premio
+Código de participación
+Observaciones
+
+Tu mensaje quedó cortado después de la palabra “y”. Dejé incorporados los cuatro campos que alcanzaste a indicar, además de los campos operativos necesarios.
+
+Configuración
+Crea un Google Sheet.
+Abre Extensiones → Apps Script.
+Copia el archivo:
+google-apps-script/Code.gs
+Ejecuta configurarSistema().
+En Apps Script entra en Implementar → Nueva implementación → Aplicación web.
+Configura Ejecutar como: Yo y el acceso para quienes utilizarán la página.
+Copia la dirección terminada en /exec.
+Pégala en config.js:
+window.UTOPIA_SETTINGS = {
+  apiUrl: "https://script.google.com/macros/s/TU_IMPLEMENTACION/exec",
+  googleSheetUrl: "https://docs.google.com/spreadsheets/d/TU_ARCHIVO/edit",
+  prizeId: "PREMIO-001",
+  winnerPollIntervalMs: 10000,
+  publicWinnerDataNotice:
+    "Los datos personales se muestran parcialmente protegidos."
+};
+
+Apps Script permite publicar funciones doGet y doPost como una aplicación web, mientras que SpreadsheetApp permite acceder y modificar el archivo de Google Sheets.
+
+Cómo realizar el sorteo
+
+Dentro del Google Sheet:
+
+Revisa los pagos.
+Cambia el estado de los tickets pagados a APROBADO.
+Abre el menú Sorteos Utopía.
+Presiona Realizar sorteo.
+Escribe PREMIO-001.
+
+El ticket ganador se guardará en Premios y Resultados. La página lo detectará y mostrará automáticamente la información del ganador.
+
+La cédula y el celular completos quedan guardados en el Google Sheet, pero se muestran parcialmente ocultos en la página pública para proteger los datos personales.
+
+dame todos los archivos empecemos por el google
+1. Archivos de Google Sheets
+
+Preparé el backend completo para vincular el sorteo con Google Sheets:
+
+Descargar paquete de Google Sheets
+
+También puedes descargar los archivos por separado:
+
+Code.gs
+appsscript.json
+GUIA_GOOGLE_SHEETS.md
+Qué contiene
+
+El sistema crea automáticamente estas hojas:
+
+CONFIGURACION
+PREMIOS
+PARTICIPANTES
+RESULTADOS
+REGISTRO
+
+En PARTICIPANTES, cada ticket se guarda en una fila con:
+
+Número de ticket.
+Nombres y apellidos.
+Cédula de identidad.
+Número de celular.
+Ciudad.
+Método de pago.
+Estado.
+Código de participación.
+Observaciones.
+Fecha de registro.
+Funciones incluidas
+Evita que un mismo ticket se registre dos veces.
+Permite aprobar, rechazar o dejar pendiente cada ticket.
+Solo participan los tickets aprobados.
+Selecciona aleatoriamente al ganador.
+Guarda el resultado en Google Sheets.
+Permite publicar u ocultar al ganador.
+La página podrá consultar el ganador automáticamente.
+Al presionar el premio se podrá mostrar:
+Premio ganado.
+Número ganador.
+Nombre completo.
+Cédula protegida.
+Celular protegido.
+Código de participación.
+Fecha del sorteo.
+Primer paso
+
+Crea un Google Sheet y entra en:
+
+Extensiones → Apps Script
+
+Después copia el contenido de Code.gs, ejecuta:
+
+configurarSistema()
+
+Luego publica el proyecto como Aplicación web con acceso para Cualquier persona.
+
+Tu mensaje anterior terminó en “número de celular y…”. Ese campo faltante se puede añadir cuando me indiques cuál es. 
+
+ESTOS SON LOS PREMIOS
+Worked for 59s
+
+Perfecto. Actualicé el sistema de Google Sheets con los tres premios de la Rifa Solidaria Mundial 2026:
+
+Televisor FLUX de 50" UHD 4K, Smart Android 14.
+Parlante MASTER-G, con batería, USB y Bluetooth.
+Cafetera OSTER de 12 tazas, con filtro permanente.
+
+También configuré:
+
+Precio del ticket: 50 Bs.
+Fecha del sorteo: 17/07/2026.
+Los mismos tickets participan por los tres premios.
+Por defecto, un ticket ganador no puede ganar otro premio.
+Cada premio tendrá su propio ganador.
+Al presionar un premio en la página, se consultará quién lo ganó.
+La información pública mostrará ticket, nombre, cédula protegida, celular protegido y código de participación.
+Archivos actualizados de Google
+
+Descargar paquete completo de Google Sheets
+
+Archivos separados:
+
+Descargar Code.gs
+appsscript.json
+GUIA_INSTALACION.md
+Importante
+
+Como el código anterior estaba diseñado para un solo premio y ahora tendremos una rifa con tres premios, usa preferiblemente un Google Sheet nuevo y vacío.
+
+Después:
+
+Entra en Extensiones → Apps Script.
+Reemplaza el código por el nuevo Code.gs.
+Selecciona la función:
+configurarSistema
+Presiona Ejecutar.
+Autoriza los permisos.
+Regresa al Google Sheet y actualiza la página.
+
+Se crearán estas hojas:
+
+CONFIGURACION
+SORTEOS
+PREMIOS
+PARTICIPANTES
+RESULTADOS
+REGISTRO
+
+El arte no indica la cantidad total de tickets, por lo que dejé inicialmente 1.000 tickets, desde 0000 hasta 0999. Este valor se puede cambiar posteriormente en la hoja SORTEOS, columna TOTAL_TICKETS. 
+
+ID DE IMPLEMENTACION
+AKfycbyuGbQsMkBIJGmMztT4i0jh-7Pv8k_XNsc7OO0lJ5xziI3HrWF70DqLDeHVF7rZTnO8_A
+
+APP WEB https://script.google.com/macros/s/AKfycbyuGbQsMkBIJGmMztT4i0jh-7Pv8k_XNsc7OO0lJ5xziI3HrWF70DqLDeHVF7rZTnO8_A/exec
+Worked for 1m 6s
+
+Recibí correctamente el ID de implementación y la dirección de la aplicación web.
+
+Al verificarla, actualmente redirige al inicio de sesión de Google. Esto significa que todavía no está disponible para visitantes anónimos, por lo que la página de GitHub no podrá consultar ni registrar participantes.
+
+Corrige la implementación
+
+En Apps Script entra en:
+
+Implementar → Gestionar implementaciones.
+Presiona el ícono del lápiz.
+En Versión, selecciona Nueva versión.
+Configura:
+Ejecutar como: Yo.
+Quién tiene acceso: Cualquier persona.
+Presiona Implementar.
+Autoriza nuevamente si Google lo solicita.
+
+La opción correcta permite que cualquier persona, incluso sin iniciar sesión, utilice la aplicación web; técnicamente corresponde al acceso ANYONE_ANONYMOUS. Ejecutarla como propietario corresponde a USER_DEPLOYING.
+
+Después abre la dirección /exec en una ventana de incógnito. Debería aparecer una respuesta parecida a:
+
+{
+  "ok": true,
+  "app": "Sorteos Utopía",
+  "version": "2.0"
+}
+
+Cuando ya abra sin pedir cuenta de Google, escribe “listo” y preparo todos los archivos de GitHub conectados directamente con esta implementación.
+
+no te entendi
+
+Tu enlace está creado, pero actualmente pide iniciar sesión con Google. Para que la página de sorteos pueda conectarse, debes permitir el acceso a cualquier persona. Google llama a esto acceso anónimo.
+
+Haz exactamente esto:
+
+En Apps Script, presiona el botón azul Implementar.
+Selecciona Gestionar implementaciones.
+Presiona el ícono del lápiz ✏️.
+Donde dice Versión, selecciona Nueva versión.
+En Ejecutar como, deja:
+Yo
+En Quién tiene acceso, selecciona:
+Cualquier persona
+Presiona Implementar.
+Copia nuevamente el enlace que termina en /exec.
+
+La configuración debe verse así:
+
+Ejecutar como: Yo
+Quién tiene acceso: Cualquier persona
+
+No tienes que cambiar el código ni crear otro Google Sheet.
+
+Después abre el enlace /exec en una ventana de incógnito. Si está bien configurado, ya no pedirá iniciar sesión y mostrará un texto parecido a:
+
+{"ok":true,"app":"Sorteos Utopía","version":"2.0"}
+
+Google confirma que la opción Cualquier persona permite entrar incluso sin una cuenta iniciada.
+
+cual es el /exe 
+
+
+El enlace correcto es el que aparece en la sección “App web”, no el de “Biblioteca”.
+
+Tu enlace /exec completo es:
+
+https://script.google.com/macros/s/AKfycbyuGbQsMkBIJGmMztT4i0jh-7Pv8k_XNsc7OO0lJ5xziI3HrWF70DqLDeHVF7rZTnO8_A/exec
+
+Debe terminar exactamente en:
+
+/exec
+
+No es /exe.
+
+Para probarlo, abre este enlace:
+
+https://script.google.com/macros/s/AKfycbyuGbQsMkBIJGmMztT4i0jh-7Pv8k_XNsc7OO0lJ5xziI3HrWF70DqLDeHVF7rZTnO8_A/exec?action=health
+
+Si está funcionando, mostrará algo parecido a:
+
+{"ok":true,"app":"Sorteos Utopía","version":"2.0"}
+si muestra eso
+Worked for 34s
+
+Perfecto. La conexión ya funciona y preparé la página de GitHub vinculada directamente con tu Google Sheets.
+
+Descargar página completa para GitHub
+
+La página incluye:
+
+Los tres premios de la rifa.
+Cada premio se puede presionar.
+Consulta automática del ganador correspondiente.
+Muestra ticket ganador, nombre, cédula protegida, celular protegido y código.
+Números girando permanentemente.
+Registro de participantes directamente en Google Sheets.
+Consulta del estado de cada ticket.
+Actualización automática de ganadores cada 10 segundos.
+Precio de 50 Bs y fecha 17/07/2026.
+Diseño adaptable para celular y computadora.
+
+La dirección de Google ya está configurada dentro de config.js:
+
+apiUrl: "https://script.google.com/macros/s/AKfycbyuGbQsMkBIJGmMztT4i0jh-7Pv8k_XNsc7OO0lJ5xziI3HrWF70DqLDeHVF7rZTnO8_A/exec"
+Archivos incluidos
+index.html
+styles.css
+app.js
+config.js
+README.md
+.nojekyll
+assets/
+  logo-utopia.png
+  rifa-solidaria-2026.png
+  premio-televisor.jpg
+  premio-parlante.jpg
+  premio-cafetera.jpg
+
+Ahora debes descomprimirlo, subir todos los archivos al repositorio y activar Settings → Pages → main → root. 
+
+donde coloco las imagenes de los premios , el logo de utopia logo del circulo de amigos utopia
+
+Todas las imágenes deben ir dentro de la carpeta:
+
+assets/
+
+La estructura debe quedar así:
+
+sorteos-utopia/
+├── index.html
+├── styles.css
+├── app.js
+├── config.js
+└── assets/
+    ├── logo-utopia.png
+    ├── logo-circulo-amigos-utopia.png
+    ├── premio-televisor.jpg
+    ├── premio-parlante.jpg
+    ├── premio-cafetera.jpg
+    └── rifa-solidaria-2026.png
+Imágenes de los premios
+
+Coloca cada fotografía con estos nombres exactos:
+
+assets/premio-televisor.jpg
+assets/premio-parlante.jpg
+assets/premio-cafetera.jpg
+
+El código ya las busca con esos nombres:
+
+<img src="assets/premio-televisor.jpg" alt="Televisor FLUX de 50 pulgadas">
+
+<img src="assets/premio-parlante.jpg" alt="Parlante MASTER-G">
+
+<img src="assets/premio-cafetera.jpg" alt="Cafetera OSTER de 12 tazas">
+
+Solo tienes que reemplazar las imágenes actuales conservando exactamente los mismos nombres.
+
+Logo de Fundación Utopía
+
+Colócalo como:
+
+assets/logo-utopia.png
+
+Actualmente aparece en la cabecera y en el pie de página mediante:
+
+<img src="assets/logo-utopia.png" alt="Fundación Utopía">
+Logo del Círculo de Amigos Utopía
+
+Colócalo como:
+
+assets/logo-circulo-amigos-utopia.png
+
+Para mostrar los dos logos en la cabecera, reemplaza esta parte:
+
+<a href="#inicio" class="brand">
+  <img src="assets/logo-utopia.png" alt="Fundación Utopía">
+</a>
+
+Por esta:
+
+<a href="#inicio" class="brand brand-logos">
+  <img src="assets/logo-circulo-amigos-utopia.png"
+       alt="Círculo de Amigos Utopía">
+
+  <img src="assets/logo-utopia.png"
+       alt="Fundación Utopía">
+</a>
+
+Y agrega al final de styles.css:
+
+.brand-logos {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logos img {
+  width: auto;
+  max-width: 145px;
+  max-height: 58px;
+  object-fit: contain;
+}
+
+@media (max-width: 580px) {
+  .brand-logos {
+    gap: 7px;
+  }
+
+  .brand-logos img {
+    max-width: 95px;
+    max-height: 46px;
+  }
+}
+Imagen completa del arte
+
+El afiche completo debe conservar este nombre:
+
+assets/rifa-solidaria-2026.png
+
+Se muestra en la portada mediante:
+
+<img src="assets/rifa-solidaria-2026.png"
+     alt="Premios de la Rifa Solidaria Mundial 2026">
+
+En GitHub debes entrar a la carpeta assets, presionar Add file → Upload files, cargar las imágenes y confirmar con Commit changes. Los nombres deben coincidir exactamente, incluyendo guiones, extensión y letras minúsculas.
+
+ como anado 
+
+Ya estás en el menú correcto. Presiona Upload files, pero primero debes eliminar el archivo llamado assets, porque todavía aparece como archivo y no como carpeta.
+
+Primero elimina assets
+Cierra ese menú.
+Presiona sobre el archivo assets de la lista.
+Dentro del archivo, presiona el menú ⋯ o la flecha junto al lápiz.
+Selecciona Delete file.
+Presiona Commit changes.
+Después sube la carpeta correcta
+Regresa a la página principal del repositorio.
+Presiona el botón + que aparece al lado de Go to file.
+Selecciona Upload files —es la opción que se ve en tu captura.
+En tu computadora, abre el archivo ZIP que te entregué y descomprímelo.
+Arrastra la carpeta completa:
+assets
+Espera a que aparezcan estas imágenes:
+assets/logo-utopia.png
+assets/rifa-solidaria-2026.png
+assets/premio-televisor.jpg
+assets/premio-parlante.jpg
+assets/premio-cafetera.jpg
+En la parte inferior presiona Commit changes.
+
+La carpeta correcta mostrará un ícono de carpeta y podrás abrirla para ver las imágenes. El assets que aparece ahora tiene un ícono de hoja, por eso debes eliminarlo primero.
+
+sale sin conexcion 
+si no hay ganador al precionar los premios, que diga el proximo ganador puedes ser tu 
+que el conteo regresivo este arriba  17/7/2026 a las 20:00
+Que no diga numeros girando 
+Worked for 53s
+que no diga nada de conectad con google sheets
+Worked for 1m 6s
+
+Ya corregí la página:
+
+Eliminé “Sin conexión”.
+Eliminé todas las menciones visibles a Google Sheets.
+Al presionar un premio sin ganador aparecerá: “¡El próximo ganador puedes ser tú!”
+Moví la cuenta regresiva a la parte superior.
+Ahora muestra: 17/07/2026 a las 20:00.
+Los números continúan moviéndose, pero ya no aparece el texto “Números girando”.
+Se mantiene la consulta automática de resultados en segundo plano.
+
+Descargar página corregida
+
+También puedes reemplazar únicamente estos tres archivos en GitHub:
+
+index.html
+styles.css
+app.js
+
+En GitHub, presiona Add file → Upload files, carga los tres archivos, confirma Replace si aparece y luego presiona Commit changes. Después actualiza la página con Ctrl + F5. 
+
+Library
+/
+index.html
+Library
+/
+index.html
 <!doctype html>
 <html lang="es">
 <head>
@@ -29,13 +585,23 @@
       <a href="#ganadores">Ganadores</a>
       <a href="#consulta">Consultar ticket</a>
     </nav>
-
-    <span class="connection" id="connectionStatus">
-      <i></i> Conectando
-    </span>
   </header>
 
   <main>
+
+    <section class="top-countdown" aria-label="Cuenta regresiva para la rifa">
+      <div class="top-countdown-title">
+        <span>Rifa Solidaria Mundial 2026</span>
+        <strong id="countdownDateTime">17/07/2026 a las 20:00</strong>
+      </div>
+      <div class="countdown">
+        <article><strong id="days">00</strong><small>Días</small></article>
+        <article><strong id="hours">00</strong><small>Horas</small></article>
+        <article><strong id="minutes">00</strong><small>Minutos</small></article>
+        <article><strong id="seconds">00</strong><small>Segundos</small></article>
+      </div>
+    </section>
+
     <section class="hero" id="inicio">
       <div class="hero-background"></div>
 
@@ -73,29 +639,9 @@
       </div>
     </section>
 
-    <section class="rolling-section" aria-label="Números girando">
-      <div class="rolling-title">
-        <span class="rotate-icon">⟳</span>
-        <div>
-          <strong>Números girando</strong>
-          <small>Tu ticket puede ser el ganador</small>
-        </div>
-      </div>
+    <section class="rolling-section" aria-label="Animación de tickets">
       <div class="rolling-window">
         <div class="rolling-track" id="rollingTrack"></div>
-      </div>
-    </section>
-
-    <section class="countdown-section">
-      <div>
-        <span class="section-label">Cuenta regresiva</span>
-        <h2>El sorteo se acerca</h2>
-      </div>
-      <div class="countdown">
-        <article><strong id="days">00</strong><small>Días</small></article>
-        <article><strong id="hours">00</strong><small>Horas</small></article>
-        <article><strong id="minutes">00</strong><small>Minutos</small></article>
-        <article><strong id="seconds">00</strong><small>Segundos</small></article>
       </div>
     </section>
 
@@ -153,11 +699,11 @@
 
     <section class="participation-section" id="participar">
       <div class="participation-copy">
-        <span class="section-label light">Registro conectado con Google Sheets</span>
+        <span class="section-label light">Participa en la rifa</span>
         <h2>Registra tu participación</h2>
         <p>
           Completa tus datos y elige uno o varios tickets. Cada ticket quedará
-          pendiente hasta que el equipo confirme el pago en Google Sheets.
+          pendiente hasta que el equipo confirme el pago.
         </p>
 
         <ul>
@@ -225,7 +771,7 @@
         <div>
           <span class="section-label">Resultados publicados</span>
           <h2>Ganadores</h2>
-          <p>Esta sección se actualiza automáticamente desde Google Sheets.</p>
+          <p>Los resultados oficiales aparecerán aquí cuando sean publicados.</p>
         </div>
         <button class="refresh-button" id="refreshWinners" type="button">Actualizar ahora</button>
       </div>
@@ -270,7 +816,7 @@
     </div>
     <div>
       <strong>Transparencia</strong>
-      <span>Resultados vinculados con Google Sheets.</span>
+      <span>Resultados oficiales de la rifa.</span>
       <span>Los datos sensibles se muestran protegidos.</span>
     </div>
   </footer>
@@ -281,7 +827,7 @@
       <span class="winner-icon">🏆</span>
       <p class="winner-kicker" id="modalPrizeOrder">Resultado del premio</p>
       <h2 id="modalPrizeName">Premio</h2>
-      <div class="winner-loading" id="winnerLoading">Consultando Google Sheets...</div>
+      <div class="winner-loading" id="winnerLoading">Consultando el resultado...</div>
       <div class="winner-data" id="winnerData" hidden>
         <div class="winning-ticket">
           <small>Ticket ganador</small>
@@ -296,8 +842,8 @@
         </dl>
       </div>
       <div class="no-winner" id="noWinner" hidden>
-        <strong>Este premio todavía no tiene un ganador publicado.</strong>
-        <p>Vuelve a consultar después de realizarse el sorteo.</p>
+        <strong>¡El próximo ganador puedes ser tú!</strong>
+        <p>Participa y mantente atento a los resultados oficiales.</p>
       </div>
     </div>
   </dialog>
