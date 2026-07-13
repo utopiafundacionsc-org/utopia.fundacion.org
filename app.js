@@ -1,15 +1,19 @@
 (() => {
   "use strict";
 
-  const CONFIG = window.UTOPIA_CONFIG;
+  const CONFIG = window.UTOPIA_CONFIG || {};
+  const DEFAULT_DRAW_DATE = "2026-07-17T20:00:00-04:00";
+  const MAX_PROOF_BYTES = 5 * 1024 * 1024;
+
   const qs = (selector) => document.querySelector(selector);
   const qsa = (selector) => [...document.querySelectorAll(selector)];
 
   const state = {
-    raffle: null,
     prizes: [],
     winners: []
   };
+
+  let countdownTimer = null;
 
   const prizeLabels = {
     "PREMIO-001": "Primer premio",
@@ -19,10 +23,15 @@
 
   function buildUrl(action, params = {}) {
     const url = new URL(CONFIG.apiUrl);
+
     url.searchParams.set("action", action);
 
     Object.entries(params).forEach(([key, value]) => {
-      if (value !== undefined && value !== null && value !== "") {
+      if (
+        value !== undefined &&
+        value !== null &&
+        value !== ""
+      ) {
         url.searchParams.set(key, value);
       }
     });
@@ -31,14 +40,19 @@
   }
 
   async function getJson(action, params = {}) {
-    const response = await fetch(buildUrl(action, params), {
-      method: "GET",
-      cache: "no-store",
-      redirect: "follow"
-    });
+    const response = await fetch(
+      buildUrl(action, params),
+      {
+        method: "GET",
+        cache: "no-store",
+        redirect: "follow"
+      }
+    );
 
     if (!response.ok) {
-      throw new Error(`Error de conexión: ${response.status}`);
+      throw new Error(
+        `Error ${response.status}`
+      );
     }
 
     return response.json();
@@ -47,185 +61,212 @@
   async function postForm(payload) {
     const form = new URLSearchParams();
 
-    Object.entries(payload).forEach(([key, value]) => {
-      form.set(
-        key,
-        Array.isArray(value)
-          ? JSON.stringify(value)
-          : String(value ?? "")
-      );
-    });
+    Object.entries(payload).forEach(
+      ([key, value]) => {
+        form.set(
+          key,
+          Array.isArray(value)
+            ? JSON.stringify(value)
+            : String(value ?? "")
+        );
+      }
+    );
 
-    const response = await fetch(CONFIG.apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type":
-          "application/x-www-form-urlencoded;charset=UTF-8"
-      },
-      body: form.toString(),
-      redirect: "follow"
-    });
+    const response = await fetch(
+      CONFIG.apiUrl,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type":
+            "application/x-www-form-urlencoded;charset=UTF-8"
+        },
+        body: form.toString(),
+        redirect: "follow"
+      }
+    );
 
     if (!response.ok) {
-      throw new Error(`Error de conexión: ${response.status}`);
+      throw new Error(
+        `Error ${response.status}`
+      );
     }
 
     return response.json();
   }
 
+  function startCountdown(
+    dateInput = DEFAULT_DRAW_DATE
+  ) {
+    const target =
+      new Date(dateInput).getTime();
+
+    if (!Number.isFinite(target)) {
+      return;
+    }
+
+    if (countdownTimer) {
+      window.clearInterval(
+        countdownTimer
+      );
+    }
+
+    const update = () => {
+      const difference = Math.max(
+        0,
+        target - Date.now()
+      );
+
+      const values = {
+        days: Math.floor(
+          difference / 86400000
+        ),
+
+        hours: Math.floor(
+          (difference % 86400000) /
+            3600000
+        ),
+
+        minutes: Math.floor(
+          (difference % 3600000) /
+            60000
+        ),
+
+        seconds: Math.floor(
+          (difference % 60000) /
+            1000
+        )
+      };
+
+      Object.entries(values).forEach(
+        ([id, value]) => {
+          const element =
+            qs(`#${id}`);
+
+          if (element) {
+            element.textContent =
+              String(value).padStart(
+                2,
+                "0"
+              );
+          }
+        }
+      );
+    };
+
+    update();
+
+    countdownTimer =
+      window.setInterval(
+        update,
+        1000
+      );
+  }
+
   function createRollingNumbers() {
-    const track = qs("#rollingTrack");
+    const track =
+      qs("#rollingTrack");
 
-    if (!track) return;
+    if (!track) {
+      return;
+    }
 
-    for (let i = 0; i < 48; i += 1) {
-      const digit = document.createElement("span");
+    track.innerHTML = "";
 
-      digit.className = "rolling-digit";
-      digit.textContent = Math.floor(Math.random() * 10);
+    for (
+      let i = 0;
+      i < 48;
+      i += 1
+    ) {
+      const digit =
+        document.createElement(
+          "span"
+        );
+
+      digit.className =
+        "rolling-digit";
+
+      digit.textContent =
+        Math.floor(
+          Math.random() * 10
+        );
 
       track.appendChild(digit);
 
       const speed =
-        130 + Math.floor(Math.random() * 390);
+        150 +
+        Math.floor(
+          Math.random() * 360
+        );
 
       window.setInterval(() => {
-        digit.classList.remove("flip");
+        digit.classList.remove(
+          "flip"
+        );
 
         void digit.offsetWidth;
 
-        digit.classList.add("flip");
+        digit.classList.add(
+          "flip"
+        );
 
         window.setTimeout(() => {
           digit.textContent =
-            Math.floor(Math.random() * 10);
+            Math.floor(
+              Math.random() * 10
+            );
         }, 80);
       }, speed);
     }
   }
 
   function setupMenu() {
-    const button = qs("#menuButton");
-    const nav = qs("#nav");
+    const button =
+      qs("#menuButton");
 
-    if (!button || !nav) return;
+    const nav =
+      qs("#nav");
 
-    button.addEventListener("click", () => {
-      const open = nav.classList.toggle("open");
+    if (!button || !nav) {
+      return;
+    }
 
-      button.setAttribute(
-        "aria-expanded",
-        String(open)
-      );
-    });
-
-    qsa("#nav a").forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("open");
+    button.addEventListener(
+      "click",
+      () => {
+        const open =
+          nav.classList.toggle(
+            "open"
+          );
 
         button.setAttribute(
           "aria-expanded",
-          "false"
+          String(open)
         );
-      });
-    });
-  }
-
-  function startCountdown(dateInput) {
-    const target = new Date(dateInput).getTime();
-
-    function update() {
-      const diff = Math.max(
-        0,
-        target - Date.now()
-      );
-
-      const days =
-        Math.floor(diff / 86400000);
-
-      const hours =
-        Math.floor(
-          (diff % 86400000) / 3600000
-        );
-
-      const minutes =
-        Math.floor(
-          (diff % 3600000) / 60000
-        );
-
-      const seconds =
-        Math.floor(
-          (diff % 60000) / 1000
-        );
-
-      if (qs("#days")) {
-        qs("#days").textContent =
-          String(days).padStart(2, "0");
       }
-
-      if (qs("#hours")) {
-        qs("#hours").textContent =
-          String(hours).padStart(2, "0");
-      }
-
-      if (qs("#minutes")) {
-        qs("#minutes").textContent =
-          String(minutes).padStart(2, "0");
-      }
-
-      if (qs("#seconds")) {
-        qs("#seconds").textContent =
-          String(seconds).padStart(2, "0");
-      }
-    }
-
-    update();
-
-    window.setInterval(update, 1000);
-  }
-
-  function applyRaffle(raffle) {
-    state.raffle = raffle;
-
-    if (qs("#ticketPrice")) {
-      qs("#ticketPrice").textContent =
-        `${new Intl.NumberFormat("es-BO").format(
-          raffle.ticketPrice
-        )} ${raffle.currency}`;
-    }
-
-    const date = new Date(
-      raffle.drawDate
     );
 
-    const formattedDate =
-      new Intl.DateTimeFormat("es-BO", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric"
-      }).format(date);
+    qsa("#nav a").forEach(
+      (link) => {
+        link.addEventListener(
+          "click",
+          () => {
+            nav.classList.remove(
+              "open"
+            );
 
-    const formattedTime =
-      new Intl.DateTimeFormat("es-BO", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false
-      }).format(date);
-
-    if (qs("#drawDate")) {
-      qs("#drawDate").textContent =
-        formattedDate;
-    }
-
-    if (qs("#countdownDateTime")) {
-      qs("#countdownDateTime").textContent =
-        `${formattedDate} a las ${formattedTime}`;
-    }
-
-    startCountdown(raffle.drawDate);
+            button.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+          }
+        );
+      }
+    );
   }
 
-  function applyPrizeStatuses(prizes) {
+  function applyPrizeStatuses(
+    prizes
+  ) {
     state.prizes = prizes;
 
     prizes.forEach((prize) => {
@@ -233,7 +274,9 @@
         `#status-${prize.id}`
       );
 
-      if (!status) return;
+      if (!status) {
+        return;
+      }
 
       if (prize.winner) {
         status.textContent =
@@ -258,33 +301,89 @@
       const data = await getJson(
         "raffle",
         {
-          raffleId: CONFIG.raffleId
+          raffleId:
+            CONFIG.raffleId
         }
       );
 
       if (!data.ok) {
-        throw new Error(
-          data.error ||
-          "No se pudo cargar la rifa."
-        );
+        return;
       }
 
-      applyRaffle(data.raffle);
+      const raffle = data.raffle;
+
+      if (qs("#ticketPrice")) {
+        qs(
+          "#ticketPrice"
+        ).textContent =
+          `${new Intl.NumberFormat(
+            "es-BO"
+          ).format(
+            raffle.ticketPrice
+          )} ${raffle.currency}`;
+      }
+
+      if (raffle.drawDate) {
+        startCountdown(
+          raffle.drawDate
+        );
+
+        const date =
+          new Date(
+            raffle.drawDate
+          );
+
+        const formattedDate =
+          new Intl.DateTimeFormat(
+            "es-BO",
+            {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric"
+            }
+          ).format(date);
+
+        const formattedTime =
+          new Intl.DateTimeFormat(
+            "es-BO",
+            {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false
+            }
+          ).format(date);
+
+        if (qs("#drawDate")) {
+          qs(
+            "#drawDate"
+          ).textContent =
+            formattedDate;
+        }
+
+        if (
+          qs("#countdownDateTime")
+        ) {
+          qs(
+            "#countdownDateTime"
+          ).textContent =
+            `${formattedDate} a las ${formattedTime}`;
+        }
+      }
 
       applyPrizeStatuses(
-        data.raffle.prizes || []
+        raffle.prizes || []
       );
     } catch (error) {
       console.error(error);
-
-      startCountdown(
-        "2026-07-17T20:00:00-04:00"
-      );
     }
   }
 
-  function formatWinnerDate(value) {
-    if (!value) return "—";
+  function formatWinnerDate(
+    value
+  ) {
+    if (!value) {
+      return "—";
+    }
 
     return new Intl.DateTimeFormat(
       "es-BO",
@@ -292,49 +391,64 @@
         dateStyle: "long",
         timeStyle: "short"
       }
-    ).format(new Date(value));
+    ).format(
+      new Date(value)
+    );
   }
 
-  async function openWinner(prizeId) {
+  async function openWinner(
+    prizeId
+  ) {
     const modal =
       qs("#winnerModal");
 
     const prize =
       state.prizes.find(
-        (item) => item.id === prizeId
+        (item) =>
+          item.id === prizeId
       );
 
-    const fallbackCard =
+    const fallback = qs(
+      `[data-prize-id="${prizeId}"] h3`
+    );
+
+    if (
+      qs("#modalPrizeOrder")
+    ) {
       qs(
-        `[data-prize-id="${prizeId}"] h3`
-      );
-
-    if (qs("#modalPrizeOrder")) {
-      qs("#modalPrizeOrder").textContent =
+        "#modalPrizeOrder"
+      ).textContent =
         prizeLabels[prizeId] ||
         "Resultado del premio";
     }
 
-    if (qs("#modalPrizeName")) {
-      qs("#modalPrizeName").textContent =
+    if (
+      qs("#modalPrizeName")
+    ) {
+      qs(
+        "#modalPrizeName"
+      ).textContent =
         prize?.name ||
-        fallbackCard?.textContent ||
+        fallback?.textContent ||
         "Premio";
     }
 
     if (qs("#winnerLoading")) {
-      qs("#winnerLoading").hidden =
-        false;
+      qs(
+        "#winnerLoading"
+      ).hidden = false;
     }
 
     if (qs("#winnerData")) {
-      qs("#winnerData").hidden =
-        true;
+      qs(
+        "#winnerData"
+      ).hidden = true;
     }
 
     if (qs("#noWinner")) {
-      qs("#noWinner").hidden =
-        true;
+      qs(
+        "#noWinner"
+      ).hidden = true;
     }
 
     if (
@@ -358,86 +472,121 @@
         }
       );
 
-      if (qs("#winnerLoading")) {
-        qs("#winnerLoading").hidden =
-          true;
+      if (
+        qs("#winnerLoading")
+      ) {
+        qs(
+          "#winnerLoading"
+        ).hidden = true;
       }
 
-      if (!data.ok || !data.winner) {
+      if (
+        !data.ok ||
+        !data.winner
+      ) {
         if (qs("#noWinner")) {
-          qs("#noWinner").hidden =
-            false;
+          qs(
+            "#noWinner"
+          ).hidden = false;
         }
 
-        if (qs("#noWinner strong")) {
+        if (
+          qs("#noWinner strong")
+        ) {
           qs(
             "#noWinner strong"
           ).textContent =
             "¡El próximo ganador puedes ser tú!";
         }
 
-        if (qs("#noWinner p")) {
-          qs("#noWinner p").textContent =
+        if (
+          qs("#noWinner p")
+        ) {
+          qs(
+            "#noWinner p"
+          ).textContent =
             "Participa y mantente atento a los resultados oficiales.";
         }
 
         return;
       }
 
-      const winner = data.winner;
+      const winner =
+        data.winner;
 
       if (qs("#modalTicket")) {
-        qs("#modalTicket").textContent =
+        qs(
+          "#modalTicket"
+        ).textContent =
           winner.ticket;
       }
 
-      if (qs("#modalWinnerName")) {
+      if (
+        qs("#modalWinnerName")
+      ) {
         qs(
           "#modalWinnerName"
         ).textContent =
           winner.fullName;
       }
 
-      if (qs("#modalIdentity")) {
-        qs("#modalIdentity").textContent =
+      if (
+        qs("#modalIdentity")
+      ) {
+        qs(
+          "#modalIdentity"
+        ).textContent =
           winner.identityNumber;
       }
 
       if (qs("#modalPhone")) {
-        qs("#modalPhone").textContent =
+        qs(
+          "#modalPhone"
+        ).textContent =
           winner.phone;
       }
 
       if (qs("#modalCode")) {
-        qs("#modalCode").textContent =
+        qs(
+          "#modalCode"
+        ).textContent =
           winner.participationCode;
       }
 
       if (qs("#modalDate")) {
-        qs("#modalDate").textContent =
+        qs(
+          "#modalDate"
+        ).textContent =
           formatWinnerDate(
             winner.drawDate
           );
       }
 
       if (qs("#winnerData")) {
-        qs("#winnerData").hidden =
-          false;
+        qs(
+          "#winnerData"
+        ).hidden = false;
       }
     } catch (error) {
       console.error(error);
 
-      if (qs("#winnerLoading")) {
-        qs("#winnerLoading").hidden =
-          true;
+      if (
+        qs("#winnerLoading")
+      ) {
+        qs(
+          "#winnerLoading"
+        ).hidden = true;
       }
 
       if (qs("#noWinner")) {
-        qs("#noWinner").hidden =
-          false;
+        qs(
+          "#noWinner"
+        ).hidden = false;
       }
 
-      if (qs("#noWinner strong")) {
+      if (
+        qs("#noWinner strong")
+      ) {
         qs(
           "#noWinner strong"
         ).textContent =
@@ -445,7 +594,9 @@
       }
 
       if (qs("#noWinner p")) {
-        qs("#noWinner p").textContent =
+        qs(
+          "#noWinner p"
+        ).textContent =
           "Participa y mantente atento a los resultados oficiales.";
       }
     }
@@ -465,52 +616,53 @@
       }
     );
 
-    const closeButton =
-      qs("#closeWinnerModal");
+    qs(
+      "#closeWinnerModal"
+    )?.addEventListener(
+      "click",
+      () => {
+        qs(
+          "#winnerModal"
+        )?.close();
+      }
+    );
 
-    const modal =
-      qs("#winnerModal");
-
-    if (closeButton && modal) {
-      closeButton.addEventListener(
-        "click",
-        () => {
-          modal.close();
+    qs(
+      "#winnerModal"
+    )?.addEventListener(
+      "click",
+      (event) => {
+        if (
+          event.target ===
+          qs("#winnerModal")
+        ) {
+          qs(
+            "#winnerModal"
+          ).close();
         }
-      );
-    }
-
-    if (modal) {
-      modal.addEventListener(
-        "click",
-        (event) => {
-          if (event.target === modal) {
-            modal.close();
-          }
-        }
-      );
-    }
+      }
+    );
   }
 
   async function loadWinners() {
     const container =
       qs("#winnersGrid");
 
-    if (!container) return;
+    if (!container) {
+      return;
+    }
 
     try {
       const data = await getJson(
         "winners",
         {
-          raffleId: CONFIG.raffleId
+          raffleId:
+            CONFIG.raffleId
         }
       );
 
       if (!data.ok) {
-        throw new Error(
-          data.error ||
-          "No se pudieron cargar los ganadores."
-        );
+        return;
       }
 
       state.winners =
@@ -518,7 +670,9 @@
 
       container.innerHTML = "";
 
-      if (!state.winners.length) {
+      if (
+        !state.winners.length
+      ) {
         container.innerHTML = `
           <article class="empty-winner">
             <span>🏆</span>
@@ -611,7 +765,9 @@
             </dl>
           `;
 
-          container.appendChild(card);
+          container.appendChild(
+            card
+          );
         });
 
       applyPrizeStatuses(
@@ -634,6 +790,67 @@
     }
   }
 
+  function setupPaymentMethod() {
+    const select =
+      qs("#paymentMethod");
+
+    const panel =
+      qs("#qrPaymentPanel");
+
+    const proof =
+      qs("#paymentProof");
+
+    if (
+      !select ||
+      !panel ||
+      !proof
+    ) {
+      return;
+    }
+
+    const update = () => {
+      const show =
+        select.value === "QR";
+
+      panel.hidden = !show;
+
+      if (!show) {
+        proof.value = "";
+      }
+    };
+
+    select.addEventListener(
+      "change",
+      update
+    );
+
+    proof.addEventListener(
+      "change",
+      () => {
+        const file =
+          proof.files?.[0];
+
+        const fileName =
+          qs("#proofFileName");
+
+        if (!fileName) {
+          return;
+        }
+
+        fileName.textContent =
+          file
+            ? `${file.name} · ${(
+                file.size /
+                1024 /
+                1024
+              ).toFixed(2)} MB`
+            : "Formatos permitidos: JPG, PNG, WEBP o PDF. Máximo 5 MB.";
+      }
+    );
+
+    update();
+  }
+
   function parseTickets(raw) {
     return [
       ...new Set(
@@ -648,6 +865,85 @@
     ];
   }
 
+  function readProof(file) {
+    return new Promise(
+      (resolve, reject) => {
+        if (!file) {
+          reject(
+            new Error(
+              "Adjunta el comprobante de pago."
+            )
+          );
+
+          return;
+        }
+
+        if (
+          file.size >
+          MAX_PROOF_BYTES
+        ) {
+          reject(
+            new Error(
+              "El comprobante supera el máximo de 5 MB."
+            )
+          );
+
+          return;
+        }
+
+        const allowed = [
+          "image/jpeg",
+          "image/png",
+          "image/webp",
+          "application/pdf"
+        ];
+
+        if (
+          !allowed.includes(
+            file.type
+          )
+        ) {
+          reject(
+            new Error(
+              "El comprobante debe ser JPG, PNG, WEBP o PDF."
+            )
+          );
+
+          return;
+        }
+
+        const reader =
+          new FileReader();
+
+        reader.onerror = () => {
+          reject(
+            new Error(
+              "No se pudo leer el comprobante."
+            )
+          );
+        };
+
+        reader.onload = () => {
+          const dataUrl =
+            String(
+              reader.result || ""
+            );
+
+          resolve({
+            proofName: file.name,
+            proofMime: file.type,
+            proofBase64:
+              dataUrl.includes(",")
+                ? dataUrl.split(",")[1]
+                : dataUrl
+          });
+        };
+
+        reader.readAsDataURL(file);
+      }
+    );
+  }
+
   function setupParticipation() {
     const form =
       qs("#participationForm");
@@ -658,7 +954,11 @@
     const result =
       qs("#formResult");
 
-    if (!form || !button || !result) {
+    if (
+      !form ||
+      !button ||
+      !result
+    ) {
       return;
     }
 
@@ -666,6 +966,8 @@
       "submit",
       async (event) => {
         event.preventDefault();
+
+        result.textContent = "";
 
         const tickets =
           parseTickets(
@@ -682,64 +984,81 @@
           return;
         }
 
-        const payload = {
-          action: "register",
+        if (
+          qs("#paymentMethod")
+            .value !== "QR"
+        ) {
+          result.style.color =
+            "#b42318";
 
-          raffleId:
-            CONFIG.raffleId,
+          result.textContent =
+            "Selecciona el pago mediante QR.";
 
-          tickets,
-
-          fullName:
-            qs("#fullName").value.trim(),
-
-          identityNumber:
-            qs(
-              "#identityNumber"
-            ).value.trim(),
-
-          phone:
-            qs("#phone").value.trim(),
-
-          city:
-            qs("#city").value.trim(),
-
-          paymentMethod:
-            qs(
-              "#paymentMethod"
-            ).value,
-
-          notes: ""
-        };
+          return;
+        }
 
         button.disabled = true;
 
         button.textContent =
-          "Registrando...";
-
-        result.textContent = "";
+          "Enviando participación y comprobante...";
 
         try {
+          const proofData =
+            await readProof(
+              qs("#paymentProof")
+                .files?.[0]
+            );
+
           const data =
-            await postForm(payload);
+            await postForm({
+              action: "register",
+
+              raffleId:
+                CONFIG.raffleId,
+
+              tickets,
+
+              fullName:
+                qs(
+                  "#fullName"
+                ).value.trim(),
+
+              identityNumber:
+                qs(
+                  "#identityNumber"
+                ).value.trim(),
+
+              phone:
+                qs(
+                  "#phone"
+                ).value.trim(),
+
+              city:
+                qs(
+                  "#city"
+                ).value.trim(),
+
+              paymentMethod:
+                "QR",
+
+              notes: "",
+
+              ...proofData
+            });
 
           if (!data.ok) {
             result.style.color =
               "#b42318";
 
-            if (
-              data.duplicatedTickets
+            result.textContent =
+              data
+                .duplicatedTickets
                 ?.length
-            ) {
-              result.textContent =
-                `Los siguientes tickets ya están ocupados: ${data.duplicatedTickets.join(
-                  ", "
-                )}.`;
-            } else {
-              result.textContent =
-                data.error ||
-                "No se pudo registrar la participación.";
-            }
+                ? `Los siguientes tickets ya están ocupados: ${data.duplicatedTickets.join(
+                    ", "
+                  )}.`
+                : data.error ||
+                  "No se pudo registrar la participación.";
 
             return;
           }
@@ -748,15 +1067,29 @@
             "#15834b";
 
           result.innerHTML =
-            `Registro correcto. Tu código es ` +
-            `<strong>${escapeHtml(
+            `Participación y comprobante enviados correctamente. ` +
+            `Tu código es <strong>${escapeHtml(
               data.participationCode
-            )}</strong>. ` +
-            `Estado: <strong>${escapeHtml(
-              data.status
             )}</strong>.`;
 
           form.reset();
+
+          if (
+            qs("#qrPaymentPanel")
+          ) {
+            qs(
+              "#qrPaymentPanel"
+            ).hidden = true;
+          }
+
+          if (
+            qs("#proofFileName")
+          ) {
+            qs(
+              "#proofFileName"
+            ).textContent =
+              "Formatos permitidos: JPG, PNG, WEBP o PDF. Máximo 5 MB.";
+          }
         } catch (error) {
           console.error(error);
 
@@ -764,12 +1097,13 @@
             "#b42318";
 
           result.textContent =
-            "No se pudo registrar la participación en este momento. Inténtalo nuevamente.";
+            error.message ||
+            "No se pudo enviar la participación.";
         } finally {
           button.disabled = false;
 
           button.textContent =
-            "Registrar participación";
+            "Registrar participación y enviar comprobante";
         }
       }
     );
@@ -782,7 +1116,14 @@
     const output =
       qs("#ticketSearchResult");
 
-    if (!form || !output) {
+    const button =
+      qs("#ticketSearchButton");
+
+    if (
+      !form ||
+      !output ||
+      !button
+    ) {
       return;
     }
 
@@ -791,13 +1132,10 @@
       async (event) => {
         event.preventDefault();
 
-        const ticket =
-          qs(
-            "#ticketSearchInput"
-          ).value.trim();
+        output.hidden = true;
+        output.innerHTML = "";
 
-        output.textContent =
-          "Consultando...";
+        button.disabled = true;
 
         try {
           const data =
@@ -807,16 +1145,26 @@
                 raffleId:
                   CONFIG.raffleId,
 
-                ticket
+                ticket:
+                  qs(
+                    "#ticketSearchInput"
+                  ).value.trim(),
+
+                phone:
+                  qs(
+                    "#ticketPhoneInput"
+                  ).value.trim()
               }
             );
+
+          output.hidden = false;
 
           if (!data.ok) {
             output.innerHTML =
               `<article>` +
               `${escapeHtml(
                 data.error ||
-                "Ticket no encontrado."
+                "Los datos ingresados no coinciden."
               )}` +
               `</article>`;
 
@@ -857,8 +1205,12 @@
         } catch (error) {
           console.error(error);
 
+          output.hidden = false;
+
           output.innerHTML =
-            "<article>No fue posible consultar el ticket.</article>";
+            "<article>No fue posible realizar la consulta en este momento.</article>";
+        } finally {
+          button.disabled = false;
         }
       }
     );
@@ -866,9 +1218,18 @@
 
   function escapeHtml(value) {
     return String(value ?? "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
+      .replaceAll(
+        "&",
+        "&amp;"
+      )
+      .replaceAll(
+        "<",
+        "&lt;"
+      )
+      .replaceAll(
+        ">",
+        "&gt;"
+      )
       .replaceAll(
         '"',
         "&quot;"
@@ -879,39 +1240,33 @@
       );
   }
 
+  startCountdown(
+    DEFAULT_DRAW_DATE
+  );
+
   createRollingNumbers();
 
   setupMenu();
 
   setupPrizeCards();
 
+  setupPaymentMethod();
+
   setupParticipation();
 
   setupTicketSearch();
 
-  const refreshButton =
-    qs("#refreshWinners");
+  loadRaffle();
 
-  if (refreshButton) {
-    refreshButton.addEventListener(
-      "click",
-      loadWinners
-    );
-  }
-
-  loadRaffle().then(
-    loadWinners
-  );
+  loadWinners();
 
   window.setInterval(
-    () => {
-      loadWinners();
-    },
+    loadWinners,
     Math.max(
       5,
       Number(
         CONFIG.refreshSeconds ||
-        10
+          10
       )
     ) * 1000
   );
