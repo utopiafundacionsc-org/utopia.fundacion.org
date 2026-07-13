@@ -55,34 +55,49 @@ button { cursor: pointer; }
   position: sticky;
   top: 0;
   z-index: 40;
+  min-height: 92px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 190px minmax(0, 1fr) 150px;
   align-items: center;
-  gap: 1rem;
-  padding: 0.9rem clamp(1rem, 3vw, 2.5rem);
-  background: rgba(5, 47, 95, 0.96);
-  color: white;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  gap: 1.25rem;
+  padding: 0.65rem clamp(1rem, 3vw, 2.5rem);
+  background: rgba(255, 255, 255, 0.98);
+  color: var(--blue-dark);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 8px 28px rgba(5, 47, 95, 0.08);
 }
-.brand img { width: clamp(150px, 18vw, 240px); }
+.brand, .header-right-logo {
+  display: flex;
+  align-items: center;
+}
+.brand img {
+  width: auto;
+  max-width: 185px;
+  height: 72px;
+  object-fit: contain;
+}
+.header-right-logo { justify-content: flex-end; }
 .header-right-logo img {
-  width: clamp(92px, 11vw, 150px);
-  max-height: 68px;
+  width: auto;
+  max-width: 145px;
+  height: 58px;
   object-fit: contain;
 }
 #nav {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  gap: clamp(0.65rem, 1.2vw, 1.15rem);
   flex-wrap: wrap;
 }
 #nav a {
-  color: rgba(255,255,255,0.9);
-  font-size: 0.92rem;
-  font-weight: 700;
-  padding: 0.45rem 0.2rem;
+  color: var(--blue-dark);
+  font-size: clamp(0.76rem, 0.9vw, 0.92rem);
+  font-weight: 800;
+  padding: 0.55rem 0.15rem;
   position: relative;
+  white-space: nowrap;
 }
 #nav a::after {
   content: '';
@@ -99,15 +114,15 @@ button { cursor: pointer; }
   display: none;
   width: 48px; height: 48px;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--line);
+  background: #f3f8fd;
   align-items: center;
   justify-content: center;
   gap: 4px;
   flex-direction: column;
 }
 .menu-button span {
-  width: 20px; height: 2px; background: white; border-radius: 999px;
+  width: 20px; height: 2px; background: var(--blue-dark); border-radius: 999px;
 }
 
 main { padding-bottom: 4rem; }
@@ -797,18 +812,65 @@ section { width: min(1200px, calc(100% - 2rem)); margin: 1.25rem auto 0; }
 footer {
   width: min(1200px, calc(100% - 2rem));
   margin: 1.25rem auto 2rem;
-  padding: 1.5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr 0.9fr;
-  gap: 1rem;
-  background: #052f5f;
-  color: white;
+  grid-template-columns: 1.15fr 0.9fr 0.9fr;
+  gap: 1.4rem;
+  background: #ffffff;
+  color: var(--blue-dark);
+  border: 1px solid var(--line);
   border-radius: 28px;
   box-shadow: var(--shadow);
 }
-footer img { width: 160px; margin-bottom: 0.8rem; }
-footer strong { display: block; margin-bottom: 0.5rem; }
-footer span, footer p { color: rgba(255,255,255,0.86); line-height: 1.6; }
+footer > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+footer img {
+  width: auto;
+  max-width: 175px;
+  height: 95px;
+  object-fit: contain;
+  margin-bottom: 0.8rem;
+}
+footer strong {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--blue-dark);
+  font-size: 1rem;
+}
+footer span, footer p {
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+}
+.footer-links {
+  display: grid;
+  gap: 0.6rem;
+}
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--blue-deep);
+  font-weight: 700;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.footer-link:hover { color: var(--green-dark); }
+.footer-link-icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: linear-gradient(135deg, var(--blue-soft), var(--blue-dark));
+  font-size: 0.82rem;
+  font-weight: 900;
+}
 
 .winner-modal {
   width: min(640px, calc(100% - 1rem));
@@ -859,8 +921,9 @@ footer span, footer p { color: rgba(255,255,255,0.86); line-height: 1.6; }
 .digital-receipt h2 { font-size: 1.4rem; margin: 0.8rem 0; }
 
 @media (max-width: 1100px) {
-  .header { grid-template-columns: auto auto auto; }
-  #nav { position: absolute; top: calc(100% + 0.6rem); right: 1rem; left: 1rem; display: none; flex-direction: column; align-items: flex-start; background: #073568; border-radius: 20px; padding: 1rem; box-shadow: var(--shadow); }
+  .header { grid-template-columns: minmax(145px, 1fr) auto; min-height: 82px; }
+  .brand img { height: 62px; max-width: 165px; }
+  #nav { position: absolute; top: calc(100% + 0.6rem); right: 1rem; left: 1rem; display: none; flex-direction: column; align-items: flex-start; background: #ffffff; border: 1px solid var(--line); border-radius: 20px; padding: 1rem; box-shadow: var(--shadow); }
   #nav.open { display: flex; }
   .menu-button { display: inline-flex; justify-self: end; }
   .header-right-logo { display: none; }
@@ -913,8 +976,7 @@ footer span, footer p { color: rgba(255,255,255,0.86); line-height: 1.6; }
     <nav id="nav">
       <a href="#inicio">Inicio</a>
       <a href="#como-participar">Cómo participar</a>
-      <a href="#sorteos">Sorteos activos</a>
-      <a href="#participar">Participar</a>
+      <a href="#sorteos">Participar</a>
       <a href="#ganadores">Ganadores</a>
       <a href="#consulta">Consulta</a>
       <a href="#proyectos">Proyectos</a>
@@ -1195,9 +1257,35 @@ footer span, footer p { color: rgba(255,255,255,0.86); line-height: 1.6; }
   </main>
 
   <footer id="contacto">
-    <div><img src="assets/logo-utopia.png.jpeg" alt="Fundación Utopía"><p>Tu participación puede convertirse en una oportunidad para alguien más.</p></div>
-    <div><strong>Rifa Solidaria Mundial 2026</strong><span id="footerPrice">Ticket: 50 Bs</span><span id="footerDate">Fecha: 17/07/2026</span></div>
-    <div><strong>Contacto</strong><span>Consulta y soporte mediante WhatsApp.</span><span>Fundación Utopía</span></div>
+    <div class="footer-brand">
+      <img src="assets/logo-utopia.png.jpeg" alt="Fundación Utopía">
+      <p>Tu participación puede convertirse en una oportunidad para alguien más.</p>
+    </div>
+
+    <div>
+      <strong>Contacto</strong>
+      <div class="footer-links">
+        <a class="footer-link" id="contactWhatsapp" href="https://wa.me/59164483623" target="_blank" rel="noopener noreferrer">
+          <span class="footer-link-icon">WA</span>
+          <span id="contactWhatsappText">+591 64483623</span>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <strong>Redes sociales</strong>
+      <div class="footer-links">
+        <a class="footer-link" id="contactFacebook" href="https://www.facebook.com/Fundautopia" target="_blank" rel="noopener noreferrer">
+          <span class="footer-link-icon">f</span><span>Facebook</span>
+        </a>
+        <a class="footer-link" id="contactLinkedIn" href="https://www.linkedin.com/in/fundaci%C3%B3n-utop%C3%ADa-org/" target="_blank" rel="noopener noreferrer">
+          <span class="footer-link-icon">in</span><span>LinkedIn</span>
+        </a>
+        <a class="footer-link" id="contactTikTok" href="https://www.tiktok.com/@utopia.fundacion" target="_blank" rel="noopener noreferrer">
+          <span class="footer-link-icon">♪</span><span>TikTok</span>
+        </a>
+      </div>
+    </div>
   </footer>
 
   <dialog id="winnerModal" class="winner-modal">
@@ -1223,7 +1311,11 @@ window.UTOPIA_CONFIG = Object.freeze({
   apiUrl: "https://script.google.com/macros/s/AKfycbyuGbQsMkBIJGmMztT4i0jh-7Pv8k_XNsc7OO0lJ5xziI3HrWF70DqLDeHVF7rZTnO8_A/exec",
   raffleId: "RIFA-UTOPIA-2026",
   refreshSeconds: 15,
-  whatsappBusiness: ""
+  whatsappBusiness: "",
+  contactWhatsApp: "+59164483623",
+  facebookUrl: "https://www.facebook.com/Fundautopia",
+  linkedinUrl: "https://www.linkedin.com/in/fundaci%C3%B3n-utop%C3%ADa-org/",
+  tiktokUrl: "https://www.tiktok.com/@utopia.fundacion"
 });
   </script>
   <script>
@@ -1443,6 +1535,52 @@ window.UTOPIA_CONFIG = Object.freeze({
     state.countdownTimer = window.setInterval(update, 1000);
   }
 
+  function applyContactSettings(raffle = {}) {
+    const contact = raffle.contact || {};
+
+    const whatsapp = String(
+      raffle.contactWhatsApp ||
+      raffle.whatsappContact ||
+      contact.whatsapp ||
+      CONFIG.contactWhatsApp ||
+      "+59164483623"
+    ).trim();
+
+    const facebook = String(
+      raffle.facebookUrl ||
+      contact.facebook ||
+      CONFIG.facebookUrl ||
+      "https://www.facebook.com/Fundautopia"
+    ).trim();
+
+    const linkedin = String(
+      raffle.linkedinUrl ||
+      contact.linkedin ||
+      CONFIG.linkedinUrl ||
+      "https://www.linkedin.com/in/fundaci%C3%B3n-utop%C3%ADa-org/"
+    ).trim();
+
+    const tiktok = String(
+      raffle.tiktokUrl ||
+      contact.tiktok ||
+      CONFIG.tiktokUrl ||
+      "https://www.tiktok.com/@utopia.fundacion"
+    ).trim();
+
+    const whatsappDigits = whatsapp.replace(/\D/g, "");
+    const whatsappLink = qs("#contactWhatsapp");
+    const whatsappText = qs("#contactWhatsappText");
+    const facebookLink = qs("#contactFacebook");
+    const linkedinLink = qs("#contactLinkedIn");
+    const tiktokLink = qs("#contactTikTok");
+
+    if (whatsappLink) whatsappLink.href = `https://wa.me/${whatsappDigits}`;
+    if (whatsappText) whatsappText.textContent = whatsapp || "+591 64483623";
+    if (facebookLink) facebookLink.href = facebook;
+    if (linkedinLink) linkedinLink.href = linkedin;
+    if (tiktokLink) tiktokLink.href = tiktok;
+  }
+
   function applyRaffle(raffle) {
     state.raffle = raffle;
     const date = parseDateInput(raffle.drawDate) || new Date();
@@ -1455,13 +1593,16 @@ window.UTOPIA_CONFIG = Object.freeze({
 
     qs("#countdownDateTime").textContent = `${formattedDate} a las ${formattedTime}`;
     qs("#heroPrice").textContent = formatMoney(raffle.ticketPrice, raffle.currency);
-    qs("#footerPrice").textContent = `Ticket: ${formatMoney(raffle.ticketPrice, raffle.currency)}`;
-    qs("#footerDate").textContent = `Fecha: ${formattedDate}`;
+    const footerPrice = qs("#footerPrice");
+    const footerDate = qs("#footerDate");
+    if (footerPrice) footerPrice.textContent = `Ticket: ${formatMoney(raffle.ticketPrice, raffle.currency)}`;
+    if (footerDate) footerDate.textContent = `Fecha: ${formattedDate}`;
     qs("#summaryUnit").textContent = formatMoney(raffle.ticketPrice, raffle.currency);
     qs("#projectTitle").textContent = raffle.projectTitle || "Proyectos que transforman vidas";
     qs("#projectDescription").textContent = raffle.projectDescription || "Lo recaudado apoya programas educativos, sociales y comunitarios.";
     qs("#projectGoal").textContent = raffle.goalAmount ? formatMoney(raffle.goalAmount, raffle.currency) : "—";
 
+    applyContactSettings(raffle);
     renderImpactContent(raffle.impactItems || []);
     renderFaq(raffle.faqItems || []);
     startCountdown(date);
@@ -2073,6 +2214,7 @@ window.UTOPIA_CONFIG = Object.freeze({
   }
 
   async function initialize() {
+    applyContactSettings(state.raffle);
     setupMenu();
     setupEvents();
     startHeroNumberAnimation();
