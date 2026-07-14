@@ -13,7 +13,7 @@
     :root{
       --navy:#03254b;--navy-2:#063e72;--blue:#0b70b7;--teal:#078985;
       --green:#78c900;--green-dark:#599b00;--red:#c9362d;--yellow:#f0b400;
-      --review:#1686d9;--gray:#7d8997;--text:#123a69;--muted:#6b7f94;
+      --review:#f97316;--gray:#7d8997;--text:#123a69;--muted:#6b7f94;
       --line:#d8e5ee;--surface:#eef4f8;--white:#fff;--shadow:0 18px 45px rgba(3,43,82,.10);
     }
     *{box-sizing:border-box}
@@ -46,18 +46,34 @@
 
     /* COMMON */
     .metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}.metric-card{position:relative;overflow:hidden;min-height:115px;padding:18px;border:1px solid var(--line);border-radius:18px;background:white;box-shadow:0 10px 26px rgba(3,43,82,.06)}.metric-card:after{content:"";position:absolute;right:-15px;bottom:-22px;width:80px;height:80px;border-radius:50%;background:rgba(8,114,185,.06)}.metric-card small{display:block;color:var(--muted);font-size:8px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.metric-card strong{display:block;margin-top:9px;color:#073f78;font-size:25px}.metric-card em{display:block;margin-top:5px;color:#5b7286;font-size:9px;font-style:normal}.dashboard-grid,.two-column{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.panel{padding:22px;border:1px solid var(--line);border-radius:19px;background:white;box-shadow:var(--shadow)}.panel-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:17px}.panel-heading small{display:block;color:#629f00;font-size:8px;font-weight:900;text-transform:uppercase;letter-spacing:.13em}.panel-heading h2{margin:5px 0 0;color:#073f78;font-size:22px}.panel-heading-actions{display:flex;flex-wrap:wrap;gap:7px}.btn{padding:10px 12px}.btn.green{background:#62aa00}.btn.red{background:#bd3028}.btn.yellow{color:#604900;background:#f0b400}.btn.gray{color:#07528d;background:#edf5fa;border:1px solid #bdd3e2}.btn.dark{background:#052f5f}.btn.small{padding:7px 9px;font-size:9px}.btn.full{width:100%}.button-row{display:flex;flex-wrap:wrap;gap:8px}.status-list,.bar-list,.audit-list{display:grid;gap:8px}.status-row,.bar-row,.audit-item{padding:10px 12px;border-radius:10px;background:#f3f7fa}.status-row,.bar-row{display:flex;justify-content:space-between;gap:15px;font-size:11px}.audit-item{font-size:10px;line-height:1.5}.audit-item strong{display:block;color:#073f78}.large-progress{height:13px;overflow:hidden;border-radius:999px;background:#dce6ec}.large-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#008c88,#72bd00)}.progress-text{display:block;margin-top:9px;color:#073f78;font-size:25px}.empty{padding:24px;border:1px dashed #bfd0dc;border-radius:13px;color:var(--muted);text-align:center;font-size:11px}
-    .admin-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.admin-form .full{grid-column:1/-1}.admin-form label,.modal-form label{display:grid;gap:7px;color:#294761;font-size:10px;font-weight:800}.admin-form input,.admin-form select,.admin-form textarea,.filters input,.filters select,.toolbar input,.toolbar select,.modal-form input,.modal-form select,.modal-form textarea{width:100%;padding:12px;border:1px solid #c9dbe8;border-radius:9px;outline:none;background:white;color:var(--text)}.admin-form input:focus,.admin-form select:focus,.admin-form textarea:focus,.filters input:focus,.filters select:focus,.toolbar input:focus,.toolbar select:focus,.modal-form input:focus,.modal-form select:focus,.modal-form textarea:focus{border-color:#0872b9;box-shadow:0 0 0 3px rgba(8,114,185,.09)}.form-message{min-height:20px;margin:8px 0 0;color:#b42318;font-size:10px;font-weight:800}.help{margin:3px 0 0;color:var(--muted);font-size:9px;line-height:1.5}.code-preview{display:flex;align-items:center;gap:7px;padding:10px;border:1px solid #d4e1eb;border-radius:10px;background:#f6f9fb}.code-preview span{width:37px;height:47px;display:grid;place-items:center;border-radius:8px;color:white;background:linear-gradient(180deg,#263e56,#071321);font-size:23px;font-weight:900}.filters,.toolbar{display:grid;grid-template-columns:1fr 220px auto;gap:9px;margin-bottom:15px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;background:white}th,td{padding:11px 9px;border-bottom:1px solid #e4ebf0;text-align:left;font-size:9px;vertical-align:top}th{position:sticky;top:0;color:#50667a;background:#f2f6f9;text-transform:uppercase;z-index:1}.table-actions{display:flex;flex-wrap:wrap;gap:4px}.badge{display:inline-flex;padding:5px 8px;border-radius:999px;font-size:8px;font-weight:900}.badge.green{color:#2d6b00;background:#e8f6d6}.badge.blue{color:#07508a;background:#dceefb}.badge.yellow{color:#6c5100;background:#fff1bd}.badge.red{color:#91231d;background:#f9d8d4}.badge.gray{color:#4e5d69;background:#e6ebef}
-    .payment-cards,.content-grid,.prize-list,.result-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.payment-card,.content-card,.prize-card,.result-card{padding:16px;border:1px solid var(--line);border-radius:15px;background:#f9fbfc}.payment-card header,.content-card header,.prize-card header,.result-card header{display:flex;justify-content:space-between;gap:12px}.payment-card h3,.content-card h3,.prize-card h3,.result-card h3{margin:0;color:#073f78;font-size:15px}.payment-card p,.content-card p,.prize-card p,.result-card p{color:var(--muted);font-size:10px;line-height:1.55}.card-image{width:100%;height:160px;object-fit:cover;margin:10px 0;border-radius:11px;background:#e7edf2}.proof-link{display:inline-flex;margin-top:5px;color:#0872b9;font-size:10px;font-weight:900}.image-upload{display:grid;grid-template-columns:1fr auto;gap:7px;margin-top:8px}.image-upload input{font-size:9px}.inline-form{display:grid;gap:8px}.inline-form input,.inline-form textarea{width:100%;padding:10px;border:1px solid #c9dbe8;border-radius:8px}.inline-form textarea{min-height:76px}.inline-form .two{display:grid;grid-template-columns:90px 1fr;gap:8px}.number-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:7px}.number-button{min-height:43px;padding:5px;border:0;border-radius:8px;color:white;font-size:10px;font-weight:900}.number-button.available{background:#72bd00}.number-button.reserved{background:#f0b400}.number-button.review{background:#1687d9}.number-button.sold{background:#c7372d}.number-button.blocked{background:#7c8793}.legend{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:12px}.legend span{display:flex;align-items:center;gap:6px;color:#536779;font-size:9px;font-weight:800}.legend i{width:12px;height:12px;border-radius:3px}.pagination{display:flex;justify-content:space-between;align-items:center;margin-top:13px}.draw-preview{margin:13px 0;padding:15px;border-radius:12px;background:#eef6fa}.draw-preview dl{display:grid;gap:8px;margin:0}.draw-preview dl div{display:flex;justify-content:space-between;gap:14px}.draw-preview dt{color:var(--muted);font-size:10px}.draw-preview dd{margin:0;font-size:10px;font-weight:800}.draw-button{width:100%;padding:16px!important;background:linear-gradient(135deg,#84ce00,#54a500)!important}.result-card textarea{width:100%;min-height:115px;padding:10px;border:1px solid #c9dbe8;border-radius:8px}.report-content{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.report-card{padding:16px;border:1px solid var(--line);border-radius:13px}.report-card small{display:block;color:var(--muted);font-size:8px;font-weight:900;text-transform:uppercase}.report-card strong{display:block;margin-top:7px;color:#073f78;font-size:21px}.user-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px;border-bottom:1px solid #e4ebf0}.user-row small{color:var(--muted)}
+    .admin-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.admin-form .full{grid-column:1/-1}.admin-form label,.modal-form label{display:grid;gap:7px;color:#294761;font-size:10px;font-weight:800}.admin-form input,.admin-form select,.admin-form textarea,.filters input,.filters select,.toolbar input,.toolbar select,.modal-form input,.modal-form select,.modal-form textarea{width:100%;padding:12px;border:1px solid #c9dbe8;border-radius:9px;outline:none;background:white;color:var(--text)}.admin-form input:focus,.admin-form select:focus,.admin-form textarea:focus,.filters input:focus,.filters select:focus,.toolbar input:focus,.toolbar select:focus,.modal-form input:focus,.modal-form select:focus,.modal-form textarea:focus{border-color:#0872b9;box-shadow:0 0 0 3px rgba(8,114,185,.09)}.form-message{min-height:20px;margin:8px 0 0;color:#b42318;font-size:10px;font-weight:800}.help{margin:3px 0 0;color:var(--muted);font-size:9px;line-height:1.5}.code-preview{display:flex;align-items:center;gap:7px;padding:10px;border:1px solid #d4e1eb;border-radius:10px;background:#f6f9fb}.code-preview span{width:37px;height:47px;display:grid;place-items:center;border-radius:8px;color:white;background:linear-gradient(180deg,#263e56,#071321);font-size:23px;font-weight:900}.filters,.toolbar{display:grid;grid-template-columns:1fr 220px auto;gap:9px;margin-bottom:15px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;background:white}th,td{padding:11px 9px;border-bottom:1px solid #e4ebf0;text-align:left;font-size:9px;vertical-align:top}th{position:sticky;top:0;color:#50667a;background:#f2f6f9;text-transform:uppercase;z-index:1}.table-actions{display:flex;flex-wrap:wrap;gap:4px}.badge{display:inline-flex;padding:5px 8px;border-radius:999px;font-size:8px;font-weight:900}.badge.green{color:#2d6b00;background:#e8f6d6}.badge.blue{color:#9a3412;background:#ffedd5}.badge.yellow{color:#6c5100;background:#fff1bd}.badge.red{color:#91231d;background:#f9d8d4}.badge.gray{color:#4e5d69;background:#e6ebef}
+    .payment-cards,.content-grid,.prize-list,.result-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.payment-card,.content-card,.prize-card,.result-card{padding:16px;border:1px solid var(--line);border-radius:15px;background:#f9fbfc}.payment-card header,.content-card header,.prize-card header,.result-card header{display:flex;justify-content:space-between;gap:12px}.payment-card h3,.content-card h3,.prize-card h3,.result-card h3{margin:0;color:#073f78;font-size:15px}.payment-card p,.content-card p,.prize-card p,.result-card p{color:var(--muted);font-size:10px;line-height:1.55}.card-image{width:100%;height:160px;object-fit:cover;margin:10px 0;border-radius:11px;background:#e7edf2}.proof-link{display:inline-flex;margin-top:5px;color:#0872b9;font-size:10px;font-weight:900}.image-upload{display:grid;grid-template-columns:1fr auto;gap:7px;margin-top:8px}.image-upload input{font-size:9px}.inline-form{display:grid;gap:8px}.inline-form input,.inline-form textarea{width:100%;padding:10px;border:1px solid #c9dbe8;border-radius:8px}.inline-form textarea{min-height:76px}.inline-form .two{display:grid;grid-template-columns:90px 1fr;gap:8px}.number-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:7px}.number-button{min-height:43px;padding:5px;border:0;border-radius:8px;color:white;font-size:10px;font-weight:900}.number-button.available{background:#72bd00}.number-button.reserved{background:#f0b400}.number-button.review{background:#f97316}.number-button.sold{background:#c7372d}.number-button.blocked{background:#7c8793}.legend{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:12px}.legend span{display:flex;align-items:center;gap:6px;color:#536779;font-size:9px;font-weight:800}.legend i{width:12px;height:12px;border-radius:3px}.pagination{display:flex;justify-content:space-between;align-items:center;margin-top:13px}.draw-preview{margin:13px 0;padding:15px;border-radius:12px;background:#eef6fa}.draw-preview dl{display:grid;gap:8px;margin:0}.draw-preview dl div{display:flex;justify-content:space-between;gap:14px}.draw-preview dt{color:var(--muted);font-size:10px}.draw-preview dd{margin:0;font-size:10px;font-weight:800}.draw-button{width:100%;padding:16px!important;background:linear-gradient(135deg,#84ce00,#54a500)!important}.result-card textarea{width:100%;min-height:115px;padding:10px;border:1px solid #c9dbe8;border-radius:8px}.report-content{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.report-card{padding:16px;border:1px solid var(--line);border-radius:13px}.report-card small{display:block;color:var(--muted);font-size:8px;font-weight:900;text-transform:uppercase}.report-card strong{display:block;margin-top:7px;color:#073f78;font-size:21px}.user-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px;border-bottom:1px solid #e4ebf0}.user-row small{color:var(--muted)}
 
     /* MODALS */
     dialog{width:min(590px,calc(100% - 24px));padding:0;border:0;border-radius:20px;box-shadow:0 30px 90px rgba(0,0,0,.32)}dialog::backdrop{background:rgba(2,18,38,.72);backdrop-filter:blur(5px)}.modal-body{position:relative;padding:25px}.modal-close{position:absolute;right:12px;top:11px;width:38px;height:38px;border:0;border-radius:50%;color:#073f78;background:#eaf3f8;font-size:23px}.modal-body h2{margin:0 0 20px;color:#073f78}.modal-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.modal-form .full{grid-column:1/-1}.modal-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
 
 
     .system-config{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.system-config .full{grid-column:1/-1}.system-config label{display:grid;gap:7px;color:#294761;font-size:10px;font-weight:800}.system-config input,.system-config select,.system-config textarea{width:100%;padding:12px;border:1px solid #c9dbe8;border-radius:9px}.bulk-panel{margin-top:16px;padding:18px;border:1px solid var(--line);border-radius:15px;background:#f8fbfd}.technical-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.technical-item{padding:10px;border-radius:9px;background:#f3f7fa}.technical-item small{display:block;color:var(--muted);font-size:8px}.technical-item strong{display:block;margin-top:4px;font-size:10px;word-break:break-all}.report-breakdowns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:15px}.role-select{min-width:145px;padding:8px;border:1px solid #c9dbe8;border-radius:8px;background:white}.raffle-extra-preview{width:100%;max-height:220px;object-fit:cover;border-radius:12px;background:#edf3f7}.
+
+    .order-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .order-card{padding:17px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 10px 28px rgba(3,43,82,.06)}
+    .order-card header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+    .order-card h3{margin:0;color:#073f78;font-size:16px}.order-card small{color:var(--muted)}
+    .order-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+    .order-meta div{padding:9px;border-radius:10px;background:#f3f7fa;font-size:9px;overflow-wrap:anywhere}
+    .order-tickets{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+    .order-ticket{display:inline-flex;align-items:center;gap:5px;padding:6px 8px;border-radius:8px;color:#fff;font-size:9px;font-weight:900}
+    .order-ticket.available{background:#72bd00}.order-ticket.reserved{background:#f0b400;color:#4f3a00}
+    .order-ticket.review{background:#f97316}.order-ticket.sold{background:#c7372d}.order-ticket.blocked{background:#7c8793}
+    .order-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+    .editable-label{position:relative}.editable-label:after{content:"✎";position:absolute;right:8px;top:0;color:#0872b9;font-size:11px}
+    .live-fullscreen{background:#fff!important;color:#07528d!important}
+    @media(max-width:760px){.order-cards,.order-meta{grid-template-columns:1fr}}
+
     @media print{.sidebar,.admin-header,.panel-heading-actions,.no-print{display:none!important}.admin-shell{display:block}.admin-main{padding:0}.admin-view{display:none!important}#view-reports{display:block!important}.panel{box-shadow:none;border:0}.report-content{grid-template-columns:repeat(3,1fr)}}
 
     /* SORTEOS EN VIVO */
-    .live-control-grid{display:grid;grid-template-columns:1.25fr 1.25fr auto auto;gap:10px;align-items:end;margin-bottom:14px}
+    .live-control-grid{display:grid;grid-template-columns:1.15fr 1.15fr auto auto auto;gap:10px;align-items:end;margin-bottom:14px}
     .live-stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;margin:14px 0}
     .live-stat{padding:12px;border:1px solid var(--line);border-radius:13px;background:#f5f9fc;text-align:center}.live-stat strong{display:block;color:#073f78;font-size:21px}.live-stat small{display:block;margin-top:4px;color:var(--muted);font-size:8px;font-weight:900;text-transform:uppercase}
     .live-stage{position:relative;overflow:hidden;min-height:500px;padding:28px;border-radius:22px;color:#fff;background:linear-gradient(180deg,rgba(1,16,39,.55),rgba(1,28,57,.92)),url('assets/sorteos-en-vivo-utopia.png') center top/cover no-repeat;box-shadow:0 22px 65px rgba(1,30,61,.28)}
@@ -106,6 +122,7 @@
         <button data-view="dashboard" class="active"><span class="nav-icon">▦</span>Resumen</button>
         <button data-view="raffles"><span class="nav-icon">🎟</span>Sorteos</button>
         <button data-view="content"><span class="nav-icon">✎</span>Contenido público</button>
+        <button data-view="orders"><span class="nav-icon">🧾</span>Pedidos</button>
         <button data-view="participants"><span class="nav-icon">👥</span>Participantes</button>
         <button data-view="payments"><span class="nav-icon">💳</span>Pagos</button>
         <button data-view="numbers"><span class="nav-icon">#</span>Números</button>
@@ -126,7 +143,7 @@
       <header class="admin-header">
         <div><small id="currentViewLabel">Resumen</small><h1 id="currentViewTitle">Panel general</h1></div>
         <div class="header-actions">
-          <a href="index.html" target="_blank">Ver página pública</a>
+          <a id="publicPageLink" href="index.html" target="_blank" rel="noopener">Ver página pública</a>
           <select id="adminRaffleSelect" aria-label="Sorteo activo"></select>
         </div>
       </header>
@@ -162,20 +179,17 @@
               <label>Moneda<input id="raffleCurrency" value="Bs" required></label>
               <label>Total de números<input id="raffleTotal" type="number" min="1" required></label>
               <label>Tiempo de reserva (minutos)<input id="raffleReservationMinutes" type="number" min="1" max="1440" value="15" required></label>
-              <label>Estado<select id="raffleStatus"><option>ACTIVO</option><option>PAUSADO</option><option>FINALIZADO</option><option>CANCELADO</option></select></label>
+              <label>Estado<select id="raffleStatus"><option>ACTIVO</option><option>PROGRAMADO</option><option>PAUSADO</option><option>FINALIZADO</option><option>CANCELADO</option></select></label>
               <label>Vista de cuadros<div class="code-preview" id="digitPreview"></div><small class="help">La cantidad de cuadros se calcula con el total de números. Para 1000 se muestran 4 cuadros.</small></label>
               <label class="full">Descripción<textarea id="raffleDescription" rows="3"></textarea></label>
-              <label>Proyecto beneficiado<input id="raffleProjectTitle"></label>
-              <label>Meta económica<input id="raffleGoal" type="number" min="0" step="0.01"></label>
-              <label class="full">Descripción del proyecto<textarea id="raffleProjectDescription" rows="3"></textarea></label>
               <label class="full">URL de imagen o portada<input id="raffleImageUrl"></label>
               <label>Subir portada<input id="raffleImageFile" type="file" accept="image/jpeg,image/png,image/webp"></label>
               <label>Publicación<select id="rafflePublished"><option value="true">Visible públicamente</option><option value="false">Oculto</option></select></label>
-              <label>WhatsApp público<input id="contactWhatsApp" placeholder="+59164483623"></label>
-              <label>Facebook<input id="facebookUrl" type="url"></label>
-              <label>LinkedIn<input id="linkedinUrl" type="url"></label>
-              <label>TikTok<input id="tiktokUrl" type="url"></label>
-              <div class="button-row full"><button class="btn green" type="submit">Guardar configuración</button><button class="btn dark" id="setActiveRaffle" type="button">Marcar como sorteo activo</button></div>
+              <input id="contactWhatsApp" type="hidden">
+              <input id="facebookUrl" type="hidden">
+              <input id="linkedinUrl" type="hidden">
+              <input id="tiktokUrl" type="hidden">
+              <div class="button-row full"><button class="btn green" type="submit">Guardar configuración</button><button class="btn dark" id="setActiveRaffle" type="button">Marcar como principal público</button></div>
               <p id="raffleMessage" class="form-message full"></p>
             </form>
           </article>
@@ -187,22 +201,31 @@
         <article class="panel" style="margin-bottom:17px">
           <div class="panel-heading"><div><small>Datos visibles en la web</small><h2>Configuración pública</h2></div></div>
           <form id="systemConfigForm" class="system-config">
-            <label>Organización<input id="cfgOrganization"></label><label>Actualización pública (segundos)<input id="cfgRefresh" type="number" min="5"></label>
-            <label>Minutos de reserva<input id="cfgReservation" type="number" min="1"></label><label>WhatsApp administrativo<input id="cfgAdminWhatsapp"></label>
-            <label>WhatsApp público<input id="cfgWhatsapp"></label><label>Facebook<input id="cfgFacebook" type="url"></label>
-            <label>LinkedIn<input id="cfgLinkedin" type="url"></label><label>TikTok<input id="cfgTiktok" type="url"></label>
-            <label class="full">Instrucciones para participar<textarea id="cfgInstructions" rows="3"></textarea></label>
-            <label class="full">Términos de participación<textarea id="cfgTerms" rows="3"></textarea></label>
-            <label class="full">Mensaje base de WhatsApp<textarea id="cfgWhatsappText" rows="3"></textarea></label>
-            <label class="full">URL del QR de pago<input id="cfgQrUrl"></label><label>Subir QR<input id="cfgQrFile" type="file" accept="image/jpeg,image/png,image/webp"></label>
-            <label>Ganador repetido<select id="cfgRepeat"><option value="NO">No permitir</option><option value="SI">Permitir</option></select></label>
-            <label>Mostrar datos completos<select id="cfgFullData"><option value="NO">No</option><option value="SI">Sí</option></select></label>
+            <label class="editable-label">Organización<input id="cfgOrganization"></label>
+            <label class="editable-label">Actualización pública (segundos)<input id="cfgRefresh" type="number" min="5"></label>
+            <label class="editable-label">Minutos de reserva<input id="cfgReservation" type="number" min="1"></label>
+            <label class="editable-label">WhatsApp administrativo<input id="cfgAdminWhatsapp"></label>
+            <label class="editable-label">WhatsApp público<input id="cfgWhatsapp"></label>
+            <label class="editable-label">Facebook<input id="cfgFacebook" type="url"></label>
+            <label class="editable-label">LinkedIn<input id="cfgLinkedin" type="url"></label>
+            <label class="editable-label">TikTok<input id="cfgTiktok" type="url"></label>
+            <label class="full editable-label">Términos de participación<textarea id="cfgTerms" rows="4"></textarea></label>
+            <label class="full editable-label">Métodos de pago
+              <input id="cfgPaymentMethods" placeholder="QR, TRANSFERENCIA, EFECTIVO">
+              <small class="help">Sepáralos con comas. El QR solo aparece cuando el participante selecciona QR.</small>
+            </label>
+            <label class="editable-label">Subir QR de pago<input id="cfgQrFile" type="file" accept="image/jpeg,image/png,image/webp"></label>
+            <input id="cfgQrUrl" type="hidden">
+            <label class="editable-label">Ganador repetido<select id="cfgRepeat"><option value="NO">No permitir</option><option value="SI">Permitir</option></select></label>
+            <label class="editable-label">Mostrar datos completos<select id="cfgFullData"><option value="NO">No</option><option value="SI">Sí</option></select></label>
+            <input id="cfgLiveBackgroundUrl" type="hidden">
+            <label class="full">Subir fondo para Sorteos en vivo<input id="cfgLiveBackgroundFile" type="file" accept="image/jpeg,image/png,image/webp"></label>
             <div class="button-row full"><button class="btn green" type="submit">Guardar configuración pública</button></div>
           </form>
         </article>
         <div class="two-column">
           <article class="panel">
-            <div class="panel-heading"><div><small>¿A dónde va tu aporte?</small><h2>Reseñas e imágenes</h2></div><button class="btn" id="newImpactButton" type="button">Añadir reseña</button></div>
+            <div class="panel-heading"><div><small>Contenido visible en la página</small><h2>Reseñas e imágenes</h2></div><button class="btn" id="newImpactButton" type="button">Añadir reseña</button></div>
             <div id="impactList" class="content-grid"></div>
           </article>
           <article class="panel">
@@ -210,6 +233,26 @@
             <div id="faqAdminList" class="result-list"></div>
           </article>
         </div>
+      </section>
+
+
+      <section class="admin-view" id="view-orders">
+        <article class="panel">
+          <div class="panel-heading">
+            <div><small>Orden de llegada</small><h2>Pedidos</h2></div>
+            <div class="panel-heading-actions"><button class="btn gray" id="refreshOrders" type="button">Actualizar</button></div>
+          </div>
+          <div class="filters">
+            <input id="orderSearch" placeholder="Buscar nombre, WhatsApp, correo, código o número">
+            <select id="orderStatusFilter">
+              <option value="">Todos los estados</option>
+              <option>PENDIENTE</option><option>COMPROBANTE_RECIBIDO</option><option>EN_REVISION</option>
+              <option>APROBADO</option><option>RECHAZADO</option><option>VENCIDO</option>
+            </select>
+            <button class="btn" id="searchOrders" type="button">Buscar</button>
+          </div>
+          <div id="orderCards" class="order-cards"></div>
+        </article>
       </section>
 
       <section class="admin-view" id="view-participants">
@@ -248,6 +291,7 @@
             <label class="form-label">Seleccionar premio<select class="select" id="livePrizeSelect"></select></label>
             <button class="btn gray" id="liveSyncTickets" type="button">Migrar tickets vendidos</button>
             <button class="btn green" id="liveStartDraw" type="button">Iniciar sorteo</button>
+            <button class="btn live-fullscreen" id="liveFullscreen" type="button">Ampliar pantalla</button>
           </div>
           <div id="liveStats" class="live-stats"></div>
           <p id="liveMigrationMessage" class="form-message"></p>
@@ -255,9 +299,9 @@
 
         <article class="live-stage" style="margin-top:17px">
           <div class="live-stage-head">
-            <small>Bienvenidos a</small>
-            <h2>Sorteos <span>Utopía</span></h2>
-            <p>Participa, gana y transforma vidas.</p>
+            <small>Bienvenidos</small>
+            <h2>Participa, gana y transforma vidas</h2>
+            <p></p>
           </div>
           <div id="liveReels" class="live-reels"></div>
           <div class="live-stage-actions">
@@ -289,16 +333,13 @@
       </section>
 
       <section class="admin-view" id="view-winners">
-        <div class="two-column">
-          <article class="panel">
-            <div class="panel-heading"><div><small>Selección transparente</small><h2>Realizar sorteo</h2></div></div>
-            <label class="form-label">Premio<select class="select" id="drawPrizeSelect"></select></label>
-            <div id="drawPreview" class="draw-preview"><div class="empty">Presiona “Preparar sorteo” para validar la lista final.</div></div>
-            <div class="button-row"><button class="btn gray" id="loadDrawPreview" type="button">Preparar sorteo</button><button class="btn draw-button" id="runDraw" type="button">Realizar sorteo</button></div>
-            <p id="drawMessage" class="form-message"></p>
-          </article>
-          <article class="panel"><div class="panel-heading"><div><small>Publicación</small><h2>Resultados y contenidos</h2></div></div><div id="resultsList" class="result-list"></div></article>
-        </div>
+        <article class="panel">
+          <div class="panel-heading">
+            <div><small>Historial oficial</small><h2>Ganadores de sorteos</h2></div>
+            <button class="btn gray" id="refreshWinnerHistory" type="button">Actualizar</button>
+          </div>
+          <div id="resultsList" class="result-list"></div>
+        </article>
       </section>
 
       <section class="admin-view" id="view-reports">
@@ -318,7 +359,7 @@
 
       <section class="admin-view" id="view-settings">
         <div class="two-column">
-          <article class="panel"><div class="panel-heading"><div><small>Seguridad</small><h2>Sesión, mantenimiento y respaldo</h2></div></div><p class="help">El acceso usa usuario, contraseña cifrada, roles y sesiones temporales.</p><div class="button-row"><button class="btn" id="changeOwnPassword" type="button">Cambiar contraseña</button><button class="btn yellow" id="repairCurrentRaffle" type="button">Reparar sorteo actual</button><button class="btn gray" id="settingsReleaseExpired" type="button">Liberar reservas vencidas</button><button class="btn green" id="backupButton" type="button">Crear copia de seguridad</button></div><p id="settingsMessage" class="form-message"></p><div id="technicalStatus" class="technical-grid"></div></article>
+          <article class="panel"><div class="panel-heading"><div><small>Seguridad</small><h2>Sesión, mantenimiento y respaldo</h2></div></div><p class="help">El acceso usa usuario, contraseña cifrada, roles y sesiones temporales.</p><div class="button-row"><button class="btn" id="changeOwnPassword" type="button">Cambiar contraseña</button><button class="btn green" id="backupButton" type="button">Crear copia ZIP</button><button id="repairCurrentRaffle" type="button" hidden></button><button id="settingsReleaseExpired" type="button" hidden></button></div><p class="help">Las reservas vencidas se liberan automáticamente cada 5 minutos.</p><p id="settingsMessage" class="form-message"></p><div id="technicalStatus" class="technical-grid"></div></article>
           <article class="panel"><div class="panel-heading"><div><small>Auditoría</small><h2>Registro de movimientos</h2></div><button class="btn gray" id="refreshAudit" type="button">Actualizar</button></div><div id="auditFull" class="audit-list"></div></article>
         </div>
       </section>
@@ -344,9 +385,9 @@
     const DEFAULT_RAFFLE="RIFA-UTOPIA-2026";
     const PAGE_SIZE=100;
     const qs=s=>document.querySelector(s), qsa=s=>[...document.querySelectorAll(s)];
-    const state={token:localStorage.getItem("utopiaAdminToken")||"",user:null,raffles:[],raffleId:DEFAULT_RAFFLE,currentView:"dashboard",participants:[],payments:[],board:[],filteredBoard:[],numberPage:0,selectedNumber:null,results:[],report:null,raffleData:null,liveRaffleId:DEFAULT_RAFFLE,liveSetup:null,liveSession:null,liveDigits:[],liveSpinTimer:null};
-    const views={dashboard:["Resumen","Panel general"],raffles:["Sorteos","Configuración del sorteo"],content:["Contenido público","Textos, reseñas e imágenes"],participants:["Participantes","Base de datos"],payments:["Pagos","Revisión de comprobantes"],numbers:["Números","Control de números"],liveDraw:["Sorteos en vivo","Selección dinámica de ganadores"],winners:["Ganadores","Sorteo y publicación"],reports:["Reportes","Estadísticas y exportación"],users:["Usuarios","Usuarios y permisos"],settings:["Configuración","Seguridad y auditoría"]};
-    const roleViews={ADMINISTRADOR:Object.keys(views),OPERADOR:["dashboard","participants","payments","numbers","settings"],FINANZAS:["dashboard","payments","reports","settings"],COMUNICACION:["dashboard","content","liveDraw","winners","settings"],AUDITOR:["dashboard","participants","payments","numbers","winners","reports","settings"]};
+    const state={token:localStorage.getItem("utopiaAdminToken")||"",user:null,raffles:[],raffleId:DEFAULT_RAFFLE,currentView:"dashboard",orders:[],participants:[],payments:[],board:[],filteredBoard:[],numberPage:0,selectedNumber:null,results:[],report:null,raffleData:null,liveRaffleId:DEFAULT_RAFFLE,liveSetup:null,liveSession:null,liveDigits:[],liveSpinTimer:null};
+    const views={dashboard:["Resumen","Panel general"],raffles:["Sorteos","Configuración del sorteo"],content:["Contenido público","Textos, reseñas e imágenes"],orders:["Pedidos","Solicitudes por orden de llegada"],participants:["Participantes","Base de datos"],payments:["Pagos","Revisión de comprobantes"],numbers:["Números","Control de números"],liveDraw:["Sorteos en vivo","Selección dinámica de ganadores"],winners:["Ganadores","Sorteo y publicación"],reports:["Reportes","Estadísticas y exportación"],users:["Usuarios","Usuarios y permisos"],settings:["Configuración","Seguridad y auditoría"]};
+    const roleViews={ADMINISTRADOR:Object.keys(views),OPERADOR:["dashboard","orders","participants","payments","numbers","settings"],FINANZAS:["dashboard","orders","payments","reports","settings"],COMUNICACION:["dashboard","content","liveDraw","winners","settings"],AUDITOR:["dashboard","orders","participants","payments","numbers","winners","reports","settings"]};
     const statusClass={DISPONIBLE:"available",RESERVADO:"reserved",EN_REVISION:"review",VENDIDO:"sold",BLOQUEADO:"blocked"};
 
     const esc=v=>String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
@@ -359,7 +400,13 @@
 
     function showLogin(message=""){qs("#loginScreen").hidden=false;qs("#adminShell").hidden=true;qs("#loginMessage").textContent=message}
     function showAdmin(){qs("#loginScreen").hidden=true;qs("#adminShell").hidden=false;qs("#sessionName").textContent=state.user.name;qs("#sessionRole").textContent=state.user.role;applyRoles()}
-    function applyRoles(){const allowed=roleViews[state.user.role]||[];qsa("#adminNav button").forEach(b=>b.hidden=!allowed.includes(b.dataset.view));if(!allowed.includes(state.currentView))state.currentView=allowed[0]||"dashboard"}
+    function applyRoles(){
+      const allowed=roleViews[state.user.role]||[];
+      qsa("#adminNav button").forEach(b=>b.hidden=!allowed.includes(b.dataset.view));
+      if(!allowed.includes(state.currentView))state.currentView=allowed[0]||"dashboard";
+      const passwordButton=qs("#changeOwnPassword");
+      if(passwordButton)passwordButton.hidden=state.user.role!=="ADMINISTRADOR";
+    }
     async function login(e){e.preventDefault();const btn=qs("#loginButton");btn.disabled=true;qs("#loginMessage").textContent="";try{const data=await api("adminLogin",{username:qs("#loginUser").value.trim(),password:qs("#loginPassword").value});if(!data.ok)throw new Error(data.error||"Usuario o contraseña incorrectos.");state.token=data.token;state.user=data.user;localStorage.setItem("utopiaAdminToken",state.token);showAdmin();await loadRaffles();switchView("dashboard")}catch(err){qs("#loginMessage").textContent=err.message}finally{btn.disabled=false}}
     async function restore(){if(!state.token)return showLogin();try{const data=await api("adminSession");if(!data.ok)throw new Error();state.user=data.user;showAdmin();await loadRaffles();switchView("dashboard")}catch(e){logout(false)}}
     async function logout(call=true){if(call&&state.token){try{await api("adminLogout")}catch{}}state.token="";state.user=null;localStorage.removeItem("utopiaAdminToken");showLogin()}
@@ -396,13 +443,29 @@
 
       selector.innerHTML=state.raffles.map(r=>`<option value="${esc(r.id)}">${esc(r.name)} · ${esc(r.status)}</option>`).join("");
       selector.value=state.raffleId;
+      updatePublicPageLink();
     }
-    function switchView(view){state.currentView=view;qsa("#adminNav button").forEach(b=>b.classList.toggle("active",b.dataset.view===view));qsa(".admin-view").forEach(s=>s.classList.toggle("active",s.id===`view-${view}`));qs("#currentViewLabel").textContent=views[view][0];qs("#currentViewTitle").textContent=views[view][1];refreshView(view)}
+    function updatePublicPageLink(){
+      const link=qs("#publicPageLink");
+      if(!link)return;
+      link.href=`index.html?raffleId=${encodeURIComponent(state.raffleId||DEFAULT_RAFFLE)}`;
+    }
+    function switchView(view){
+      state.currentView=view;
+      qsa("#adminNav button").forEach(b=>b.classList.toggle("active",b.dataset.view===view));
+      qsa(".admin-view").forEach(s=>s.classList.toggle("active",s.id===`view-${view}`));
+      qs("#currentViewLabel").textContent=views[view][0];
+      qs("#currentViewTitle").textContent=views[view][1];
+      const headerActions=qs(".header-actions");
+      if(headerActions)headerActions.hidden=["users","settings"].includes(view);
+      refreshView(view);
+    }
     async function refreshView(view){
       try{
         if(view==="dashboard")await loadDashboard();
         if(view==="raffles")await loadRaffle();
         if(view==="content")await loadContent();
+        if(view==="orders")await loadOrders();
         if(view==="participants")await loadParticipants();
         if(view==="payments")await loadPayments();
         if(view==="numbers")await loadBoard();
@@ -425,24 +488,61 @@
 
     async function loadRaffle(){
       let d=await api("adminGetRaffle",{raffleId:state.raffleId});
-
-      if(!d.ok){
-        const repaired=await api("adminRepairCurrentRaffle");
-        if(!repaired.ok)throw new Error(d.error||repaired.error);
-
-        await loadRaffles();
-        d=await api("adminGetRaffle",{raffleId:state.raffleId});
-      }
-
-      if(!d.ok)throw new Error(d.error);
-
+      if(!d.ok)throw new Error(d.error||"Sorteo no encontrado.");
       state.raffleData=d;
-      const r=d.raffle;qs("#raffleId").value=r.id;qs("#raffleName").value=r.name;qs("#raffleDate").value=r.drawDateLocal;qs("#rafflePrice").value=r.ticketPrice;qs("#raffleCurrency").value=r.currency;qs("#raffleTotal").value=r.totalTickets;qs("#raffleReservationMinutes").value=r.reservationMinutes||15;qs("#raffleStatus").value=r.status;qs("#raffleDescription").value=r.description||"";qs("#raffleProjectTitle").value=r.projectTitle||"";qs("#raffleGoal").value=r.goalAmount||0;qs("#raffleProjectDescription").value=r.projectDescription||"";qs("#raffleImageUrl").value=r.imageUrl||"";qs("#rafflePublished").value=String(r.published!==false);qs("#contactWhatsApp").value=r.contactWhatsApp||"+59164483623";qs("#facebookUrl").value=r.facebookUrl||"";qs("#linkedinUrl").value=r.linkedinUrl||"";qs("#tiktokUrl").value=r.tiktokUrl||"";renderDigitPreview();renderPrizes(d.prizes||[])}
+      const r=d.raffle;
+      qs("#raffleId").value=r.id;
+      qs("#raffleName").value=r.name;
+      qs("#raffleDate").value=r.drawDateLocal;
+      qs("#rafflePrice").value=r.ticketPrice;
+      qs("#raffleCurrency").value=r.currency;
+      qs("#raffleTotal").value=r.totalTickets;
+      qs("#raffleReservationMinutes").value=r.reservationMinutes||15;
+      qs("#raffleStatus").value=r.status;
+      qs("#raffleDescription").value=r.description||"";
+      qs("#raffleImageUrl").value=r.imageUrl||"";
+      qs("#rafflePublished").value=String(r.published!==false);
+      qs("#contactWhatsApp").value=r.contactWhatsApp||"";
+      qs("#facebookUrl").value=r.facebookUrl||"";
+      qs("#linkedinUrl").value=r.linkedinUrl||"";
+      qs("#tiktokUrl").value=r.tiktokUrl||"";
+      renderDigitPreview();
+      renderPrizes(d.prizes||[]);
+    }
     function renderDigitPreview(){const total=Math.max(1,Number(qs("#raffleTotal").value||1)),digits=String(total).length;qs("#digitPreview").innerHTML=Array.from({length:digits},()=>'<span>0</span>').join("")}
     function renderPrizes(prizes){qs("#adminPrizeList").innerHTML=prizes.length?prizes.map(p=>`<article class="prize-card" data-prize="${esc(p.id)}"><header><div><small>Premio ${p.order}</small><h3>${esc(p.name)}</h3></div>${badge(p.status)}</header>${p.imageUrl?`<img class="card-image" src="${esc(p.imageUrl)}" alt="${esc(p.name)}">`:''}<form class="inline-form prize-form"><input name="name" value="${esc(p.name)}" placeholder="Nombre"><textarea name="description" placeholder="Descripción">${esc(p.description||"")}</textarea><input name="imageUrl" value="${esc(p.imageUrl||"")}" placeholder="URL de imagen"><div class="image-upload"><input name="imageFile" type="file" accept="image/jpeg,image/png,image/webp"><button class="btn gray small" type="button" data-upload-prize>Subir imagen</button></div><div class="button-row"><button class="btn green small" type="submit">Guardar premio</button><button class="btn red small" type="button" data-delete-prize="${esc(p.id)}">Desactivar</button></div></form></article>`).join(""):'<div class="empty">No existen premios.</div>';qsa(".prize-form").forEach(f=>f.addEventListener("submit",savePrize));qsa("[data-upload-prize]").forEach(b=>b.addEventListener("click",uploadPrizeImage));qsa("[data-delete-prize]").forEach(b=>b.onclick=()=>deletePrize(b.dataset.deletePrize))}
     async function uploadPrizeImage(e){const card=e.target.closest(".prize-card"),file=card.querySelector('[name="imageFile"]').files[0];if(!file)return toast("Selecciona una imagen.","error");e.target.disabled=true;try{const url=await uploadImage(file);card.querySelector('[name="imageUrl"]').value=url;toast("Imagen subida. Guarda el premio.")}catch(err){toast(err.message,"error")}finally{e.target.disabled=false}}
     async function savePrize(e){e.preventDefault();const card=e.target.closest(".prize-card"),id=card.dataset.prize,p=state.raffleData.prizes.find(x=>x.id===id),form=e.target;const data=await api("adminSavePrize",{prize:{...p,name:form.name.value.trim(),description:form.description.value.trim(),imageUrl:form.imageUrl.value.trim()}});if(!data.ok)throw new Error(data.error);toast("Premio actualizado.");loadRaffle()}
-    async function saveRaffle(e){e.preventDefault();let imageUrl=qs("#raffleImageUrl").value.trim();const file=qs("#raffleImageFile").files[0];if(file)imageUrl=await uploadImage(file);const payload={id:qs("#raffleId").value.trim(),name:qs("#raffleName").value.trim(),drawDate:qs("#raffleDate").value,ticketPrice:Number(qs("#rafflePrice").value),currency:qs("#raffleCurrency").value.trim(),totalTickets:Number(qs("#raffleTotal").value),reservationMinutes:Number(qs("#raffleReservationMinutes").value),status:qs("#raffleStatus").value,published:qs("#rafflePublished").value==="true",imageUrl,description:qs("#raffleDescription").value.trim(),projectTitle:qs("#raffleProjectTitle").value.trim(),goalAmount:Number(qs("#raffleGoal").value||0),projectDescription:qs("#raffleProjectDescription").value.trim(),contactWhatsApp:qs("#contactWhatsApp").value.trim(),facebookUrl:qs("#facebookUrl").value.trim(),linkedinUrl:qs("#linkedinUrl").value.trim(),tiktokUrl:qs("#tiktokUrl").value.trim()};const d=await api("adminSaveRaffle",{raffle:payload});qs("#raffleMessage").textContent=d.ok?"Configuración guardada.":d.error;if(!d.ok)throw new Error(d.error);state.raffleId=d.raffle.id;await loadRaffles();await loadRaffle();toast("Sorteo actualizado.")}
+    async function saveRaffle(e){
+      e.preventDefault();
+      let imageUrl=qs("#raffleImageUrl").value.trim();
+      const file=qs("#raffleImageFile").files[0];
+      if(file)imageUrl=await uploadImage(file);
+      const payload={
+        id:qs("#raffleId").value.trim(),
+        name:qs("#raffleName").value.trim(),
+        drawDate:qs("#raffleDate").value,
+        ticketPrice:Number(qs("#rafflePrice").value),
+        currency:qs("#raffleCurrency").value.trim(),
+        totalTickets:Number(qs("#raffleTotal").value),
+        reservationMinutes:Number(qs("#raffleReservationMinutes").value),
+        status:qs("#raffleStatus").value,
+        published:qs("#rafflePublished").value==="true",
+        imageUrl,
+        description:qs("#raffleDescription").value.trim(),
+        contactWhatsApp:qs("#contactWhatsApp").value.trim(),
+        facebookUrl:qs("#facebookUrl").value.trim(),
+        linkedinUrl:qs("#linkedinUrl").value.trim(),
+        tiktokUrl:qs("#tiktokUrl").value.trim()
+      };
+      const d=await api("adminSaveRaffle",{raffle:payload});
+      qs("#raffleMessage").textContent=d.ok?"Configuración guardada.":d.error;
+      if(!d.ok)throw new Error(d.error);
+      state.raffleId=d.raffle.id;
+      await loadRaffles();
+      await loadRaffle();
+      toast("Sorteo actualizado.");
+    }
     function newRaffle(){qs("#raffleForm").reset();qs("#raffleId").value="";qs("#raffleCurrency").value="Bs";qs("#raffleStatus").value="PAUSADO";qs("#raffleTotal").value=1000;qs("#raffleReservationMinutes").value=15;renderDigitPreview()}
     async function duplicateRaffle(){if(!confirm("¿Duplicar este sorteo?"))return;const d=await api("adminDuplicateRaffle",{raffleId:state.raffleId});if(!d.ok)throw new Error(d.error);state.raffleId=d.raffleId;await loadRaffles();await loadRaffle();toast("Sorteo duplicado.")}
 
@@ -451,8 +551,54 @@
     function openNewPrize(){qs('#newPrizeForm').reset();qs('#newPrizeOrder').value=(state.raffleData?.prizes||[]).length+1;qs('#prizeModal').showModal()}
     async function createPrize(e){e.preventDefault();let imageUrl=qs('#newPrizeImageUrl').value.trim();const file=qs('#newPrizeImageFile').files[0];if(file)imageUrl=await uploadImage(file);const prize={raffleId:state.raffleId,order:Number(qs('#newPrizeOrder').value||1),status:qs('#newPrizeStatus').value,name:qs('#newPrizeName').value.trim(),description:qs('#newPrizeDescription').value.trim(),imageUrl};const d=await api('adminSavePrize',{prize});if(!d.ok)throw new Error(d.error);qs('#prizeModal').close();toast('Premio creado.');loadRaffle()}
     async function deletePrize(id){if(!confirm('¿Desactivar este premio?'))return;const d=await api('adminDeletePrize',{prizeId:id});if(!d.ok)throw new Error(d.error);toast('Premio desactivado.');loadRaffle()}
-    async function loadSystemConfig(){const d=await api('adminSystemConfig');if(!d.ok)throw new Error(d.error);const c=d.config;qs('#cfgOrganization').value=c.organization||'';qs('#cfgRefresh').value=c.publicRefreshSeconds||15;qs('#cfgReservation').value=c.reservationMinutes||15;qs('#cfgAdminWhatsapp').value=c.adminWhatsApp||'';qs('#cfgWhatsapp').value=c.contactWhatsApp||'';qs('#cfgFacebook').value=c.facebookUrl||'';qs('#cfgLinkedin').value=c.linkedinUrl||'';qs('#cfgTiktok').value=c.tiktokUrl||'';qs('#cfgInstructions').value=c.participationInstructions||'';qs('#cfgTerms').value=c.termsText||'';qs('#cfgWhatsappText').value=c.whatsappConfirmationText||'';qs('#cfgQrUrl').value=c.qrPaymentUrl||'';qs('#cfgRepeat').value=c.allowRepeatedWinner||'NO';qs('#cfgFullData').value=c.showFullData||'NO'}
-    async function saveSystemConfig(e){e.preventDefault();let qrPaymentUrl=qs('#cfgQrUrl').value.trim();const file=qs('#cfgQrFile').files[0];if(file)qrPaymentUrl=await uploadImage(file);const config={organization:qs('#cfgOrganization').value.trim(),publicRefreshSeconds:Number(qs('#cfgRefresh').value||15),reservationMinutes:Number(qs('#cfgReservation').value||15),adminWhatsApp:qs('#cfgAdminWhatsapp').value.trim(),contactWhatsApp:qs('#cfgWhatsapp').value.trim(),facebookUrl:qs('#cfgFacebook').value.trim(),linkedinUrl:qs('#cfgLinkedin').value.trim(),tiktokUrl:qs('#cfgTiktok').value.trim(),participationInstructions:qs('#cfgInstructions').value.trim(),termsText:qs('#cfgTerms').value.trim(),whatsappConfirmationText:qs('#cfgWhatsappText').value.trim(),qrPaymentUrl,allowRepeatedWinner:qs('#cfgRepeat').value,showFullData:qs('#cfgFullData').value};const d=await api('adminSaveSystemConfig',{config});if(!d.ok)throw new Error(d.error);qs('#cfgQrUrl').value=qrPaymentUrl;toast('Configuración pública guardada.')}
+    async function loadSystemConfig(){
+      const d=await api('adminSystemConfig',{raffleId:state.raffleId});
+      if(!d.ok)throw new Error(d.error);
+      const c=d.config;
+      qs('#cfgOrganization').value=c.organization||'';
+      qs('#cfgRefresh').value=c.publicRefreshSeconds||15;
+      qs('#cfgReservation').value=c.reservationMinutes||15;
+      qs('#cfgAdminWhatsapp').value=c.adminWhatsApp||'';
+      qs('#cfgWhatsapp').value=c.contactWhatsApp||'';
+      qs('#cfgFacebook').value=c.facebookUrl||'';
+      qs('#cfgLinkedin').value=c.linkedinUrl||'';
+      qs('#cfgTiktok').value=c.tiktokUrl||'';
+      qs('#cfgTerms').value=c.termsText||'';
+      qs('#cfgPaymentMethods').value=(c.paymentMethods||['QR']).join(', ');
+      qs('#cfgQrUrl').value=c.qrPaymentUrl||'';
+      qs('#cfgRepeat').value=c.allowRepeatedWinner||'NO';
+      qs('#cfgFullData').value=c.showFullData||'NO';
+      qs('#cfgLiveBackgroundUrl').value=c.liveBackgroundUrl||'';
+    }
+    async function saveSystemConfig(e){
+      e.preventDefault();
+      let qrPaymentUrl=qs('#cfgQrUrl').value.trim();
+      const qrFile=qs('#cfgQrFile').files[0];
+      if(qrFile)qrPaymentUrl=await uploadImage(qrFile);
+      let liveBackgroundUrl=qs('#cfgLiveBackgroundUrl').value.trim();
+      const backgroundFile=qs('#cfgLiveBackgroundFile').files[0];
+      if(backgroundFile)liveBackgroundUrl=await uploadImage(backgroundFile);
+      const config={
+        organization:qs('#cfgOrganization').value.trim(),
+        publicRefreshSeconds:Number(qs('#cfgRefresh').value||15),
+        reservationMinutes:Number(qs('#cfgReservation').value||15),
+        adminWhatsApp:qs('#cfgAdminWhatsapp').value.trim(),
+        contactWhatsApp:qs('#cfgWhatsapp').value.trim(),
+        facebookUrl:qs('#cfgFacebook').value.trim(),
+        linkedinUrl:qs('#cfgLinkedin').value.trim(),
+        tiktokUrl:qs('#cfgTiktok').value.trim(),
+        termsText:qs('#cfgTerms').value.trim(),
+        paymentMethods:qs('#cfgPaymentMethods').value.split(/[,;\n]+/).map(v=>v.trim()).filter(Boolean),
+        qrPaymentUrl,
+        allowRepeatedWinner:qs('#cfgRepeat').value,
+        showFullData:qs('#cfgFullData').value,
+        liveBackgroundUrl
+      };
+      const d=await api('adminSaveSystemConfig',{raffleId:state.raffleId,config});
+      if(!d.ok)throw new Error(d.error);
+      await loadSystemConfig();
+      toast('Configuración pública guardada y actualizada.');
+    }
     async function loadContent(){const [d]=await Promise.all([api("adminGetRaffle",{raffleId:state.raffleId}),loadSystemConfig()]);if(!d.ok)throw new Error(d.error);state.raffleData=d;renderImpact(d.impactItems||[]);renderFaq(d.faqItems||[])}
     function renderImpact(items){qs("#impactList").innerHTML=items.length?items.map(i=>`<article class="content-card"><header><div><small>Orden ${i.order}</small><h3>${esc(i.title)}</h3></div>${badge(i.active?"ACTIVO":"INACTIVO")}</header>${i.imageUrl?`<img class="card-image" src="${esc(i.imageUrl)}" alt="${esc(i.title)}">`:''}<p>${esc(i.text)}</p><div class="button-row"><button class="btn small" data-edit-impact="${esc(i.id)}">Editar</button><button class="btn red small" data-delete-impact="${esc(i.id)}">Desactivar</button></div></article>`).join(""):'<div class="empty">No existen reseñas.</div>';qsa("[data-edit-impact]").forEach(b=>b.onclick=()=>openImpact(b.dataset.editImpact));qsa("[data-delete-impact]").forEach(b=>b.onclick=()=>deleteImpact(b.dataset.deleteImpact))}
     function renderFaq(items){qs("#faqAdminList").innerHTML=items.length?items.map(i=>`<article class="result-card"><header><div><small>Orden ${i.order}</small><h3>${esc(i.question)}</h3></div>${badge(i.active?"ACTIVO":"INACTIVO")}</header><p>${esc(i.answer)}</p><div class="button-row"><button class="btn small" data-edit-faq="${esc(i.id)}">Editar</button><button class="btn red small" data-delete-faq="${esc(i.id)}">Desactivar</button></div></article>`).join(""):'<div class="empty">No existen preguntas.</div>';qsa("[data-edit-faq]").forEach(b=>b.onclick=()=>openFaq(b.dataset.editFaq));qsa("[data-delete-faq]").forEach(b=>b.onclick=()=>deleteFaq(b.dataset.deleteFaq))}
@@ -462,6 +608,50 @@
     function openFaq(id=""){const item=(state.raffleData?.faqItems||[]).find(x=>x.id===id);qs("#faqId").value=item?.id||"";qs("#faqOrder").value=item?.order||((state.raffleData?.faqItems||[]).length+1);qs("#faqQuestion").value=item?.question||"";qs("#faqAnswer").value=item?.answer||"";qs("#faqActive").value=String(item?.active!==false);qs("#faqModal").showModal()}
     async function saveFaq(e){e.preventDefault();const d=await api("adminSaveFaq",{item:{id:qs("#faqId").value,raffleId:state.raffleId,order:Number(qs("#faqOrder").value),question:qs("#faqQuestion").value.trim(),answer:qs("#faqAnswer").value.trim(),active:qs("#faqActive").value==="true"}});if(!d.ok)throw new Error(d.error);qs("#faqModal").close();toast("Pregunta guardada.");loadContent()}
     async function deleteFaq(id){if(!confirm("¿Desactivar esta pregunta?"))return;const d=await api("adminDeleteFaq",{id});if(!d.ok)throw new Error(d.error);toast("Pregunta desactivada.");loadContent()}
+
+    async function loadOrders(){
+      const d=await api("adminOrders",{
+        raffleId:state.raffleId,
+        search:qs("#orderSearch").value.trim(),
+        status:qs("#orderStatusFilter").value
+      });
+      if(!d.ok)throw new Error(d.error);
+      state.orders=d.orders||[];
+      qs("#orderCards").innerHTML=state.orders.length?state.orders.map(order=>`
+        <article class="order-card">
+          <header>
+            <div><small>${esc(order.createdAt)}</small><h3>${esc(order.fullName)}</h3><small>${esc(order.code)}</small></div>
+            ${badge(order.status)}
+          </header>
+          <div class="order-meta">
+            <div><strong>WhatsApp</strong><br>${esc(order.phone)}</div>
+            <div><strong>Correo</strong><br>${esc(order.email)}</div>
+            <div><strong>Departamento</strong><br>${esc(order.city)}</div>
+            <div><strong>Método</strong><br>${esc(order.paymentMethod)}</div>
+            <div><strong>Total</strong><br>${money(order.totalAmount,order.currency)}</div>
+            <div><strong>Comprobante</strong><br>${order.proofUrl?`<a class="proof-link" href="${esc(order.proofUrl)}" target="_blank">Abrir archivo</a>`:'Sin comprobante'}</div>
+          </div>
+          <div class="order-tickets">${(order.ticketStatuses||[]).map(t=>`<span class="order-ticket ${statusClass[t.status]||'blocked'}">${esc(t.number)} · ${esc(t.status)}</span>`).join('')}</div>
+          <p class="help">${esc(order.notes||'Sin observaciones')}</p>
+          <div class="order-actions">
+            <button class="btn gray small" data-order-status="DISPONIBLE" data-order-code="${esc(order.code)}">Disponible</button>
+            <button class="btn small" data-order-status="EN_REVISION" data-order-code="${esc(order.code)}">En revisión</button>
+            <button class="btn green small" data-order-status="VENDIDO" data-order-code="${esc(order.code)}">Vendido</button>
+            <button class="btn red small" data-order-status="BLOQUEADO" data-order-code="${esc(order.code)}">Bloqueado</button>
+          </div>
+        </article>`).join(""):'<div class="empty" style="grid-column:1/-1">No existen pedidos para este sorteo.</div>';
+      qsa("[data-order-status]").forEach(button=>button.onclick=()=>changeOrderStatus(button.dataset.orderCode,button.dataset.orderStatus));
+    }
+
+    async function changeOrderStatus(code,status){
+      const notes=prompt("Observación del cambio de estado","")??"";
+      if(!confirm(`¿Cambiar todos los tickets del pedido ${code} a ${status}?`))return;
+      const d=await api("adminOrderStatus",{participationCode:code,numberStatus:status,notes});
+      if(!d.ok)throw new Error(d.error);
+      toast("Pedido actualizado.");
+      await loadOrders();
+      if(state.currentView==="numbers")await loadBoard();
+    }
 
     async function loadParticipants(){const d=await api("adminParticipants",{raffleId:state.raffleId,search:qs("#participantSearch").value.trim(),status:qs("#participantStatusFilter").value});if(!d.ok)throw new Error(d.error);state.participants=d.participants||[];qs("#participantsTable").innerHTML=state.participants.length?state.participants.map(i=>`<tr><td><strong>${esc(i.code)}</strong></td><td>${esc(i.fullName)}<br><small>${esc(i.city)}</small></td><td>${i.tickets.map(esc).join(", ")}</td><td>${esc(i.phone)}<br>${esc(i.email)}</td><td>${badge(i.status)}</td><td>${esc(i.createdAt)}</td><td><div class="table-actions"><button class="btn small" data-edit-participant="${esc(i.code)}">Editar</button><button class="btn gray small" data-proof="${esc(i.proofUrl||"")}">Comprobante</button></div></td></tr>`).join(""):'<tr><td colspan="7">Sin resultados.</td></tr>';qsa("[data-edit-participant]").forEach(b=>b.onclick=()=>openParticipant(b.dataset.editParticipant));qsa("[data-proof]").forEach(b=>b.onclick=()=>b.dataset.proof?window.open(b.dataset.proof,"_blank"):toast("No existe comprobante.","error"))}
     function openParticipant(code){const i=state.participants.find(x=>x.code===code);qs("#editParticipationCode").value=code;qs("#editName").value=i.fullName;qs("#editPhone").value=i.phone;qs("#editEmail").value=i.email;qs("#editCity").value=i.city;qs("#editIdentity").value=i.identityNumber;qs("#editNotes").value=i.notes||"";qs("#participantModal").showModal()}
@@ -519,6 +709,7 @@
       const d=await api('adminLiveDrawSetup',{raffleId:state.liveRaffleId});
       if(!d.ok)throw new Error(d.error);
       state.liveSetup=d;
+      if(d.raffle?.liveBackgroundUrl)qs('.live-stage').style.backgroundImage=`linear-gradient(180deg,rgba(1,16,39,.55),rgba(1,28,57,.92)),url("${d.raffle.liveBackgroundUrl}")`;
       renderLiveStats(d.stats||{});renderLivePrizeOptions(d.prizes||[],previousPrize);renderLiveWinners(d.winners||[]);
       if(!state.liveSession){
         state.liveDigits=Array.from({length:d.raffle.digitCount},()=>({value:'0',frozen:false}));
@@ -581,10 +772,30 @@
     }
     async function nextLivePrize(){stopLiveAnimation();state.liveSession=null;lockLiveControls(false);qs('#liveWinnerCard').hidden=true;await loadLiveDraw();toast('Selecciona el siguiente premio.');}
 
-    async function loadWinners(){const [r,d]=await Promise.all([api("adminGetRaffle",{raffleId:state.raffleId}),api("adminResults",{raffleId:state.raffleId})]);if(!r.ok)throw new Error(r.error);state.results=d.results||[];qs("#drawPrizeSelect").innerHTML=(r.prizes||[]).map(p=>`<option value="${esc(p.id)}">${p.order}. ${esc(p.name)}</option>`).join("");renderResults()}
+    async function loadWinners(){
+      const d=await api("adminResults",{raffleId:state.raffleId});
+      if(!d.ok)throw new Error(d.error);
+      state.results=d.results||[];
+      renderResults();
+    }
     async function previewDraw(){const d=await api("adminDrawPreview",{raffleId:state.raffleId,prizeId:qs("#drawPrizeSelect").value});if(!d.ok)throw new Error(d.error);qs("#drawPreview").innerHTML=`<dl><div><dt>Código del sorteo</dt><dd>${esc(d.raffleCode)}</dd></div><div><dt>Participantes</dt><dd>${d.participants}</dd></div><div><dt>Números vendidos</dt><dd>${d.sold}</dd></div><div><dt>Lista final validada</dt><dd>${d.eligible}</dd></div><div><dt>Fecha y hora</dt><dd>${esc(d.drawDate)}</dd></div><div><dt>Responsable</dt><dd>${esc(d.responsible)}</dd></div></dl>`}
     async function runDraw(){if(!confirm("El resultado quedará bloqueado. ¿Realizar sorteo?"))return;const b=qs("#runDraw");b.disabled=true;b.textContent="Seleccionando...";try{const d=await api("adminDraw",{raffleId:state.raffleId,prizeId:qs("#drawPrizeSelect").value});if(!d.ok)throw new Error(d.error);qs("#drawMessage").textContent=`Ganador: ${d.winner.ticket} · ${d.winner.fullName}`;toast("Ganador seleccionado.");loadWinners()}finally{b.disabled=false;b.textContent="Realizar sorteo"}}
-    function renderResults(){qs("#resultsList").innerHTML=state.results.length?state.results.map(r=>`<article class="result-card"><header><div><small>${esc(["Primer premio","Segundo premio","Tercer premio"][Number(r.order)-1]||"Premio")}</small><h3>${esc(r.prizeName)}</h3></div>${badge(r.published?"PUBLICADO":"NO PUBLICADO")}</header><p>Número ganador: <strong>${esc(r.ticket)}</strong><br>${esc(r.fullName)} · ${esc(r.city)}</p><textarea readonly>${esc(r.whatsappCopy)}</textarea><div class="button-row"><button class="btn small" data-copy="${esc(r.id)}">Copiar WhatsApp</button><button class="btn gray small" data-art="${esc(r.id)}">Descargar arte</button><button class="btn gray small" data-cert="${esc(r.id)}">Certificado</button><button class="btn ${r.published?"red":"green"} small" data-publish="${esc(r.id)}">${r.published?"Ocultar":"Publicar"}</button></div></article>`).join(""):'<div class="empty">Aún no existen resultados.</div>';qsa("[data-copy]").forEach(b=>b.onclick=()=>{const r=state.results.find(x=>x.id===b.dataset.copy);navigator.clipboard.writeText(r.whatsappCopy);toast("Texto copiado.")});qsa("[data-art]").forEach(b=>b.onclick=()=>winnerArt(b.dataset.art));qsa("[data-cert]").forEach(b=>b.onclick=()=>certificate(b.dataset.cert));qsa("[data-publish]").forEach(b=>b.onclick=()=>publishResult(b.dataset.publish))}
+    function renderResults(){
+      qs("#resultsList").innerHTML=state.results.length?state.results.map(r=>`
+        <article class="result-card">
+          <header>
+            <div><small>Premio ${esc(r.order)}</small><h3>${esc(r.prizeName)}</h3></div>
+            ${badge(r.published?"PUBLICADO":"REGISTRADO")}
+          </header>
+          <p>
+            Número ganador: <strong>${esc(r.ticket)}</strong><br>
+            Ganador: <strong>${esc(r.fullName)}</strong><br>
+            Departamento: ${esc(r.city||"Sin dato")}<br>
+            Fecha: ${esc(r.drawDate||"")}<br>
+            Responsable: ${esc(r.responsible||"")}
+          </p>
+        </article>`).join(""):'<div class="empty">Aún no existen ganadores registrados para este sorteo.</div>';
+    }
     function winnerArt(id){const r=state.results.find(x=>x.id===id),c=document.createElement("canvas");c.width=1080;c.height=1080;const x=c.getContext("2d"),g=x.createLinearGradient(0,0,1080,1080);g.addColorStop(0,"#031a36");g.addColorStop(1,"#087481");x.fillStyle=g;x.fillRect(0,0,1080,1080);x.textAlign="center";x.fillStyle="#8ed600";x.font="900 62px Montserrat";x.fillText("¡TENEMOS GANADOR!",540,160);x.fillStyle="#fff";x.font="900 190px Montserrat";x.fillText(r.ticket,540,430);x.font="800 54px Montserrat";x.fillText(r.fullName,540,560);x.fillStyle="#baff72";x.font="800 42px Montserrat";x.fillText(r.prizeName,540,650);x.fillStyle="#fff";x.font="500 31px Montserrat";x.fillText("Gracias por apoyar los proyectos de Fundación Utopía.",540,820);const a=document.createElement("a");a.download=`ganador-${r.ticket}.png`;a.href=c.toDataURL("image/png");a.click()}
     function certificate(id){const r=state.results.find(x=>x.id===id),w=window.open("","_blank");w.document.write(`<!doctype html><html><head><title>Certificado</title><style>body{font-family:Arial;text-align:center;padding:70px;border:18px solid #0872b9}h1{color:#0872b9;font-size:46px}h2{font-size:40px}.n{font-size:90px;color:#6baa00;font-weight:bold}</style></head><body><h1>CERTIFICADO DE GANADOR</h1><p>Fundación Utopía certifica que</p><h2>${esc(r.fullName)}</h2><p>es ganador de</p><h2>${esc(r.prizeName)}</h2><div class="n">${esc(r.ticket)}</div><p>Código: ${esc(r.participationCode)}</p><p>${esc(r.drawDate)}</p></body></html>`);w.document.close();w.print()}
     async function publishResult(id){const r=state.results.find(x=>x.id===id),d=await api("adminPublishResult",{resultId:id,published:!r.published});if(!d.ok)throw new Error(d.error);toast(r.published?"Resultado ocultado.":"Resultado publicado.");loadWinners()}
@@ -604,9 +815,76 @@
     async function repairCurrentRaffle(){const d=await api('adminRepairCurrentRaffle');if(!d.ok)throw new Error(d.error);toast('Sorteo actual reparado.');await loadRaffles();loadTechnicalStatus()}
     async function loadAudit(){const d=await api("adminAudit");if(!d.ok)throw new Error(d.error);renderAudit("#auditFull",d.audit||[])}
     async function changePassword(){const currentPassword=prompt("Contraseña actual");if(!currentPassword)return;const newPassword=prompt("Nueva contraseña (mínimo 8 caracteres)");if(!newPassword)return;const d=await api("adminChangePassword",{currentPassword,newPassword});if(!d.ok)throw new Error(d.error);toast("Contraseña actualizada. Inicia sesión nuevamente.");setTimeout(()=>logout(false),1000)}
-    async function backup(){const b=qs("#backupButton");b.disabled=true;try{const d=await api("adminBackup");if(!d.ok)throw new Error(d.error);qs("#settingsMessage").innerHTML=`Copia creada: <a href="${esc(d.url)}" target="_blank">${esc(d.name)}</a>`;toast("Copia de seguridad creada.")}finally{b.disabled=false}}
+    async function backup(){
+      const b=qs("#backupButton");b.disabled=true;
+      try{
+        const d=await api("adminBackup");
+        if(!d.ok)throw new Error(d.error);
+        qs("#settingsMessage").innerHTML=`Copia ZIP creada: <a href="${esc(d.downloadUrl||d.url)}" target="_blank">${esc(d.name)}</a>`;
+        window.open(d.downloadUrl||d.url,"_blank");
+        toast("Copia ZIP creada.");
+      }finally{b.disabled=false}
+    }
 
-    function setup(){qs("#loginForm").onsubmit=login;qs("#logoutButton").onclick=()=>logout();qsa("#adminNav button").forEach(b=>b.onclick=()=>switchView(b.dataset.view));qs("#adminRaffleSelect").onchange=e=>{state.raffleId=e.target.value;refreshView(state.currentView)};qs("#raffleForm").onsubmit=saveRaffle;qs("#raffleTotal").oninput=renderDigitPreview;qs("#newRaffleButton").onclick=newRaffle;qs("#duplicateRaffle").onclick=duplicateRaffle;qs("#setActiveRaffle").onclick=setActiveRaffle;qs("#newPrizeButton").onclick=openNewPrize;qs("#newPrizeForm").onsubmit=createPrize;qs("#systemConfigForm").onsubmit=saveSystemConfig;qs("#newImpactButton").onclick=()=>openImpact();qs("#impactForm").onsubmit=saveImpact;qs("#newFaqButton").onclick=()=>openFaq();qs("#faqForm").onsubmit=saveFaq;qs("#searchParticipants").onclick=loadParticipants;qs("#exportParticipants").onclick=exportParticipants;qs("#participantEditForm").onsubmit=saveParticipant;qs("#refreshPayments").onclick=loadPayments;qs("#searchPayments").onclick=loadPayments;qs("#cashPaymentButton").onclick=()=>qs("#cashModal").showModal();qs("#cashForm").onsubmit=cashPayment;qs("#adminRefreshNumbers").onclick=loadBoard;qs("#adminSearchNumber").onclick=searchNumber;qs("#numberStatusFilter").onchange=filterBoard;qs("#adminNumberPrev").onclick=()=>{state.numberPage--;renderBoard()};qs("#adminNumberNext").onclick=()=>{state.numberPage++;renderBoard()};qs("#blockNumber").onclick=()=>numberAction("BLOCK");qs("#releaseNumber").onclick=()=>numberAction("RELEASE");qs("#assignNumber").onclick=()=>numberAction("ASSIGN");qs("#bulkBlock").onclick=()=>bulkNumberAction("BLOCK");qs("#bulkRelease").onclick=()=>bulkNumberAction("RELEASE");qs("#releaseExpired").onclick=releaseExpiredReservations;qs("#liveRaffleSelect").onchange=e=>{state.liveRaffleId=e.target.value;state.liveSession=null;stopLiveAnimation();loadLiveDraw()};qs("#liveSyncTickets").onclick=syncLiveTickets;qs("#liveStartDraw").onclick=startLiveDraw;qs("#liveRevealDigit").onclick=revealLiveDigit;qs("#liveCancelDraw").onclick=cancelLiveDraw;qs("#liveNextPrize").onclick=nextLivePrize;qs("#liveRefreshWinners").onclick=()=>loadLiveDraw(true);qs("#loadDrawPreview").onclick=previewDraw;qs("#runDraw").onclick=runDraw;qs("#reportCsv").onclick=reportCsv;qs("#reportExcel").onclick=reportExcel;qs("#reportPrint").onclick=()=>window.print();qs("#userForm").onsubmit=createUser;qs("#changeOwnPassword").onclick=changePassword;qs("#repairCurrentRaffle").onclick=repairCurrentRaffle;qs("#settingsReleaseExpired").onclick=releaseExpiredReservations;qs("#backupButton").onclick=backup;qs("#refreshAudit").onclick=loadAudit;qsa("[data-close-modal]").forEach(b=>b.onclick=()=>b.closest("dialog").close());qsa("dialog").forEach(d=>d.addEventListener("click",e=>{if(e.target===d)d.close()}))}
+    function setup(){
+      const bind=(selector,event,handler)=>{const el=qs(selector);if(el)el.addEventListener(event,handler)};
+      qs("#loginForm").onsubmit=login;
+      qs("#logoutButton").onclick=()=>logout();
+      qsa("#adminNav button").forEach(b=>b.onclick=()=>switchView(b.dataset.view));
+      qs("#adminRaffleSelect").onchange=e=>{state.raffleId=e.target.value;updatePublicPageLink();refreshView(state.currentView)};
+      qs("#raffleForm").onsubmit=saveRaffle;
+      qs("#raffleTotal").oninput=renderDigitPreview;
+      bind("#newRaffleButton","click",newRaffle);
+      bind("#duplicateRaffle","click",duplicateRaffle);
+      bind("#setActiveRaffle","click",setActiveRaffle);
+      bind("#newPrizeButton","click",openNewPrize);
+      if(qs("#newPrizeForm"))qs("#newPrizeForm").onsubmit=createPrize;
+      if(qs("#systemConfigForm"))qs("#systemConfigForm").onsubmit=saveSystemConfig;
+      bind("#newImpactButton","click",()=>openImpact());
+      if(qs("#impactForm"))qs("#impactForm").onsubmit=saveImpact;
+      bind("#newFaqButton","click",()=>openFaq());
+      if(qs("#faqForm"))qs("#faqForm").onsubmit=saveFaq;
+      bind("#refreshOrders","click",loadOrders);
+      bind("#searchOrders","click",loadOrders);
+      bind("#searchParticipants","click",loadParticipants);
+      bind("#exportParticipants","click",exportParticipants);
+      if(qs("#participantEditForm"))qs("#participantEditForm").onsubmit=saveParticipant;
+      bind("#refreshPayments","click",loadPayments);
+      bind("#searchPayments","click",loadPayments);
+      bind("#cashPaymentButton","click",()=>qs("#cashModal").showModal());
+      if(qs("#cashForm"))qs("#cashForm").onsubmit=cashPayment;
+      bind("#adminRefreshNumbers","click",loadBoard);
+      bind("#adminSearchNumber","click",searchNumber);
+      bind("#numberStatusFilter","change",filterBoard);
+      bind("#adminNumberPrev","click",()=>{state.numberPage--;renderBoard()});
+      bind("#adminNumberNext","click",()=>{state.numberPage++;renderBoard()});
+      bind("#blockNumber","click",()=>numberAction("BLOCK"));
+      bind("#releaseNumber","click",()=>numberAction("RELEASE"));
+      bind("#assignNumber","click",()=>numberAction("ASSIGN"));
+      bind("#bulkBlock","click",()=>bulkNumberAction("BLOCK"));
+      bind("#bulkRelease","click",()=>bulkNumberAction("RELEASE"));
+      bind("#releaseExpired","click",releaseExpiredReservations);
+      bind("#liveRaffleSelect","change",e=>{state.liveRaffleId=e.target.value;state.liveSession=null;stopLiveAnimation();loadLiveDraw()});
+      bind("#liveSyncTickets","click",syncLiveTickets);
+      bind("#liveStartDraw","click",startLiveDraw);
+      bind("#liveRevealDigit","click",revealLiveDigit);
+      bind("#liveCancelDraw","click",cancelLiveDraw);
+      bind("#liveNextPrize","click",nextLivePrize);
+      bind("#liveRefreshWinners","click",()=>loadLiveDraw(true));
+      bind("#liveFullscreen","click",()=>{const stage=qs(".live-stage");if(!document.fullscreenElement)stage.requestFullscreen?.();else document.exitFullscreen?.()});
+      bind("#refreshWinnerHistory","click",loadWinners);
+      bind("#reportCsv","click",reportCsv);
+      bind("#reportExcel","click",reportExcel);
+      bind("#reportPrint","click",()=>window.print());
+      if(qs("#userForm"))qs("#userForm").onsubmit=createUser;
+      bind("#changeOwnPassword","click",changePassword);
+      bind("#repairCurrentRaffle","click",repairCurrentRaffle);
+      bind("#settingsReleaseExpired","click",releaseExpiredReservations);
+      bind("#backupButton","click",backup);
+      bind("#refreshAudit","click",loadAudit);
+      qsa("[data-close-modal]").forEach(b=>b.onclick=()=>b.closest("dialog").close());
+      qsa("dialog").forEach(d=>d.addEventListener("click",e=>{if(e.target===d)d.close()}));
+    }
     setup();restore();
   })();
   </script>
