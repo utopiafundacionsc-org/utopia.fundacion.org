@@ -1542,6 +1542,7 @@ footer span, footer p {
         <article><strong>2</strong><span>Los tickets aprobados entran al sorteo.</span></article>
         <article><strong>3</strong><span>La reserva dura <b id="reservationMinutesText">15 minutos</b>.</span></article>
       </div>
+      <p id="publicParticipationInstructions" style="max-width:900px;margin:0 auto 1.2rem;color:#dbe9f2;line-height:1.6"></p>
 
       <div class="registration-shell">
         <div class="registration-summary">
@@ -1551,7 +1552,7 @@ footer span, footer p {
           <div class="terms-card">
             <label class="terms main-terms">
               <input id="terms" type="checkbox">
-              <span>Acepto los términos, condiciones y el tratamiento de mis datos para esta rifa.</span>
+              <span id="termsText">Acepto los términos, condiciones y el tratamiento de mis datos para esta rifa.</span>
             </label>
             <p>Si aceptas, se habilitará el formulario para registrar tu pedido y continuar con el pago.</p>
           </div>
@@ -1600,7 +1601,7 @@ footer span, footer p {
                 <p>La reserva vence en <strong id="reservationCountdown">--:--</strong>.</p>
                 <p id="reservationMessage" hidden></p>
               </div>
-              <img src="assets/qr-pago.png" alt="QR de pago">
+              <img id="paymentQrImage" src="assets/qr-pago.png" alt="QR de pago">
               <label class="proof-field">Comprobante de pago
                 <input id="paymentProof" type="file" accept="image/jpeg,image/png,image/webp,application/pdf">
                 <small id="proofFileName">Adjunta imagen o PDF del pago. Máximo 5 MB.</small>
@@ -2102,6 +2103,9 @@ window.UTOPIA_CONFIG = Object.freeze({
     qs("#projectTitle").textContent = raffle.projectTitle || "Proyectos que transforman vidas";
     qs("#projectDescription").textContent = raffle.projectDescription || "Lo recaudado apoya programas educativos, sociales y comunitarios.";
     qs("#projectGoal").textContent = raffle.goalAmount ? formatMoney(raffle.goalAmount, raffle.currency) : "—";
+    const publicInstructions=qs("#publicParticipationInstructions");if(publicInstructions){publicInstructions.textContent=raffle.participationInstructions||"";publicInstructions.hidden=!publicInstructions.textContent;}
+    const termsText=qs("#termsText");if(termsText&&raffle.termsText)termsText.textContent=raffle.termsText;
+    const qrImage=qs("#paymentQrImage");if(qrImage&&raffle.qrPaymentUrl)qrImage.src=raffle.qrPaymentUrl;
 
     applyContactSettings(raffle);
     renderImpactContent(raffle.impactItems || []);
